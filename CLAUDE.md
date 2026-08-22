@@ -113,6 +113,15 @@ python3 scripts/stats.py
 
 已實測兩站帶 UTM 後回應正常（青島回應大小完全相同，hobbysearch 商品頁正常顯示）。
 
+外連的 `rel` 是 `noopener`（安全防護，必須保留）**但不含 `noreferrer`**——
+加了 `noreferrer` 瀏覽器就不送 Referer 標頭，來源網站會把流量歸為直接流量，
+只看到 `utm_source` 字串而不知道網站在哪，UTM 就失去意義。
+另明示 `referrerpolicy="strict-origin-when-cross-origin"`：跨網域只送 origin
+（`https://chuehnone.viovie.co/`），不洩漏使用者正在看哪個商品頁。
+
+實測方式：本機起一個回顯 Referer 的 server，從頁面發請求比較兩種 policy。
+`no-referrer` 收到「未送出」，`strict-origin-when-cross-origin` 收到來源網址。
+
 ### 分類判定依賴標題括號
 
 `build.py` 的 `detect_kind()` 讀商品名結尾的 `(プラモデル)` 這類標記。

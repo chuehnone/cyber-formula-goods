@@ -382,7 +382,7 @@
         </div>
         <div class="card-body">
           <div class="kind-line">${esc(p.kindName)}${p.scale ? ' · ' + esc(p.scale) : ''}</div>
-          <h3><a href="${esc(withUtm(primary.url))}" target="_blank" rel="noopener noreferrer"
+          <h3><a href="${esc(withUtm(primary.url))}" target="_blank" rel="noopener" referrerpolicy="strict-origin-when-cross-origin"
                  title="前往 ${esc(primary.site)}">${esc(p.nameZh || p.name)}</a></h3>
           <div class="ja">${esc(p.name)}</div>
           ${p.releaseZh || p.release
@@ -394,7 +394,7 @@
         </div>
         <div class="src-links">
           ${p.sources.map(s => `<a class="src-link" href="${esc(withUtm(s.url))}" target="_blank"
-             rel="noopener noreferrer">${s.site.includes('青島') ? '🏭 官方' : '🛒 hobbysearch'} ↗</a>`).join('')}
+             rel="noopener" referrerpolicy="strict-origin-when-cross-origin">${s.site.includes('青島') ? '🏭 官方' : '🛒 hobbysearch'} ↗</a>`).join('')}
         </div>
       </article>`;
   }
@@ -457,7 +457,7 @@
       <div class="src-block">
         <div class="hd">資料來源 — 點擊前往原始商品頁確認最新價格與庫存</div>
         ${p.sources.map(s => `
-          <a class="src-item" href="${esc(withUtm(s.url))}" target="_blank" rel="noopener noreferrer">
+          <a class="src-item" href="${esc(withUtm(s.url))}" target="_blank" rel="noopener" referrerpolicy="strict-origin-when-cross-origin">
             <span>${s.site.includes('青島') ? '🏭' : '🛒'}</span>
             <span>${esc(s.site)}</span>
             <span class="go">↗</span>
@@ -511,7 +511,7 @@
         `${esc(data.meta.title)} · 共 ${data.products.length} 件 · 資料抓取於 ${esc(data.meta.updatedAt)}<br>` +
         (data.meta.translationNote ? `${esc(data.meta.translationNote)}<br>` : '') +
         '資料來源：' + data.meta.sources.map(s =>
-          `<a href="${esc(withUtm(s.url))}" target="_blank" rel="noopener noreferrer">${esc(s.site)}</a>`
+          `<a href="${esc(withUtm(s.url))}" target="_blank" rel="noopener" referrerpolicy="strict-origin-when-cross-origin">${esc(s.site)}</a>`
         ).join('、') + '<br>商品圖片與資料版權屬各來源網站及 ©サンライズ 所有';
       render();
     })
