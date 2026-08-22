@@ -122,6 +122,20 @@ python3 scripts/stats.py
 實測方式：本機起一個回顯 Referer 的 server，從頁面發請求比較兩種 policy。
 `no-referrer` 收到「未送出」，`strict-origin-when-cross-origin` 收到來源網址。
 
+### 網站分析：Cloudflare Web Analytics
+
+`index.html` 末端有一段載入 beacon 的 script。**token 需手動填入**
+（`const TOKEN = ''`），未填或在本機（localhost / 127.0.0.1 / file://）時
+自動不載入，避免開發流量污染統計。
+
+選它的理由：不使用 cookie、不追蹤個人，因此**不需要 cookie 同意橫幅**。
+
+**已查證的限制**：Cloudflare Web Analytics 不支援自訂事件（截至 2026），
+只記 pageview。所以看不到「哪些商品被點最多」。
+那需要 Cloudflare Zaraz，但本站直連 GitHub Pages（`server: GitHub.com`，
+無 `cf-ray` 標頭），沒有經過 Cloudflare，故用不了。
+若日後真的需要事件追蹤，改用 Umami 或 GA4，不要試圖用 Zaraz。
+
 ### 分類判定依賴標題括號
 
 `build.py` 的 `detect_kind()` 讀商品名結尾的 `(プラモデル)` 這類標記。

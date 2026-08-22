@@ -524,5 +524,23 @@
     });
 })();
 </script>
+<!-- Cloudflare Web Analytics
+     不使用 cookie、不追蹤個人，故不需要同意橫幅。
+     token 未填或在本機開發時不載入，避免污染統計數據。 -->
+<script>
+(() => {
+  const TOKEN = '';   // ← 填入 Cloudflare Web Analytics 的 beacon token
+  const isLocal = ['localhost', '127.0.0.1', ''].includes(location.hostname)
+                  || location.protocol === 'file:';
+  if (!TOKEN || isLocal) return;
+
+  const s = document.createElement('script');
+  s.defer = true;
+  s.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+  s.setAttribute('data-cf-beacon', JSON.stringify({ token: TOKEN }));
+  s.onerror = () => {};          // 載入失敗不影響網頁
+  document.head.appendChild(s);
+})();
+</script>
 </body>
 </html>
