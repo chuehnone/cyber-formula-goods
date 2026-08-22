@@ -61,7 +61,8 @@ GOODS_SUB = [
 
 def detect_kind(title, cat_name=None):
     t = title or ""
-    m = re.search(r"[（(]([^（()）]+)[)）]\s*$", t)
+    # 括號類別標記通常在結尾，但可能後接 ★限定版 等尾綴，故容許尾綴
+    m = re.search(r"[（(]([^（()）]+)[)）]\s*(?:★[^（()）]*)?$", t)
     raw = m.group(1).strip() if m else None
 
     if raw:
@@ -91,13 +92,15 @@ def detect_kind(title, cat_name=None):
 
 def strip_kind(title):
     t = title or ""
-    m = re.search(r"\s*[（(]([^（()）]+)[)）]\s*$", t)
+    m = re.search(r"\s*[（(]([^（()）]+)[)）]\s*(?P<suffix>★[^（()）]*)?$", t)
     if not m:
         return t.strip()
     inner = m.group(1)
     known = list(KIND_MAP) + ["キャラクターグッズ", "グッズ", "雑貨"]
     if any(k in inner for k in known):
-        return t[:m.start()].strip()
+        # 只拿掉類別括號，保留 ★限定版 之類的尾綴
+        suffix = m.group("suffix") or ""
+        return (t[:m.start()].strip() + " " + suffix).strip()
     return t.strip()   # 形態名等，保留
 
 # ---------- 機體判定（僅依標題明確字串） ----------

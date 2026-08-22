@@ -38,7 +38,8 @@
 |---|---|
 | `index.html` | 介面，無外部相依 |
 | `products.json` | 商品資料（364KB） |
-| `serve.sh` | 啟動本機 server |
+| `serve.sh` | 啟動本機預覽 server |
+| `update.sh` | 一鍵重抓資料並更新 |
 | `scripts/scrape_ao.py` | 抓青島官網 |
 | `scripts/scrape_hs.py` | 抓 hobbysearch（關鍵字全站） |
 | `scripts/scrape2.py` | 抓 hobbysearch（帶站方分類） |
@@ -47,19 +48,56 @@
 | `scripts/desc_zh.json` | 官方商品描述的中文譯稿（人工逐句翻譯） |
 | `products.raw.json` | 翻譯前的原始資料備份 |
 
-## 重新抓取
+## 後續更新
+
+### 只改介面（`index.html`）
+
+改完直接 commit push，GitHub Pages 約 1–2 分鐘後自動生效：
 
 ```bash
-cd scripts
-python3 scrape_ao.py     # 青島官網，約 40 秒
-python3 scrape_hs.py     # hobbysearch 全站，約 20 秒
-python3 scrape2.py       # hobbysearch 分類版，約 8 分鐘
-python3 build.py         # 整併，輸出 products.json
-cp products.json ../products.raw.json
-python3 translate.py ../products.json   # 補上中文欄位
+./serve.sh                      # 本機預覽確認
+git add index.html
+git commit -m "介面調整說明"
+git push
 ```
 
-爬蟲皆內建 1.5–2 秒延遲。兩站 robots.txt 均允許一般 UA 抓取。
+### 重抓商品資料
+
+價格與庫存會隨時間變動，用 `update.sh` 一鍵重跑整條流程：
+
+```bash
+./update.sh                     # 完整抓取（約 9 分鐘）
+./update.sh --quick             # 跳過分類版爬蟲（約 1 分鐘）
+./update.sh --push              # 完成後自動 commit + push
+```
+
+腳本會依序執行：抓取兩來源 → 整併 → 補中文翻譯 → 更新抓取日期 →
+**列出與線上版的差異**（新增／下架／價格異動／庫存異動）。
+
+預設不會自動 commit，你可以先看差異、`./serve.sh` 預覽，確認無誤再推。
+中間產物放在 `scripts/.cache/`，已被 gitignore 排除。
+
+`--quick` 與完整模式的商品數相同，差別在部分商品少了站方分類資訊
+（目前的分類判定已能從商品名補上，兩者結果一致）。趕時間可以用，
+但要納入新商品類型時建議跑完整版。
+
+### 加入新的翻譯詞彙
+
+抓到新商品時，若出現未翻譯的日文詞，`translate.py` 執行後會列出
+「殘留假名詞」清單。把它們補進 `scripts/translate.py` 的 `EXTRA` 詞彙表，
+再跑一次 `./update.sh --quick` 即可。
+
+商品**描述**若有新增（目前只有青島官方 18 筆），不要依賴詞彙表——
+那會產生中日夾雜的破碎句。請比照 `scripts/desc_zh.json` 人工翻譯，
+key 用該商品的 JAN 碼。
+
+### 確認部署狀態
+
+```bash
+gh api repos/chuehnone/cyber-formula-goods/pages --jq .status
+```
+
+`built` 表示已生效。也可在 repo 的 Actions 頁面看部署紀錄。
 
 ## 資料處理原則
 

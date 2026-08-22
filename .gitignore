@@ -1,4 +1,5 @@
 .DS_Store
+scripts/.cache/
 scripts/*.html
 scripts/hs_raw*.json
 scripts/ao_raw.json
