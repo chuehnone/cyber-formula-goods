@@ -62,7 +62,8 @@ git -c user.name="chuehnone" \
     -c user.email="1897025+chuehnone@users.noreply.github.com" commit ...
 ```
 
-用帳號的真實 email 會被 remote rejected。
+用帳號的真實 email 會被 remote rejected（Cloudflare 的 beacon token 之類的
+公開識別碼可以留在 repo，但真實 email 不要寫進公開文件）。
 
 ### 部署網址不是 github.io
 
