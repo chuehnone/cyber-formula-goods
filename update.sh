@@ -57,6 +57,9 @@ json.dump(d, open(p, "w"), ensure_ascii=False, indent=1)
 print("抓取日期已更新為", d["meta"]["updatedAt"])
 PY
 
+echo "▶ 同步 README 統計數字…"
+python3 "$ROOT/scripts/sync_readme.py" "$ROOT/products.json" "$ROOT/README.md"
+
 echo ""
 echo "─────────── 與線上版的差異 ───────────"
 cd "$ROOT"
@@ -99,12 +102,12 @@ echo "────────────────────────�
 echo ""
 
 if [ "$PUSH" -eq 1 ]; then
-  if [ -z "$(git status --porcelain products.json products.raw.json)" ]; then
+  if [ -z "$(git status --porcelain products.json products.raw.json README.md)" ]; then
     echo "✓ 資料無變化，不需要 commit"
     exit 0
   fi
   DATE=$(date +%Y-%m-%d)
-  git add products.json products.raw.json
+  git add products.json products.raw.json README.md
   git commit -q -m "data: 更新商品資料至 $DATE"
   git push -q origin main
   echo "✓ 已推送，GitHub Pages 約 1–2 分鐘後生效"
@@ -112,7 +115,7 @@ if [ "$PUSH" -eq 1 ]; then
 else
   echo "資料已更新到本機。確認無誤後："
   echo "  ./serve.sh                    # 本機預覽"
-  echo "  git add products.json products.raw.json"
+  echo "  git add products.json products.raw.json README.md"
   echo "  git commit -m 'data: 更新商品資料至 $(date +%Y-%m-%d)'"
   echo "  git push"
 fi
