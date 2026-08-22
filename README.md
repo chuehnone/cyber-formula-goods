@@ -3,7 +3,8 @@
 新世紀GPX Cyber Formula（サイバーフォーミュラ）周邊商品瀏覽介面。
 商品資料為**實際抓取**，每筆可點擊前往來源頁。
 
-🔗 **線上瀏覽：https://chuehnone.github.io/cyber-formula-goods/**
+🔗 **線上瀏覽：https://chuehnone.viovie.co/cyber-formula-goods/**
+（亦可由 https://chuehnone.github.io/cyber-formula-goods/ 進入，會導向上方自訂網域）
 
 - 391 件商品，含官方模型、Figure、服飾、壓克力周邊、塗料等 18 個分類
 - 中文為主標、日文原名為副標，兩者皆可搜尋
