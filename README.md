@@ -40,6 +40,7 @@
 | `products.json` | 商品資料（364KB） |
 | `serve.sh` | 啟動本機預覽 server |
 | `update.sh` | 一鍵重抓資料並更新 |
+| `verify.sh` | 檢驗線上版是否與本機一致 |
 | `scripts/scrape_ao.py` | 抓青島官網 |
 | `scripts/scrape_hs.py` | 抓 hobbysearch（關鍵字全站） |
 | `scripts/scrape2.py` | 抓 hobbysearch（帶站方分類） |
@@ -91,13 +92,28 @@ git push
 那會產生中日夾雜的破碎句。請比照 `scripts/desc_zh.json` 人工翻譯，
 key 用該商品的 JAN 碼。
 
-### 確認部署狀態
+### 確認線上版是不是最新的
 
 ```bash
-gh api repos/chuehnone/cyber-formula-goods/pages --jq .status
+./verify.sh              # 比對線上與本機的檔案雜湊
+./verify.sh --watch      # 持續檢查直到一致（剛 push 完用這個）
 ```
 
-`built` 表示已生效。也可在 repo 的 Actions 頁面看部署紀錄。
+比對 `index.html` 與 `products.json` 的 SHA-256。雜湊相同就代表線上跑的
+就是本機這一份，不受瀏覽器或 CDN 快取影響。
+
+其他確認方式：
+
+| 方式 | 看什麼 |
+|---|---|
+| 網頁頁尾 | 「資料抓取於 YYYY-MM-DD」是否為本次日期 |
+| 部署狀態 | `gh api repos/chuehnone/cyber-formula-goods/pages/builds/latest --jq .status`（`built` 才完成） |
+| repo 首頁 | 最新 commit 的時間與訊息 |
+
+**注意快取**：GitHub Pages 的 CDN 快取為 10 分鐘（`cache-control: max-age=600`），
+推送後最多要等這麼久才會看到新版。瀏覽器另有自己的快取，
+用無痕視窗或 Cmd+Shift+R 強制重整可略過。`verify.sh` 已帶 no-cache 標頭，
+不受這兩層快取影響。
 
 ## 資料處理原則
 
