@@ -7,7 +7,7 @@
 
 ```
 index.html          介面全部（無框架、無 build step，改完直接生效）
-products.json       商品資料（391 件，翻譯後）← 網頁實際讀這個
+products.json       商品資料（翻譯後）← 網頁實際讀這個
 products.raw.json   翻譯前備份 ← 重跑翻譯的來源，不要手改
 scripts/            爬蟲與資料處理
 update.sh           一鍵重抓 → 整併 → 翻譯 → 顯示差異
@@ -25,7 +25,7 @@ verify.sh           檢驗線上版是否與本機一致
 
 ### 2. 不要從機體名反推作品系列
 
-299 件商品的 `series` 是 `unknown`，這是**刻意的**，不是待辦事項。
+多數商品的 `series` 是 `unknown`，這是**刻意的**，不是待辦事項。
 多數商品名不寫系列別（「アスラーダG.S.X」不註明是 TV 版），
 而同一機體會跨作品登場（νアスラーダ 在 SIN 與 SAGA 都有），反推必然出錯。
 只在標題有明確作品標記時才標系列。
@@ -37,14 +37,14 @@ verify.sh           檢驗線上版是否與本機一致
 
 > ✗ 阿斯拉が唄い、リタが立ち上がる！感動のペルー戦拉力形態登場！
 
-商品描述（目前 18 筆）一律人工逐句翻譯，寫進 `scripts/desc_zh.json`，key 用 JAN 碼。
+商品描述一律人工逐句翻譯，寫進 `scripts/desc_zh.json`，key 用 JAN 碼。
 新增描述時照做，不要圖快走 `translate()`。
 
 ### 4. 不要繞過 Cloudflare
 
 hobbysearch（1999.co.jp）的**商品詳情頁**有 Cloudflare challenge。
 列表頁沒擋，資料都從列表頁取得。不要嘗試繞過驗證。
-這也是為什麼只有青島官方那 19 件有商品描述。
+這也是為什麼只有青島官方的商品有描述。
 
 ### 5. 不要把圖片下載進 repo
 
@@ -80,18 +80,21 @@ Pages 回 `cache-control: max-age=600`。推送後立刻看到舊版**不是部�
 要重跑翻譯時，從 `products.raw.json` 復原再跑，不要在已翻譯的檔案上再跑一次
 （詞彙表會重複替換，造成累積誤差）。`update.sh` 已處理好這個順序。
 
-### README 與本檔的數字由腳本同步，不要手改
+### 文件裡不要寫死件數
 
-`README.md` 與 **`CLAUDE.md` 自己**的商品數、分類數、兩站件數、抓取日期、unknown 件數，
-由 `scripts/sync_readme.py` 從 `products.json` 算出後正則替換。
-手動改了會在下次 `update.sh` 被覆蓋。兩份文件的數字必須一致。
+`README.md` 與本檔**刻意不寫商品件數、分類數、抓取日期**——資料會變，
+寫死就會過期，而過期的文件比沒有文件更誤導。
 
-要改那幾行的**文字敘述**時，注意別破壞 `sync_readme.py` 的比對樣式
-（例如「合計 **N 件**」「抓取日期：YYYY-MM-DD。」的格式）。
-腳本找不到樣式時會印警告但不中斷，留意輸出。
+需要數字時用：
 
-兩站件數用「來源含該站」定義，故 19 + 387 > 391——有 15 件兩站都有。
-不要把它改成互斥計數，那會讓「可交叉比對」的說法失去依據。
+```bash
+python3 scripts/stats.py
+```
+
+網頁使用者看頁尾即可（頁尾的件數與日期由 `products.json` 動態產生）。
+
+統計兩站件數時用「來源含該站」定義（故兩數相加會大於總數，因有商品兩站都收錄）。
+不要改成互斥計數，那會讓「可交叉比對」的說法失去依據。
 
 ### 分類判定依賴標題括號
 
@@ -113,7 +116,7 @@ Pages 回 `cache-control: max-age=600`。推送後立刻看到舊版**不是部�
 ```
 
 流程：抓兩來源 → `build.py` 整併 → `translate.py` 翻譯 → 更新抓取日期 →
-`sync_readme.py` 同步 README 數字 → 列出與線上版的差異。中間產物在 `scripts/.cache/`（已 gitignore）。
+列出與線上版的差異。中間產物在 `scripts/.cache/`（已 gitignore）。
 預設不自動 commit，先看差異再決定。
 
 `--quick` 少跑 `scrape2.py`（站方分類版），目前分類判定已能從商品名補上，
@@ -142,13 +145,13 @@ Pages 回 `cache-control: max-age=600`。推送後立刻看到舊版**不是部�
 
 ## 資料來源
 
-| 來源 | 件數 | 提供 |
-|---|---|---|
-| [青島官方](https://www.aoshima-bk.co.jp/special/product/cyberformula/) | 19 | 定價、發售月、系列編號、JAN、官方描述（權威） |
-| [hobbysearch](https://www.1999.co.jp/) | 387 | 廣度、實際售價、折扣、庫存 |
+| 來源 | 提供 |
+|---|---|
+| [青島官方](https://www.aoshima-bk.co.jp/special/product/cyberformula/) | 定價、發售月、系列編號、JAN、官方描述（權威） |
+| [hobbysearch](https://www.1999.co.jp/) | 廣度、實際售價、折扣、庫存 |
 
-件數用「來源含該站」定義，故兩數相加大於總數：15 件兩站都有。
-這 15 件以官方欄位為準，售價與庫存取 hobbysearch。
+兩站都有的商品：以官方欄位為準，售價與庫存取 hobbysearch。
+實際件數用 `python3 scripts/stats.py` 可查。
 兩站 robots.txt 皆允許一般 UA；爬蟲內建 1.5–2 秒延遲，不要拿掉。
 
 ## 已驗證過的非問題
@@ -156,6 +159,6 @@ Pages 回 `cache-control: max-age=600`。推送後立刻看到舊版**不是部�
 以下幾點看起來可疑，但查證後確認正常，不要「順手修掉」：
 
 - **菅生あすか 相關商品**：她是本作角色（菅生明日香），不是雜訊
-- **CM-xx 塗料 12 件**：Creos 的本作專用色系列，是周邊商品
+- **CM-xx 系列塗料**：Creos 的本作專用色，是周邊商品不是雜訊
 - **シュピーゲル HP-022**：在青島官方閃電霹靂車專頁內，確為本作
-- **SIN 系列 76 件**：Variable Action 完成品系列，標題明載作品名
+- **SIN 系列完成品**：Variable Action 系列，標題明載作品名
