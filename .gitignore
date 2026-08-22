@@ -5,3 +5,5 @@ scripts/hs_raw*.json
 scripts/ao_raw.json
 scripts/*.log
 scripts/*.out
+__pycache__/
+*.pyc
