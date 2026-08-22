@@ -80,11 +80,11 @@ Pages 回 `cache-control: max-age=600`。推送後立刻看到舊版**不是部�
 要重跑翻譯時，從 `products.raw.json` 復原再跑，不要在已翻譯的檔案上再跑一次
 （詞彙表會重複替換，造成累積誤差）。`update.sh` 已處理好這個順序。
 
-### README 的數字由腳本同步，不要手改
+### README 與本檔的數字由腳本同步，不要手改
 
-`README.md` 裡的商品數、分類數、兩站件數、抓取日期、unknown 件數，
+`README.md` 與 **`CLAUDE.md` 自己**的商品數、分類數、兩站件數、抓取日期、unknown 件數，
 由 `scripts/sync_readme.py` 從 `products.json` 算出後正則替換。
-手動改了會在下次 `update.sh` 被覆蓋。
+手動改了會在下次 `update.sh` 被覆蓋。兩份文件的數字必須一致。
 
 要改那幾行的**文字敘述**時，注意別破壞 `sync_readme.py` 的比對樣式
 （例如「合計 **N 件**」「抓取日期：YYYY-MM-DD。」的格式）。
@@ -145,9 +145,10 @@ Pages 回 `cache-control: max-age=600`。推送後立刻看到舊版**不是部�
 | 來源 | 件數 | 提供 |
 |---|---|---|
 | [青島官方](https://www.aoshima-bk.co.jp/special/product/cyberformula/) | 19 | 定價、發售月、系列編號、JAN、官方描述（權威） |
-| [hobbysearch](https://www.1999.co.jp/) | 372 | 廣度、實際售價、折扣、庫存 |
+| [hobbysearch](https://www.1999.co.jp/) | 387 | 廣度、實際售價、折扣、庫存 |
 
-兩來源重複的 24 件：官方欄位優先，售價與庫存取 hobbysearch。
+件數用「來源含該站」定義，故兩數相加大於總數：15 件兩站都有。
+這 15 件以官方欄位為準，售價與庫存取 hobbysearch。
 兩站 robots.txt 皆允許一般 UA；爬蟲內建 1.5–2 秒延遲，不要拿掉。
 
 ## 已驗證過的非問題
