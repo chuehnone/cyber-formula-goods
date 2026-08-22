@@ -41,6 +41,7 @@
 | `serve.sh` | 啟動本機預覽 server |
 | `update.sh` | 一鍵重抓資料並更新 |
 | `verify.sh` | 檢驗線上版是否與本機一致 |
+| `CLAUDE.md` | 給 AI 助理的專案規則與已知陷阱 |
 | `scripts/scrape_ao.py` | 抓青島官網 |
 | `scripts/scrape_hs.py` | 抓 hobbysearch（關鍵字全站） |
 | `scripts/scrape2.py` | 抓 hobbysearch（帶站方分類） |
