@@ -96,6 +96,23 @@ python3 scripts/stats.py
 統計兩站件數時用「來源含該站」定義（故兩數相加會大於總數，因有商品兩站都收錄）。
 不要改成互斥計數，那會讓「可交叉比對」的說法失去依據。
 
+### 外部連結帶 UTM 參數
+
+所有導向來源網站的連結都經過 `index.html` 的 `withUtm()` 加上
+`utm_source=cyber-formula-goods` 等三個參數，讓來源網站知道流量從這裡來。
+
+在**顯示層**處理，不寫進 `products.json`——資料檔會被重抓覆蓋，
+且原始資料應保持乾淨。新增外連時記得包 `withUtm()`，
+可用這段檢查有無遺漏：
+
+```js
+[...document.querySelectorAll('a[target="_blank"]')]
+  .filter(a => !a.href.startsWith(location.origin))
+  .filter(a => !new URL(a.href).searchParams.has('utm_source')).length  // 應為 0
+```
+
+已實測兩站帶 UTM 後回應正常（青島回應大小完全相同，hobbysearch 商品頁正常顯示）。
+
 ### 分類判定依賴標題括號
 
 `build.py` 的 `detect_kind()` 讀商品名結尾的 `(プラモデル)` 這類標記。
