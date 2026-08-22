@@ -1,0 +1,6 @@
+.DS_Store
+scripts/*.html
+scripts/hs_raw*.json
+scripts/ao_raw.json
+scripts/*.log
+scripts/*.out

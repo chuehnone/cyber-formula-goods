@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>閃電霹靂車 周邊商品</title>
+<style>
+  :root {
+    --bg: #f6f8fa; --surface: #fff; --surface-2: #f0f3f6;
+    --border: #d5dae0; --text: #1c2128; --text-dim: #5b6570;
+    --accent: #1f6feb; --accent-soft: rgba(31,111,235,.1);
+    --danger: #cf222e; --ok: #1a7f37; --warn: #9a6700;
+    --radius: 12px; --shadow: 0 1px 2px rgba(0,0,0,.06), 0 6px 20px rgba(0,0,0,.05);
+  }
+  :root[data-theme="dark"] {
+    --bg: #0d1117; --surface: #161b22; --surface-2: #1c232c;
+    --border: #2d333b; --text: #e6edf3; --text-dim: #8b949e;
+    --accent: #58a6ff; --accent-soft: rgba(88,166,255,.14);
+    --danger: #f85149; --ok: #3fb950; --warn: #d29922;
+    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 6px 24px rgba(0,0,0,.3);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text); line-height: 1.6;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC",
+                 "PingFang TC", "Hiragino Sans", "Microsoft JhengHei", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); }
+
+  header {
+    position: sticky; top: 0; z-index: 50;
+    background: color-mix(in srgb, var(--surface) 90%, transparent);
+    backdrop-filter: saturate(1.6) blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .head-inner { max-width: 1400px; margin: 0 auto; padding: 12px 20px;
+                display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+  .brand { display: flex; align-items: baseline; gap: 10px; margin-right: auto; }
+  .brand h1 { font-size: 18px; margin: 0; }
+  .brand .sub { font-size: 11.5px; color: var(--text-dim); }
+
+  .search { position: relative; flex: 1 1 240px; max-width: 360px; }
+  .search input {
+    width: 100%; padding: 9px 34px; background: var(--surface-2); color: var(--text);
+    border: 1px solid var(--border); border-radius: 999px; font-size: 14px;
+    font-family: inherit; outline: none;
+  }
+  .search input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+  .search .ico { position: absolute; left: 12px; top: 50%; transform: translateY(-50%);
+                 color: var(--text-dim); font-size: 13px; pointer-events: none; }
+  .search .clear { position: absolute; right: 8px; top: 50%; transform: translateY(-50%);
+                   border: 0; background: none; color: var(--text-dim); cursor: pointer;
+                   font-size: 15px; padding: 4px; display: none; }
+  .search.has-value .clear { display: block; }
+  .icon-btn { border: 1px solid var(--border); background: var(--surface-2); color: var(--text);
+              width: 36px; height: 36px; border-radius: 999px; cursor: pointer;
+              font-size: 15px; display: grid; place-items: center; flex-shrink: 0; }
+  .icon-btn:hover { border-color: var(--accent); }
+
+  .wrap { max-width: 1400px; margin: 0 auto; padding: 18px 20px 40px; }
+
+  .notice { display: flex; gap: 10px; align-items: flex-start; background: var(--accent-soft);
+            border: 1px solid var(--border); border-left: 3px solid var(--accent);
+            border-radius: var(--radius); padding: 11px 14px; margin-bottom: 16px;
+            font-size: 12.5px; color: var(--text-dim); }
+  .notice a { white-space: nowrap; }
+
+  .filters { display: flex; flex-direction: column; gap: 9px; margin-bottom: 14px; }
+  .filter-row { display: flex; align-items: flex-start; gap: 7px; flex-wrap: wrap; }
+  .filter-row > .label { font-size: 11.5px; color: var(--text-dim); min-width: 40px;
+                         padding-top: 5px; letter-spacing: .05em; flex-shrink: 0; }
+  .chip { border: 1px solid var(--border); background: var(--surface); color: var(--text-dim);
+          border-radius: 999px; padding: 4px 12px; font-size: 12.5px; cursor: pointer;
+          font-family: inherit; transition: .12s; display: inline-flex; align-items: center; gap: 5px; }
+  .chip:hover { border-color: var(--accent); color: var(--text); }
+  .chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .chip .n { font-size: 10.5px; opacity: .7; }
+  .more-btn { background: none; border: 0; color: var(--accent); font-size: 12px;
+              cursor: pointer; font-family: inherit; padding: 4px 6px; }
+
+  .toolbar { display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+             padding-top: 8px; border-top: 1px dashed var(--border); }
+  .count { font-size: 12.5px; color: var(--text-dim); margin-right: auto; }
+  .count b { color: var(--text); }
+  select { background: var(--surface); color: var(--text); font-family: inherit;
+           border: 1px solid var(--border); border-radius: 8px; padding: 6px 10px;
+           font-size: 12.5px; cursor: pointer; outline: none; }
+  .switch { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px;
+            color: var(--text-dim); cursor: pointer; user-select: none; }
+  .switch input { accent-color: var(--accent); cursor: pointer; }
+
+  .grid { display: grid; gap: 15px; grid-template-columns: repeat(auto-fill, minmax(212px, 1fr)); }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+          overflow: hidden; display: flex; flex-direction: column; position: relative;
+          transition: transform .14s, box-shadow .14s, border-color .14s; }
+  .card:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: var(--accent); }
+
+  .thumb { position: relative; aspect-ratio: 1/1; background: #fff;
+           display: grid; place-items: center; overflow: hidden; cursor: pointer; }
+  :root[data-theme="dark"] .thumb { background: #f2f4f7; }
+  .thumb img { width: 100%; height: 100%; object-fit: contain; }
+  .thumb .ph { color: #9aa4b0; font-size: 30px; }
+  .badges { position: absolute; top: 8px; left: 8px; display: flex; flex-direction: column;
+            gap: 4px; align-items: flex-start; pointer-events: none; }
+  .badge { font-size: 10.5px; padding: 2px 8px; border-radius: 999px; color: #fff;
+           background: rgba(0,0,0,.65); backdrop-filter: blur(4px); letter-spacing: .03em; }
+  .badge.official { background: #1f6feb; }
+  .badge.state-preorder { background: #9a6700; }
+  .badge.state-low { background: #bc4c00; }
+  .badge.state-unavailable { background: #6e7781; }
+  .badge.state-in_stock { background: #1a7f37; }
+  .badge.discount { background: var(--danger); }
+
+  .card-body { padding: 10px 12px 12px; display: flex; flex-direction: column; gap: 4px; flex: 1; }
+  .kind-line { font-size: 10.5px; color: var(--text-dim); letter-spacing: .03em; }
+  .card h3 { margin: 0; font-size: 13px; line-height: 1.45; font-weight: 600;
+             display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
+             overflow: hidden; }
+  .card h3 a { color: inherit; text-decoration: none; }
+  .card h3 a:hover { color: var(--accent); text-decoration: underline; }
+  .ja { font-size: 10.5px; color: var(--text-dim); line-height: 1.4;
+        display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+        overflow: hidden; }
+  .rel { font-size: 10.5px; color: var(--text-dim); }
+  .card-foot { margin-top: auto; padding-top: 7px; display: flex;
+               align-items: baseline; gap: 6px; flex-wrap: wrap; }
+  .price { font-size: 15px; font-weight: 600; }
+  .price .was { font-size: 11px; font-weight: 400; color: var(--text-dim);
+                text-decoration: line-through; margin-left: 4px; }
+  .src-links { display: flex; gap: 6px; flex-wrap: wrap; padding: 8px 12px;
+               border-top: 1px solid var(--border); background: var(--surface-2); }
+  .src-link { font-size: 10.5px; color: var(--text-dim); text-decoration: none;
+              border: 1px solid var(--border); border-radius: 999px; padding: 2px 8px;
+              background: var(--surface); white-space: nowrap; }
+  .src-link:hover { border-color: var(--accent); color: var(--accent); }
+
+  .empty { text-align: center; padding: 70px 20px; color: var(--text-dim);
+           border: 1px dashed var(--border); border-radius: var(--radius); }
+  .empty .big { font-size: 34px; margin-bottom: 8px; }
+  .more-wrap { text-align: center; padding: 24px 0 0; }
+  .load-more { background: var(--surface); border: 1px solid var(--border); color: var(--text);
+               border-radius: 999px; padding: 9px 26px; font-size: 13.5px; cursor: pointer;
+               font-family: inherit; }
+  .load-more:hover { border-color: var(--accent); color: var(--accent); }
+
+  .overlay { position: fixed; inset: 0; background: rgba(0,0,0,.5); opacity: 0;
+             pointer-events: none; transition: opacity .2s; z-index: 90; }
+  .overlay.open { opacity: 1; pointer-events: auto; }
+  .drawer { position: fixed; top: 0; right: 0; height: 100%; width: min(440px, 100%);
+            background: var(--surface); border-left: 1px solid var(--border);
+            transform: translateX(100%); transition: transform .24s cubic-bezier(.4,0,.2,1);
+            z-index: 100; display: flex; flex-direction: column; }
+  .drawer.open { transform: none; }
+  .drawer-head { display: flex; align-items: center; gap: 10px; padding: 13px 16px;
+                 border-bottom: 1px solid var(--border); }
+  .drawer-head strong { font-size: 13.5px; margin-right: auto; }
+  .drawer-body { padding: 16px; overflow-y: auto; }
+  .hero { border-radius: var(--radius); background: #fff; aspect-ratio: 1/1;
+          display: grid; place-items: center; margin-bottom: 15px; overflow: hidden;
+          border: 1px solid var(--border); }
+  .hero img { width: 100%; height: 100%; object-fit: contain; }
+  .drawer h2 { margin: 0 0 3px; font-size: 17px; line-height: 1.45; }
+  .ja-lg { font-size: 12px; color: var(--text-dim); margin-bottom: 12px; line-height: 1.5; }
+  .price-lg { font-size: 25px; font-weight: 700; }
+  .price-lg .was { font-size: 14px; font-weight: 400; color: var(--text-dim);
+                   text-decoration: line-through; margin-left: 7px; }
+  .price-note { font-size: 11.5px; color: var(--text-dim); margin-bottom: 12px; }
+  .stock-line { font-size: 13px; margin-bottom: 14px; font-weight: 500; }
+  .stock-line.in_stock { color: var(--ok); }
+  .stock-line.low, .stock-line.preorder { color: var(--warn); }
+  .stock-line.unavailable { color: var(--danger); }
+  .stock-line.unknown { color: var(--text-dim); font-weight: 400; }
+  .desc { font-size: 13px; color: var(--text-dim); margin-bottom: 15px;
+          padding: 11px 13px; background: var(--surface-2); border-radius: 8px; }
+  .spec { width: 100%; border-collapse: collapse; font-size: 12.5px; margin-bottom: 16px; }
+  .spec th, .spec td { text-align: left; padding: 7px 0; border-bottom: 1px solid var(--border);
+                       vertical-align: top; }
+  .spec th { color: var(--text-dim); font-weight: 400; width: 82px; }
+  .src-block { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+  .src-block .hd { font-size: 11.5px; color: var(--text-dim); padding: 8px 12px;
+                   background: var(--surface-2); border-bottom: 1px solid var(--border); }
+  .src-item { display: flex; align-items: center; gap: 8px; padding: 11px 12px;
+              text-decoration: none; color: var(--text); font-size: 13px;
+              border-bottom: 1px solid var(--border); }
+  .src-item:last-child { border-bottom: 0; }
+  .src-item:hover { background: var(--accent-soft); }
+  .src-item .go { margin-left: auto; color: var(--text-dim); font-size: 15px; }
+
+  footer { text-align: center; padding: 26px 20px 40px; color: var(--text-dim);
+           font-size: 11.5px; line-height: 1.9; }
+
+  @media (max-width: 640px) {
+    .brand .sub { display: none; }
+    .grid { grid-template-columns: repeat(auto-fill, minmax(144px, 1fr)); gap: 11px; }
+    .filter-row > .label { min-width: auto; width: 100%; padding-top: 0; }
+    .card h3 { font-size: 12.5px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="head-inner">
+    <div class="brand">
+      <h1>⚡ 閃電霹靂車 周邊商品</h1>
+      <span class="sub" id="subtitle"></span>
+    </div>
+    <div class="search" id="searchBox">
+      <span class="ico">🔍</span>
+      <input id="q" type="search" placeholder="搜尋商品、機體、廠商（中日文皆可）…" autocomplete="off">
+      <button class="clear" id="clearQ" aria-label="清除搜尋">✕</button>
+    </div>
+    <button class="icon-btn" id="themeBtn" aria-label="切換深淺色">◐</button>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="notice" id="notice" hidden></div>
+
+  <div class="filters">
+    <div class="filter-row" id="catRow"><span class="label">分類</span></div>
+    <div class="filter-row" id="macRow"><span class="label">機體</span></div>
+    <div class="filter-row" id="serRow"><span class="label">系列</span></div>
+    <div class="toolbar">
+      <span class="count" id="count"></span>
+      <label class="switch"><input type="checkbox" id="officialOnly"> 只看官方商品</label>
+      <label class="switch"><input type="checkbox" id="buyable"> 只看可購買</label>
+      <select id="sort">
+        <option value="default">預設排序</option>
+        <option value="price-asc">價格：低 → 高</option>
+        <option value="price-desc">價格：高 → 低</option>
+        <option value="discount">折扣最多</option>
+        <option value="name">名稱排序</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="grid" id="grid"></div>
+  <div class="empty" id="empty" hidden><div class="big">🏁</div><div>找不到符合條件的商品</div></div>
+  <div class="more-wrap" id="moreWrap" hidden>
+    <button class="load-more" id="loadMore"></button>
+  </div>
+</div>
+
+<footer id="footer"></footer>
+
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="商品詳情">
+  <div class="drawer-head">
+    <strong>商品詳情</strong>
+    <button class="icon-btn" id="closeDrawer" aria-label="關閉">✕</button>
+  </div>
+  <div class="drawer-body" id="drawerBody"></div>
+</aside>
+
+<script>
+(() => {
+  'use strict';
+  const $ = id => document.getElementById(id);
+  const esc = s => String(s ?? '').replace(/[&<>"']/g, c =>
+    ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
+  const yen = n => n == null ? '—' : '¥' + n.toLocaleString('ja-JP');
+
+  const PAGE = 60;
+  const state = { data: null, cat: 'all', mac: 'all', ser: 'all', q: '',
+                  sort: 'default', officialOnly: false, buyable: false,
+                  shown: PAGE, expandCat: false, expandMac: false, expandSer: false };
+
+  /* 主題 */
+  const applyTheme = t => {
+    document.documentElement.dataset.theme = t;
+    try { localStorage.setItem('cf-theme', t); } catch (e) {}
+  };
+  let saved = null;
+  try { saved = localStorage.getItem('cf-theme'); } catch (e) {}
+  applyTheme(saved || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+  $('themeBtn').onclick = () =>
+    applyTheme(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark');
+
+  const isOfficial = p => p.sources.some(s => s.site.includes('青島'));
+  const BUYABLE = new Set(['in_stock', 'low', 'preorder']);
+
+  function visible() {
+    const q = state.q.trim().toLowerCase();
+    let list = state.data.products.filter(p => {
+      if (state.cat !== 'all' && p.kind !== state.cat) return false;
+      if (state.ser !== 'all' && p.series !== state.ser) return false;
+      if (state.mac !== 'all' && (!p.machine || p.machine.zh !== state.mac)) return false;
+      if (state.officialOnly && !isOfficial(p)) return false;
+      if (state.buyable && !BUYABLE.has(p.stockState)) return false;
+      if (!q) return true;
+      const hay = [p.nameZh, p.name, p.nameJa, p.maker, p.kindName,
+                   p.seriesLineZh, p.seriesLine, p.releaseZh, p.release,
+                   p.descZh, p.desc, p.jan,
+                   p.machine && p.machine.zh, p.machine && p.machine.ja]
+        .filter(Boolean).join(' ').toLowerCase();
+      return hay.includes(q);
+    });
+    const by = {
+      'price-asc':  (a, b) => (a.shopPrice ?? a.price ?? 1e9) - (b.shopPrice ?? b.price ?? 1e9),
+      'price-desc': (a, b) => (b.shopPrice ?? b.price ?? 0) - (a.shopPrice ?? a.price ?? 0),
+      'discount':   (a, b) => (b.shopDiscount || 0) - (a.shopDiscount || 0),
+      'name':       (a, b) => (a.nameZh||a.name).localeCompare(b.nameZh||b.name, 'zh-Hant'),
+    }[state.sort];
+    return by ? list.slice().sort(by) : list;
+  }
+
+  /* 篩選 chip */
+  function chipRow(row, items, cur, onPick, expandKey) {
+    row.querySelectorAll('.chip, .more-btn').forEach(n => n.remove());
+    const LIMIT = 12;
+    const expanded = state[expandKey];
+    const show = expanded ? items : items.slice(0, LIMIT);
+    const all = [{ id: 'all', name: '全部', count: state.data.products.length, icon: '' }]
+                  .concat(show);
+    all.forEach(it => {
+      const b = document.createElement('button');
+      b.className = 'chip'; b.type = 'button';
+      b.setAttribute('aria-pressed', String(cur === it.id));
+      b.innerHTML = `${it.icon ? it.icon + ' ' : ''}${esc(it.name)}` +
+                    `<span class="n">${it.count}</span>`;
+      b.onclick = () => { onPick(it.id); state.shown = PAGE; render(); };
+      row.appendChild(b);
+    });
+    if (items.length > LIMIT) {
+      const m = document.createElement('button');
+      m.className = 'more-btn'; m.type = 'button';
+      m.textContent = expanded ? '收合 ▲' : `更多 ${items.length - LIMIT} 項 ▼`;
+      m.onclick = () => { state[expandKey] = !expanded; render(); };
+      row.appendChild(m);
+    }
+  }
+
+  function renderFilters() {
+    const d = state.data;
+    chipRow($('catRow'), d.categories.map(c => ({ id: c.id, name: c.name, count: c.count, icon: c.icon })),
+            state.cat, v => state.cat = v, 'expandCat');
+    chipRow($('macRow'), d.machines.map(m => ({ id: m.name, name: m.name, count: m.count })),
+            state.mac, v => state.mac = v, 'expandMac');
+    chipRow($('serRow'), d.series.map(s => ({ id: s.id, name: s.name, count: s.count })),
+            state.ser, v => state.ser = v, 'expandSer');
+  }
+
+  function cardHtml(p) {
+    const shop = p.shopPrice, list = p.shopListPrice || p.price;
+    const priceMain = shop ?? p.price;
+    const showWas = shop && list && list > shop;
+    const primary = p.sources[0];
+    return `
+      <article class="card">
+        <div class="thumb" data-id="${esc(p.id)}" role="button" tabindex="0"
+             aria-label="查看 ${esc(p.name)} 詳情">
+          ${p.image
+            ? `<img src="${esc(p.image)}" alt="${esc(p.name)}" loading="lazy"
+                    onerror="this.replaceWith(Object.assign(document.createElement('div'),
+                             {className:'ph',textContent:'🏎️'}))">`
+            : `<div class="ph">🏎️</div>`}
+          <div class="badges">
+            ${isOfficial(p) ? '<span class="badge official">官方</span>' : ''}
+            ${p.stockText && p.stockState !== 'unknown'
+              ? `<span class="badge state-${esc(p.stockState)}">${esc(p.stockText)}</span>` : ''}
+            ${p.shopDiscount ? `<span class="badge discount">${p.shopDiscount}%OFF</span>` : ''}
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="kind-line">${esc(p.kindName)}${p.scale ? ' · ' + esc(p.scale) : ''}</div>
+          <h3><a href="${esc(primary.url)}" target="_blank" rel="noopener noreferrer"
+                 title="前往 ${esc(primary.site)}">${esc(p.nameZh || p.name)}</a></h3>
+          <div class="ja">${esc(p.name)}</div>
+          ${p.releaseZh || p.release
+            ? `<div class="rel">${esc(p.releaseZh || p.release)}</div>` : ''}
+          <div class="card-foot">
+            <span class="price">${yen(priceMain)}${
+              showWas ? `<span class="was">${yen(list)}</span>` : ''}</span>
+          </div>
+        </div>
+        <div class="src-links">
+          ${p.sources.map(s => `<a class="src-link" href="${esc(s.url)}" target="_blank"
+             rel="noopener noreferrer">${s.site.includes('青島') ? '🏭 官方' : '🛒 hobbysearch'} ↗</a>`).join('')}
+        </div>
+      </article>`;
+  }
+
+  function renderGrid() {
+    const list = visible();
+    const slice = list.slice(0, state.shown);
+    $('grid').innerHTML = slice.map(cardHtml).join('');
+    $('empty').hidden = list.length > 0;
+    $('count').innerHTML = `顯示 <b>${slice.length}</b> / ${list.length} 件` +
+      (list.length !== state.data.products.length ? `（全部 ${state.data.products.length} 件）` : '');
+
+    const rest = list.length - slice.length;
+    $('moreWrap').hidden = rest <= 0;
+    $('loadMore').textContent = `載入更多（還有 ${rest} 件）`;
+
+    $('grid').querySelectorAll('.thumb').forEach(el => {
+      const open = () => openDrawer(el.dataset.id);
+      el.onclick = open;
+      el.onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } };
+    });
+  }
+
+  const render = () => { renderFilters(); renderGrid(); };
+
+  /* 詳情 */
+  let lastFocus = null;
+  function openDrawer(id) {
+    const p = state.data.products.find(x => x.id === id);
+    if (!p) return;
+    lastFocus = document.activeElement;
+    const shop = p.shopPrice, list = p.shopListPrice || p.price;
+    const showWas = shop && list && list > shop;
+
+    const rows = [
+      ['分類', p.kindName],
+      ['機體', p.machine ? `${p.machine.zh}（${p.machine.ja}）` : null],
+      ['比例', p.scale],
+      ['廠商', p.maker],
+      ['系列', p.seriesLineZh || p.seriesLine],
+      ['發售', p.releaseZh || p.release],
+      ['JAN', p.jan],
+    ].filter(r => r[1]);
+
+    $('drawerBody').innerHTML = `
+      <div class="hero">${p.image
+        ? `<img src="${esc(p.image)}" alt="${esc(p.name)}">`
+        : '<div class="ph" style="font-size:56px">🏎️</div>'}</div>
+      <h2>${esc(p.nameZh || p.name)}</h2>
+      <div class="ja-lg">${esc(p.nameJa)}</div>
+      <div class="price-lg">${yen(shop ?? p.price)}${
+        showWas ? `<span class="was">${yen(list)}</span>` : ''}</div>
+      <div class="price-note">${esc(p.priceNote || '')}${
+        p.shopDiscount ? ` · ${p.shopDiscount}%OFF` : ''}</div>
+      ${p.stockText ? `<div class="stock-line ${esc(p.stockState)}">● ${esc(p.stockText)}</div>` : ''}
+      ${(p.descZh || p.desc) ? `<div class="desc">${esc(p.descZh || p.desc)}</div>` : ''}
+      <table class="spec"><tbody>
+        ${rows.map(([k, v]) => `<tr><th>${esc(k)}</th><td>${esc(v)}</td></tr>`).join('')}
+      </tbody></table>
+      <div class="src-block">
+        <div class="hd">資料來源 — 點擊前往原始商品頁確認最新價格與庫存</div>
+        ${p.sources.map(s => `
+          <a class="src-item" href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">
+            <span>${s.site.includes('青島') ? '🏭' : '🛒'}</span>
+            <span>${esc(s.site)}</span>
+            <span class="go">↗</span>
+          </a>`).join('')}
+      </div>`;
+
+    $('drawer').classList.add('open');
+    $('overlay').classList.add('open');
+    $('closeDrawer').focus();
+  }
+  function closeDrawer() {
+    $('drawer').classList.remove('open');
+    $('overlay').classList.remove('open');
+    if (lastFocus) lastFocus.focus();
+  }
+  $('closeDrawer').onclick = closeDrawer;
+  $('overlay').onclick = closeDrawer;
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
+
+  /* 控制項 */
+  const qInput = $('q');
+  let timer = null;
+  qInput.addEventListener('input', () => {
+    state.q = qInput.value; state.shown = PAGE;
+    $('searchBox').classList.toggle('has-value', qInput.value.length > 0);
+    clearTimeout(timer);
+    timer = setTimeout(renderGrid, 120);
+  });
+  $('clearQ').onclick = () => {
+    qInput.value = ''; state.q = ''; state.shown = PAGE;
+    $('searchBox').classList.remove('has-value');
+    qInput.focus(); renderGrid();
+  };
+  $('sort').onchange = e => { state.sort = e.target.value; state.shown = PAGE; renderGrid(); };
+  $('officialOnly').onchange = e => { state.officialOnly = e.target.checked; state.shown = PAGE; renderGrid(); };
+  $('buyable').onchange = e => { state.buyable = e.target.checked; state.shown = PAGE; renderGrid(); };
+  $('loadMore').onclick = () => { state.shown += PAGE; renderGrid(); };
+
+  /* 載入 */
+  fetch('products.json')
+    .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+    .then(data => {
+      state.data = data;
+      document.title = data.meta.title;
+      $('subtitle').textContent = data.meta.subtitle || '';
+      if (data.meta.notice) {
+        $('notice').hidden = false;
+        $('notice').innerHTML = `<span>ℹ️</span><span>${esc(data.meta.notice)}</span>`;
+      }
+      $('footer').innerHTML =
+        `${esc(data.meta.title)} · 共 ${data.products.length} 件 · 資料抓取於 ${esc(data.meta.updatedAt)}<br>` +
+        (data.meta.translationNote ? `${esc(data.meta.translationNote)}<br>` : '') +
+        '資料來源：' + data.meta.sources.map(s =>
+          `<a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${esc(s.site)}</a>`
+        ).join('、') + '<br>商品圖片與資料版權屬各來源網站及 ©サンライズ 所有';
+      render();
+    })
+    .catch(err => {
+      $('empty').hidden = false;
+      $('empty').innerHTML = `<div class="big">⚠️</div>
+        <div><b>無法載入 products.json</b></div>
+        <div style="margin-top:8px;font-size:13px">${esc(err.message)}<br>
+        用 file:// 開啟會被 CORS 擋下。請執行 <code>./serve.sh</code> 後開 localhost。</div>`;
+    });
+})();
+</script>
+</body>
+</html>
