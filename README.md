@@ -4,7 +4,6 @@
 商品資料為**實際抓取**，每筆可點擊前往來源頁。
 
 🔗 **線上瀏覽：https://chuehnone.viovie.co/cyber-formula-goods/**
-（亦可由 https://chuehnone.github.io/cyber-formula-goods/ 進入，會導向上方自訂網域）
 
 - 391 件商品，含官方模型、Figure、服飾、壓克力周邊、塗料等 18 個分類
 - 中文為主標、日文原名為副標，兩者皆可搜尋
@@ -22,134 +21,58 @@
 
 不能直接雙擊 `index.html`——`file://` 會被 CORS 擋下 `products.json`。
 
+## 常用指令
+
+```bash
+./serve.sh          # 本機預覽
+./update.sh         # 重抓商品資料（--quick 較快、--push 自動推送）
+./verify.sh         # 檢驗線上版是否與本機一致（--watch 等到一致）
+```
+
+`update.sh` 跑完會列出與線上版的差異（新增／下架／價格／庫存異動），
+預設不自動 commit。推送後 GitHub Pages 約 1–2 分鐘生效，
+但 CDN 快取 10 分鐘，用 `./verify.sh --watch` 確認最可靠。
+
 ## 資料來源
 
 | 來源 | 件數 | 提供 |
 |---|---|---|
-| [青島文化教材社（官方）](https://www.aoshima-bk.co.jp/special/product/cyberformula/) | 19 | 官方定價、發售月、系列編號、JAN、官方商品描述 |
+| [青島文化教材社（官方）](https://www.aoshima-bk.co.jp/special/product/cyberformula/) | 19 | 官方定價、發售月、系列編號、JAN、商品描述 |
 | [ホビーサーチ hobbysearch](https://www.1999.co.jp/) | 372 | 商品廣度、實際售價、折扣、庫存狀態 |
 
 合計 **391 件**，其中 24 件同時有兩個來源（可交叉比對價格）。
 抓取日期：2026-08-22。
+
+價格與庫存為抓取當下狀態，非即時報價；實際交易請以來源網站為準。
 
 ## 檔案
 
 | 檔案 | 說明 |
 |---|---|
 | `index.html` | 介面，無外部相依 |
-| `products.json` | 商品資料（364KB） |
+| `products.json` | 商品資料（網頁讀這個） |
+| `products.raw.json` | 翻譯前的原始資料備份 |
 | `serve.sh` | 啟動本機預覽 server |
 | `update.sh` | 一鍵重抓資料並更新 |
 | `verify.sh` | 檢驗線上版是否與本機一致 |
-| `CLAUDE.md` | 給 AI 助理的專案規則與已知陷阱 |
-| `scripts/scrape_ao.py` | 抓青島官網 |
-| `scripts/scrape_hs.py` | 抓 hobbysearch（關鍵字全站） |
-| `scripts/scrape2.py` | 抓 hobbysearch（帶站方分類） |
-| `scripts/build.py` | 整併兩來源 → products.json |
-| `scripts/translate.py` | 補上繁體中文翻譯欄位 |
-| `scripts/desc_zh.json` | 官方商品描述的中文譯稿（人工逐句翻譯） |
-| `products.raw.json` | 翻譯前的原始資料備份 |
-
-## 後續更新
-
-### 只改介面（`index.html`）
-
-改完直接 commit push，GitHub Pages 約 1–2 分鐘後自動生效：
-
-```bash
-./serve.sh                      # 本機預覽確認
-git add index.html
-git commit -m "介面調整說明"
-git push
-```
-
-### 重抓商品資料
-
-價格與庫存會隨時間變動，用 `update.sh` 一鍵重跑整條流程：
-
-```bash
-./update.sh                     # 完整抓取（約 9 分鐘）
-./update.sh --quick             # 跳過分類版爬蟲（約 1 分鐘）
-./update.sh --push              # 完成後自動 commit + push
-```
-
-腳本會依序執行：抓取兩來源 → 整併 → 補中文翻譯 → 更新抓取日期 →
-**列出與線上版的差異**（新增／下架／價格異動／庫存異動）。
-
-預設不會自動 commit，你可以先看差異、`./serve.sh` 預覽，確認無誤再推。
-中間產物放在 `scripts/.cache/`，已被 gitignore 排除。
-
-`--quick` 與完整模式的商品數相同，差別在部分商品少了站方分類資訊
-（目前的分類判定已能從商品名補上，兩者結果一致）。趕時間可以用，
-但要納入新商品類型時建議跑完整版。
-
-### 加入新的翻譯詞彙
-
-抓到新商品時，若出現未翻譯的日文詞，`translate.py` 執行後會列出
-「殘留假名詞」清單。把它們補進 `scripts/translate.py` 的 `EXTRA` 詞彙表，
-再跑一次 `./update.sh --quick` 即可。
-
-商品**描述**若有新增（目前只有青島官方 18 筆），不要依賴詞彙表——
-那會產生中日夾雜的破碎句。請比照 `scripts/desc_zh.json` 人工翻譯，
-key 用該商品的 JAN 碼。
-
-### 確認線上版是不是最新的
-
-```bash
-./verify.sh              # 比對線上與本機的檔案雜湊
-./verify.sh --watch      # 持續檢查直到一致（剛 push 完用這個）
-```
-
-比對 `index.html` 與 `products.json` 的 SHA-256。雜湊相同就代表線上跑的
-就是本機這一份，不受瀏覽器或 CDN 快取影響。
-
-其他確認方式：
-
-| 方式 | 看什麼 |
-|---|---|
-| 網頁頁尾 | 「資料抓取於 YYYY-MM-DD」是否為本次日期 |
-| 部署狀態 | `gh api repos/chuehnone/cyber-formula-goods/pages/builds/latest --jq .status`（`built` 才完成） |
-| repo 首頁 | 最新 commit 的時間與訊息 |
-
-**注意快取**：GitHub Pages 的 CDN 快取為 10 分鐘（`cache-control: max-age=600`），
-推送後最多要等這麼久才會看到新版。瀏覽器另有自己的快取，
-用無痕視窗或 Cmd+Shift+R 強制重整可略過。`verify.sh` 已帶 no-cache 標頭，
-不受這兩層快取影響。
-
-## 資料處理原則
-
-- **只收錄實際抓到的商品**，不以既有知識補寫未驗證項目。
-- 分類依「商品標題結尾括號標記」與「站方分類參數」判定，非猜測。
-- 系列（TV／11／ZERO／SAGA／SIN）只在標題有明確作品標記時標註；
-  299 件標題未載明系列者維持「未標示」，不從機體反推——同一機體可能跨作品登場，反推會出錯。
-- 青島官方資料視為權威，與 hobbysearch 重複時以官方欄位為準，售價與庫存則取 hobbysearch。
-
-## 已知限制
-
-- hobbysearch **商品詳情頁有 Cloudflare challenge**，未繞過；商品描述僅官方 19 件有。
-- 價格與庫存是抓取當下狀態，非即時；點來源連結可查最新。
-- 商品圖片為來源網站熱連結，版權屬各來源網站及 ©サンライズ。
+| `scripts/` | 爬蟲與資料處理（見 `CLAUDE.md`） |
+| `CLAUDE.md` | 開發規則與已知陷阱 |
 
 ## 翻譯
 
-商品名稱、發售時期、系列行以**詞彙表逐詞替換**產生（`scripts/translate.py`），
-角色與機體採台灣通行譯名（阿斯拉、凰呀、風見隼人、布利德加賀等），
-未收錄的專有名詞保留日文原文。介面以中文為主標、日文原名為副標，兩者都可搜尋。
+商品名稱、發售時期以**詞彙表逐詞替換**產生，角色與機體採台灣通行譯名
+（阿斯拉、凰呀、風見隼人、布利德加賀等），未收錄的專有名詞保留日文原文。
+官方商品描述為人工逐句翻譯。
 
-青島官方那 18 筆商品描述是**完整日文段落**，詞彙表替換會產出中日夾雜的破碎句，
-因此改為人工逐句翻譯，存於 `scripts/desc_zh.json`（key 為 JAN 碼）。
-
-新增的翻譯欄位：`nameZh`、`descZh`、`releaseZh`、`seriesLineZh`。
+新增欄位 `nameZh`、`descZh`、`releaseZh`、`seriesLineZh`；
 原始日文欄位（`name`、`nameJa`、`desc`、`release`）皆保留未動。
 
-### 翻譯的限制
-
-詞彙表方法適合名詞短語，不適合整句。若日後要翻譯更多長句描述，
-應比照 `desc_zh.json` 的做法人工翻譯，不要依賴 `translate()`。
+> 要修改翻譯或重抓資料前，請先讀 [`CLAUDE.md`](CLAUDE.md)——
+> 有幾個看似 bug 但其實是刻意設計的地方（例如 299 件商品的系列標為「未標示」）。
 
 ## 授權與聲明
 
-本專案的**程式碼**（`index.html`、`scripts/`、`serve.sh`）以 MIT 授權釋出。
+本專案的**程式碼**（`index.html`、`scripts/`、`serve.sh` 等）以 MIT 授權釋出。
 
 **商品資料與圖片不屬於本專案**：
 - 商品資訊擷取自青島文化教材社官網與 hobbysearch，著作權歸各來源網站所有
@@ -157,4 +80,3 @@ key 用該商品的 JAN 碼。
 - 作品《新世紀GPXサイバーフォーミュラ》相關權利屬 ©サンライズ 所有
 
 本專案為個人非商業用途的資料整理與瀏覽介面，不從事銷售行為。
-價格與庫存為抓取當下狀態，實際交易請以來源網站為準。

@@ -89,6 +89,31 @@ Pages 回 `cache-control: max-age=600`。推送後立刻看到舊版**不是部�
 
 改這個函式時，一併確認 `strip_kind()` 不會把限定版等資訊一起刪掉。
 
+## 常見任務
+
+### 重抓商品資料
+
+```bash
+./update.sh              # 完整，約 9 分鐘
+./update.sh --quick      # 跳過分類版爬蟲，約 1 分鐘，結果相同
+./update.sh --push       # 完成後自動 commit + push
+```
+
+流程：抓兩來源 → `build.py` 整併 → `translate.py` 翻譯 → 更新抓取日期 →
+列出與線上版的差異。中間產物在 `scripts/.cache/`（已 gitignore）。
+預設不自動 commit，先看差異再決定。
+
+`--quick` 少跑 `scrape2.py`（站方分類版），目前分類判定已能從商品名補上，
+兩者結果一致。要納入新商品類型時跑完整版比較保險。
+
+### 加入新的翻譯詞彙
+
+`translate.py` 跑完會列出「殘留假名詞」。把它們補進 `scripts/translate.py`
+的 `EXTRA` 詞彙表，再跑 `./update.sh --quick`。
+
+詞彙表按長字串優先排序（`VOCAB_SORTED`），避免短詞先替換破壞長詞。
+新增商品**描述**時見上面第 3 點，不要走詞彙表。
+
 ## 驗證要求
 
 改完一定要實測，不要只看程式碼就宣稱完成：
