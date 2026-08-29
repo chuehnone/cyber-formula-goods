@@ -135,6 +135,42 @@
               background: var(--surface); white-space: nowrap; }
   .src-link:hover { border-color: var(--accent); color: var(--accent); }
 
+  /* 變動紀錄區塊 */
+  .changes { border: 1px solid var(--border); border-radius: var(--radius);
+             background: var(--surface); margin-bottom: 16px; overflow: hidden; }
+  .changes summary { padding: 11px 14px; cursor: pointer; font-size: 13px;
+                     display: flex; align-items: center; gap: 9px; list-style: none;
+                     user-select: none; }
+  .changes summary::-webkit-details-marker { display: none; }
+  .changes summary::after { content: '▾'; margin-left: auto; color: var(--text-dim);
+                            transition: transform .18s; }
+  .changes[open] summary::after { transform: rotate(180deg); }
+  .changes summary:hover { background: var(--surface-2); }
+  .changes .since { color: var(--text-dim); font-size: 11.5px; }
+  .chg-pill { font-size: 11px; padding: 2px 8px; border-radius: 999px;
+              background: var(--surface-2); border: 1px solid var(--border);
+              color: var(--text-dim); }
+  .chg-body { padding: 4px 14px 14px; border-top: 1px solid var(--border); }
+  .chg-group { margin-top: 11px; }
+  .chg-group h4 { margin: 0 0 5px; font-size: 11.5px; color: var(--text-dim);
+                  font-weight: 500; letter-spacing: .04em; }
+  .chg-item { font-size: 12.5px; padding: 4px 0; display: flex; gap: 8px;
+              align-items: baseline; border-bottom: 1px dashed var(--border); }
+  .chg-item:last-child { border-bottom: 0; }
+  .chg-item .nm { flex: 1; min-width: 0; overflow: hidden;
+                  text-overflow: ellipsis; white-space: nowrap; }
+  .chg-item a.nm { color: var(--text); text-decoration: none; cursor: pointer; }
+  .chg-item a.nm:hover { color: var(--accent); text-decoration: underline; }
+  .chg-item .val { color: var(--text-dim); white-space: nowrap; font-size: 11.5px; }
+  .chg-item .down { color: var(--ok); font-weight: 600; }
+  .chg-item .up { color: var(--danger); font-weight: 600; }
+
+  /* 卡片上的變動徽章 */
+  .badge.chg-added { background: #1a7f37; }
+  .badge.chg-price-down { background: #1a7f37; }
+  .badge.chg-price-up { background: #bc4c00; }
+  .badge.chg-stock { background: #8250df; }
+
   .empty { text-align: center; padding: 70px 20px; color: var(--text-dim);
            border: 1px dashed var(--border); border-radius: var(--radius); }
   .empty .big { font-size: 34px; margin-bottom: 8px; }
@@ -218,12 +254,15 @@
 <div class="wrap">
   <div class="notice" id="notice" hidden></div>
 
+  <details class="changes" id="changes" hidden></details>
+
   <div class="filters">
     <div class="filter-row" id="catRow"><span class="label">分類</span></div>
     <div class="filter-row" id="macRow"><span class="label">機體</span></div>
     <div class="filter-row" id="serRow"><span class="label">系列</span></div>
     <div class="toolbar">
       <span class="count" id="count"></span>
+      <label class="switch" id="changedWrap" hidden><input type="checkbox" id="changedOnly"> 只看有變動</label>
       <label class="switch"><input type="checkbox" id="officialOnly"> 只看官方商品</label>
       <label class="switch"><input type="checkbox" id="buyable"> 只看可購買</label>
       <select id="sort">
@@ -281,7 +320,7 @@
 
   const PAGE = 60;
   const state = { data: null, cat: 'all', mac: 'all', ser: 'all', q: '',
-                  sort: 'default', officialOnly: false, buyable: false,
+                  sort: 'default', officialOnly: false, buyable: false, changedOnly: false,
                   shown: PAGE, expandCat: false, expandMac: false, expandSer: false };
 
   /* 主題 */
@@ -306,6 +345,7 @@
       if (state.mac !== 'all' && (!p.machine || p.machine.zh !== state.mac)) return false;
       if (state.officialOnly && !isOfficial(p)) return false;
       if (state.buyable && !BUYABLE.has(p.stockState)) return false;
+      if (state.changedOnly && !p.changeType) return false;
       if (!q) return true;
       const hay = [p.nameZh, p.name, p.nameJa, p.maker, p.kindName,
                    p.seriesLineZh, p.seriesLine, p.releaseZh, p.release,
@@ -349,6 +389,89 @@
     }
   }
 
+  const CHG_BADGE = {
+    'added': '新上架',
+    'price-down': '降價',
+    'price-up': '漲價',
+    'stock': '庫存變動',
+  };
+
+  function renderChanges() {
+    const c = state.data.meta.changes;
+    const el = $('changes');
+    if (!c) { el.hidden = true; $('changedWrap').hidden = true; return; }
+
+    const total = c.added.length + c.removed.length + c.price.length + c.stock.length;
+    if (!total) { el.hidden = true; $('changedWrap').hidden = true; return; }
+
+    const down = c.price.filter(x => x.diff < 0);
+    const up = c.price.filter(x => x.diff > 0);
+
+    // 點名稱可跳到該商品（清除篩選後搜尋其名稱）
+    const link = (id, name) =>
+      `<a class="nm" href="#" data-goto="${esc(id)}" title="${esc(name)}">${esc(name)}</a>`;
+
+    const group = (title, items) => items.length
+      ? `<div class="chg-group"><h4>${title}</h4>${items.join('')}</div>` : '';
+
+    const body = [
+      group('新上架', c.added.map(x =>
+        `<div class="chg-item">${link(x.id, x.name)}
+           <span class="val">${esc(x.kind || '')} ${x.price ? yen(x.price) : ''}</span></div>`)),
+      group('降價', down.map(x =>
+        `<div class="chg-item">${link(x.id, x.name)}
+           <span class="val"><span class="down">↓ ${yen(Math.abs(x.diff))}</span>
+           ${yen(x.from)} → ${yen(x.to)}</span></div>`)),
+      group('漲價', up.map(x =>
+        `<div class="chg-item">${link(x.id, x.name)}
+           <span class="val"><span class="up">↑ ${yen(x.diff)}</span>
+           ${yen(x.from)} → ${yen(x.to)}</span></div>`)),
+      group('庫存狀態變動', c.stock.map(x =>
+        `<div class="chg-item">${link(x.id, x.name)}
+           <span class="val">${esc(x.from || '—')} → ${esc(x.to || '—')}</span></div>`)),
+      group('已從來源站下架', c.removed.map(x =>
+        `<div class="chg-item"><span class="nm">${esc(x.name)}</span></div>`)),
+    ].join('');
+
+    const pills = [
+      c.added.length && `新上架 ${c.added.length}`,
+      down.length && `降價 ${down.length}`,
+      up.length && `漲價 ${up.length}`,
+      c.stock.length && `庫存 ${c.stock.length}`,
+      c.removed.length && `下架 ${c.removed.length}`,
+    ].filter(Boolean).map(t => `<span class="chg-pill">${esc(t)}</span>`).join('');
+
+    el.hidden = false;
+    el.innerHTML = `
+      <summary>
+        <span>🔔 最近變動</span>
+        ${pills}
+        <span class="since">自 ${esc(c.since || '上次更新')} 以來</span>
+      </summary>
+      <div class="chg-body">${body}</div>`;
+
+    // 點商品名 → 篩出該商品
+    el.querySelectorAll('[data-goto]').forEach(a => {
+      a.onclick = e => {
+        e.preventDefault();
+        const p = state.data.products.find(x => x.id === a.dataset.goto);
+        if (!p) return;
+        state.cat = 'all'; state.ser = 'all'; state.mac = 'all';
+        state.officialOnly = false; state.buyable = false; state.changedOnly = false;
+        $('officialOnly').checked = false; $('buyable').checked = false;
+        $('changedOnly').checked = false;
+        const q = $('q');
+        q.value = p.nameZh || p.name;
+        state.q = q.value; state.shown = PAGE;
+        $('searchBox').classList.add('has-value');
+        render();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      };
+    });
+
+    $('changedWrap').hidden = false;
+  }
+
   function renderFilters() {
     const d = state.data;
     chipRow($('catRow'), d.categories.map(c => ({ id: c.id, name: c.name, count: c.count, icon: c.icon })),
@@ -378,6 +501,14 @@
             ${p.stockText && p.stockState !== 'unknown'
               ? `<span class="badge state-${esc(p.stockState)}">${esc(p.stockText)}</span>` : ''}
             ${p.shopDiscount ? `<span class="badge discount">${p.shopDiscount}%OFF</span>` : ''}
+            ${CHG_BADGE[p.changeType]
+              ? `<span class="badge chg-${esc(p.changeType)}">${
+                  p.changeType === 'price-down' && p.priceChange
+                    ? '↓ ' + yen(Math.abs(p.priceChange))
+                    : p.changeType === 'price-up' && p.priceChange
+                    ? '↑ ' + yen(p.priceChange)
+                    : CHG_BADGE[p.changeType]}</span>`
+              : ''}
           </div>
         </div>
         <div class="card-body">
@@ -418,7 +549,7 @@
     });
   }
 
-  const render = () => { renderFilters(); renderGrid(); };
+  const render = () => { renderChanges(); renderFilters(); renderGrid(); };
 
   /* 詳情 */
   let lastFocus = null;
@@ -492,6 +623,7 @@
     qInput.focus(); renderGrid();
   };
   $('sort').onchange = e => { state.sort = e.target.value; state.shown = PAGE; renderGrid(); };
+  $('changedOnly').onchange = e => { state.changedOnly = e.target.checked; state.shown = PAGE; renderGrid(); };
   $('officialOnly').onchange = e => { state.officialOnly = e.target.checked; state.shown = PAGE; renderGrid(); };
   $('buyable').onchange = e => { state.buyable = e.target.checked; state.shown = PAGE; renderGrid(); };
   $('loadMore').onclick = () => { state.shown += PAGE; renderGrid(); };

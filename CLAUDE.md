@@ -137,6 +137,20 @@ python3 scripts/stats.py
 無 `cf-ray` 標頭），沒有經過 Cloudflare，故用不了。
 若日後真的需要事件追蹤，改用 Umami 或 GA4，不要試圖用 Zaraz。
 
+### 變動紀錄（changelog）
+
+`scripts/changelog.py` 比對新資料與 git HEAD（即線上版），把差異寫進
+`products.json` 的 `meta.changes`，並在有變動的商品上加 `changeType` 欄位。
+網頁讀同一個檔案渲染「最近變動」區塊與卡片徽章，不需額外請求。
+
+**只記「這次 vs 上次」**，不累積歷史——過去的變動看 `git log` 即可。
+無變動時會清掉 `meta.changes` 與所有 `changeType`，網頁自動隱藏該區塊。
+
+`update.sh` 已串接，不需手動執行。注意它依賴 git HEAD 當基準：
+**若在同一次更新中重複執行，第二次會比對到已 commit 的新資料而顯示無變動**。
+
+庫存變動的標記優先度高於價格（`tag_products()`）——商品快沒了比便宜了更需要知道。
+
 ### 分類判定依賴標題括號
 
 `build.py` 的 `detect_kind()` 讀商品名結尾的 `(プラモデル)` 這類標記。

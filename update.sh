@@ -57,6 +57,9 @@ json.dump(d, open(p, "w"), ensure_ascii=False, indent=1)
 print("抓取日期已更新為", d["meta"]["updatedAt"])
 PY
 
+echo "▶ 產生變動紀錄…"
+python3 "$ROOT/scripts/changelog.py" "$ROOT/products.json"
+
 echo ""
 echo "─────────── 與線上版的差異 ───────────"
 cd "$ROOT"
