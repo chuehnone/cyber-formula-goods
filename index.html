@@ -637,7 +637,8 @@
       $('subtitle').textContent = data.meta.subtitle || '';
       if (data.meta.notice) {
         $('notice').hidden = false;
-        $('notice').innerHTML = `<span>ℹ️</span><span>${esc(data.meta.notice)}</span>`;
+        $('notice').innerHTML = `<span>ℹ️</span><span>資料於 ${
+          esc(data.meta.updatedAt)} ${esc(data.meta.notice)}</span>`;
       }
       $('footer').innerHTML =
         `${esc(data.meta.title)} · 共 ${data.products.length} 件 · 資料抓取於 ${esc(data.meta.updatedAt)}<br>` +
