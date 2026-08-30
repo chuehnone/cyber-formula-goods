@@ -3,7 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>閃電霹靂車 周邊商品</title>
+<title>閃電霹靂車 周邊商品一覽｜新世紀GPX Cyber Formula 模型・Figure・周邊</title>
+<meta name="description" content="新世紀GPX閃電霹靂車（サイバーフォーミュラ）周邊商品整理，涵蓋青島文化教材社 1/24 組裝模型、C.F.C. 完成品、Variable Action、Figure、服飾與壓克力周邊。中日文商品名對照，可依分類、系列、機體篩選，並可直接連往來源商品頁確認價格與庫存。">
+<link rel="canonical" href="https://chuehnone.viovie.co/cyber-formula-goods/">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="閃電霹靂車 周邊商品一覽">
+<meta property="og:description" content="新世紀GPX閃電霹靂車周邊商品整理：組裝模型、C.F.C. 完成品、Figure、服飾、壓克力周邊。中日文對照，可篩選並連往來源商品頁。">
+<meta property="og:url" content="https://chuehnone.viovie.co/cyber-formula-goods/">
+<meta property="og:locale" content="zh_TW">
+<meta name="twitter:card" content="summary">
 <style>
   :root {
     --bg: #f6f8fa; --surface: #fff; --surface-2: #f0f3f6;
@@ -171,6 +180,13 @@
   .badge.chg-price-up { background: #bc4c00; }
   .badge.chg-stock { background: #8250df; }
 
+  #seoIntro { color: var(--text-dim); font-size: 13.5px; line-height: 1.8;
+              border: 1px solid var(--border); border-radius: var(--radius);
+              padding: 16px 18px; background: var(--surface); }
+  #seoIntro h2 { font-size: 15px; margin: 0 0 8px; color: var(--text); }
+  #seoIntro h3 { font-size: 12.5px; margin: 12px 0 3px; color: var(--text); }
+  #seoIntro p { margin: 0; }
+
   .empty { text-align: center; padding: 70px 20px; color: var(--text-dim);
            border: 1px dashed var(--border); border-radius: var(--radius); }
   .empty .big { font-size: 34px; margin-bottom: 8px; }
@@ -274,6 +290,24 @@
         <option value="name">名稱排序</option>
       </select>
     </div>
+  </div>
+
+  <!-- 靜態摘要：供搜尋引擎與 JS 失效時閱讀，資料載入後由 JS 移除 -->
+  <div id="seoIntro">
+    <h2>關於這個網站</h2>
+    <p>本站整理《新世紀GPX閃電霹靂車》（新世紀GPXサイバーフォーミュラ / Future GPX Cyber Formula）
+    的周邊商品資料，來源為<a href="https://www.aoshima-bk.co.jp/special/product/cyberformula/"
+    target="_blank" rel="noopener">青島文化教材社官方網站</a>與
+    <a href="https://www.1999.co.jp/" target="_blank" rel="noopener">ホビーサーチ hobbysearch</a>，
+    每件商品皆可點擊前往來源頁確認最新價格與庫存。</p>
+    <h3>收錄的商品系列</h3>
+    <p>PlayP 系列、1/24 組裝模型（青島）、Variable Action、C.F.C.、閃電霹靂車專用色、TOMICA、Hot Wheels</p>
+    <h3>商品分類</h3>
+    <p>服飾、組裝模型、壓克力周邊、完成品模型、周邊雜貨、專用塗料、徽章、貼紙、食玩、包袋、Figure、迷你車、Garage Kit、杯具、卡牌用品、玩具、鑰匙圈、書籍</p>
+    <h3>收錄機體</h3>
+    <p>阿斯拉、阿斯拉 G.S.X、凰呀、超級阿斯拉 01、伊修撒克、超級阿斯拉 AKF-11、超級阿斯拉、ν 阿斯拉、加蘭德、奈特榭貝爾、史匹格、匿蹤捷豹 等</p>
+    <p><small>商品名稱提供繁體中文與日文原名對照，可依分類、系列、機體篩選與搜尋。
+    價格與庫存為抓取當下狀態，非即時報價。</small></p>
   </div>
 
   <div class="grid" id="grid"></div>
@@ -644,7 +678,9 @@
     .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
     .then(data => {
       state.data = data;
-      document.title = data.meta.title;
+      const intro = $('seoIntro');
+      if (intro) intro.remove();   // 資料已載入，靜態摘要功成身退
+      // 不覆寫 <title>——HTML 裡那個是為搜尋結果寫的，比 meta.title 完整
       $('subtitle').textContent = data.meta.subtitle || '';
       if (data.meta.notice) {
         $('notice').hidden = false;

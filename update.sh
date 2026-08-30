@@ -57,6 +57,20 @@ json.dump(d, open(p, "w"), ensure_ascii=False, indent=1)
 print("抓取日期已更新為", d["meta"]["updatedAt"])
 PY
 
+echo "▶ 更新 sitemap 日期…"
+python3 - "$ROOT" <<'PY'
+import json, re, sys, os
+root = sys.argv[1]
+d = json.load(open(os.path.join(root, "products.json")))
+sp = os.path.join(root, "sitemap.xml")
+if os.path.exists(sp):
+    x = open(sp).read()
+    x = re.sub(r"<lastmod>[^<]*</lastmod>",
+               f"<lastmod>{d['meta']['updatedAt']}</lastmod>", x)
+    open(sp, "w").write(x)
+    print("  sitemap lastmod =", d["meta"]["updatedAt"])
+PY
+
 echo "▶ 產生變動紀錄…"
 python3 "$ROOT/scripts/changelog.py" "$ROOT/products.json"
 
@@ -102,12 +116,12 @@ echo "────────────────────────�
 echo ""
 
 if [ "$PUSH" -eq 1 ]; then
-  if [ -z "$(git status --porcelain products.json products.raw.json)" ]; then
+  if [ -z "$(git status --porcelain products.json products.raw.json sitemap.xml)" ]; then
     echo "✓ 資料無變化，不需要 commit"
     exit 0
   fi
   DATE=$(date +%Y-%m-%d)
-  git add products.json products.raw.json
+  git add products.json products.raw.json sitemap.xml
   git commit -q -m "data: 更新商品資料至 $DATE"
   git push -q origin main
   echo "✓ 已推送，GitHub Pages 約 1–2 分鐘後生效"
@@ -115,7 +129,7 @@ if [ "$PUSH" -eq 1 ]; then
 else
   echo "資料已更新到本機。確認無誤後："
   echo "  ./serve.sh                    # 本機預覽"
-  echo "  git add products.json products.raw.json"
+  echo "  git add products.json products.raw.json sitemap.xml"
   echo "  git commit -m 'data: 更新商品資料至 $(date +%Y-%m-%d)'"
   echo "  git push"
 fi

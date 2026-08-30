@@ -164,6 +164,19 @@ python3 scripts/stats.py
 判定表在 `build.py` 的 `PRODUCT_LINES`，依商品名的品牌標記比對。
 **不要為了讓系列集中而去改分類**——分類必須忠於來源站標記。
 
+### SEO 與 Google Search Console
+
+- `<title>` / `description` / canonical / OG 標籤寫在 HTML 裡，**JS 不覆寫 title**
+  （`meta.title` 只用於其他地方，HTML 那個是為搜尋結果寫的，較完整）
+- `#seoIntro` 是靜態摘要：商品清單靠 JS 渲染，原始 HTML 本來零商品資訊，
+  爬蟲要等 rendering queue。這段在 HTML 裡先給出系列／分類／機體等文字，
+  資料載入後由 JS `remove()` 掉。**改動 fetch 成功流程時別把這行刪了。**
+- `sitemap.xml` 由 `update.sh` 自動更新 lastmod。
+- **robots.txt 不要放在這個 repo**——本站在子路徑
+  `/cyber-formula-goods/`，爬蟲只讀網域根目錄的
+  `https://chuehnone.viovie.co/robots.txt`（來自 chuehnone.github.io 那個 repo）。
+  現有設定已允許抓取。
+
 ### 搜尋會忽略分隔符
 
 `index.html` 的 `compact()` 把 `. 空格 - _ / · ・ ‧` 去掉後再比對一次，
