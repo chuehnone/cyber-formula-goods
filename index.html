@@ -258,8 +258,9 @@
 
   <div class="filters">
     <div class="filter-row" id="catRow"><span class="label">分類</span></div>
+    <div class="filter-row" id="lineRow"><span class="label">系列</span></div>
     <div class="filter-row" id="macRow"><span class="label">機體</span></div>
-    <div class="filter-row" id="serRow"><span class="label">系列</span></div>
+    <div class="filter-row" id="serRow"><span class="label">作品</span></div>
     <div class="toolbar">
       <span class="count" id="count"></span>
       <label class="switch" id="changedWrap" hidden><input type="checkbox" id="changedOnly"> 只看有變動</label>
@@ -321,9 +322,9 @@
   };
 
   const PAGE = 60;
-  const state = { data: null, cat: 'all', mac: 'all', ser: 'all', q: '',
+  const state = { data: null, cat: 'all', mac: 'all', ser: 'all', line: 'all', q: '',
                   sort: 'default', officialOnly: false, buyable: false, changedOnly: false,
-                  shown: PAGE, expandCat: false, expandMac: false, expandSer: false };
+                  shown: PAGE, expandCat: false, expandMac: false, expandSer: false, expandLine: false };
 
   /* 主題 */
   const applyTheme = t => {
@@ -345,6 +346,7 @@
       if (state.cat !== 'all' && p.kind !== state.cat) return false;
       if (state.ser !== 'all' && p.series !== state.ser) return false;
       if (state.mac !== 'all' && (!p.machine || p.machine.zh !== state.mac)) return false;
+      if (state.line !== 'all' && (!p.line || p.line.name !== state.line)) return false;
       if (state.officialOnly && !isOfficial(p)) return false;
       if (state.buyable && !BUYABLE.has(p.stockState)) return false;
       if (state.changedOnly && !p.changeType) return false;
@@ -352,7 +354,8 @@
       const hay = [p.nameZh, p.name, p.nameJa, p.maker, p.kindName,
                    p.seriesLineZh, p.seriesLine, p.releaseZh, p.release,
                    p.descZh, p.desc, p.jan,
-                   p.machine && p.machine.zh, p.machine && p.machine.ja]
+                   p.machine && p.machine.zh, p.machine && p.machine.ja,
+                   p.line && p.line.name]
         .filter(Boolean).join(' ').toLowerCase();
       if (hay.includes(q)) return true;
       // 忽略點／空格／連字號等分隔符，讓「CFC」也能命中「C.F.C.」
@@ -461,7 +464,7 @@
         e.preventDefault();
         const p = state.data.products.find(x => x.id === a.dataset.goto);
         if (!p) return;
-        state.cat = 'all'; state.ser = 'all'; state.mac = 'all';
+        state.cat = 'all'; state.ser = 'all'; state.mac = 'all'; state.line = 'all';
         state.officialOnly = false; state.buyable = false; state.changedOnly = false;
         $('officialOnly').checked = false; $('buyable').checked = false;
         $('changedOnly').checked = false;
@@ -481,6 +484,8 @@
     const d = state.data;
     chipRow($('catRow'), d.categories.map(c => ({ id: c.id, name: c.name, count: c.count, icon: c.icon })),
             state.cat, v => state.cat = v, 'expandCat');
+    chipRow($('lineRow'), (d.lines || []).map(l => ({ id: l.name, name: l.name, count: l.count })),
+            state.line, v => state.line = v, 'expandLine');
     chipRow($('macRow'), d.machines.map(m => ({ id: m.name, name: m.name, count: m.count })),
             state.mac, v => state.mac = v, 'expandMac');
     chipRow($('serRow'), d.series.map(s => ({ id: s.id, name: s.name, count: s.count })),
@@ -567,6 +572,7 @@
 
     const rows = [
       ['分類', p.kindName],
+      ['系列', p.line ? p.line.name : null],
       ['機體', p.machine ? `${p.machine.zh}（${p.machine.ja}）` : null],
       ['比例', p.scale],
       ['廠商', p.maker],

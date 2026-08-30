@@ -18,43 +18,7 @@
   "notice": "由上列來源實際抓取。價格與庫存為抓取當下狀態，非即時報價；點擊商品可前往來源頁確認最新資訊。",
   "currency": "JPY",
   "lang": "zh-Hant",
-  "translationNote": "商品名稱為機器輔助翻譯（詞彙表逐詞替換），角色與機體採台灣通行譯名；未收錄之專有名詞保留日文原文。點擊商品可查看日文原名與來源頁。",
-  "changes": {
-   "since": "2026-08-22",
-   "added": [
-    {
-     "id": "hs-10170870",
-     "name": "菅生明日香",
-     "kind": "Figure",
-     "price": 3366
-    }
-   ],
-   "removed": [
-    {
-     "id": "hs-10053808",
-     "name": "菅生明日香"
-    }
-   ],
-   "price": [
-    {
-     "id": "hs-11401503",
-     "name": "新世紀 GPX 閃電霹靂車 SIN 壓克力萬年月曆 Chair ver.",
-     "from": 2277,
-     "to": 2403,
-     "diff": 126
-    }
-   ],
-   "stock": [
-    {
-     "id": "hs-11401503",
-     "name": "新世紀 GPX 閃電霹靂車 SIN 壓克力萬年月曆 Chair ver.",
-     "from": "預購中",
-     "to": "暫停接單",
-     "fromState": "preorder",
-     "toState": "unavailable"
-    }
-   ]
-  }
+  "translationNote": "商品名稱為機器輔助翻譯（詞彙表逐詞替換），角色與機體採台灣通行譯名；未收錄之專有名詞保留日文原文。點擊商品可查看日文原名與來源頁。"
  },
  "categories": [
   {
@@ -250,6 +214,36 @@
    "count": 1
   }
  ],
+ "lines": [
+  {
+   "name": "PlayP 系列",
+   "count": 45
+  },
+  {
+   "name": "1/24 組裝模型（青島）",
+   "count": 43
+  },
+  {
+   "name": "Variable Action",
+   "count": 35
+  },
+  {
+   "name": "C.F.C.",
+   "count": 20
+  },
+  {
+   "name": "閃電霹靂車專用色",
+   "count": 12
+  },
+  {
+   "name": "TOMICA",
+   "count": 2
+  },
+  {
+   "name": "Hot Wheels",
+   "count": 1
+  }
+ ],
  "products": [
   {
    "id": "ao-4905083056059",
@@ -261,6 +255,10 @@
    "machine": {
     "ja": "アスラーダG.S.X",
     "zh": "阿斯拉 G.S.X"
+   },
+   "line": {
+    "id": "aoshima124",
+    "name": "1/24 組裝模型（青島）"
    },
    "scale": "1/24",
    "maker": "AOSHIMA",
@@ -303,6 +301,10 @@
     "ja": "アスラーダG.S.X",
     "zh": "阿斯拉 G.S.X"
    },
+   "line": {
+    "id": "aoshima124",
+    "name": "1/24 組裝模型（青島）"
+   },
    "scale": "1/24",
    "maker": "AOSHIMA",
    "seriesNo": "23",
@@ -343,6 +345,10 @@
    "machine": {
     "ja": "アスラーダG.S.X",
     "zh": "阿斯拉 G.S.X"
+   },
+   "line": {
+    "id": "aoshima124",
+    "name": "1/24 組裝模型（青島）"
    },
    "scale": "1/24",
    "maker": "AOSHIMA",
@@ -385,6 +391,10 @@
     "ja": "アスラーダG.S.X",
     "zh": "阿斯拉 G.S.X"
    },
+   "line": {
+    "id": "aoshima124",
+    "name": "1/24 組裝模型（青島）"
+   },
    "scale": "1/24",
    "maker": "AOSHIMA",
    "seriesNo": null,
@@ -418,6 +428,10 @@
    "machine": {
     "ja": "スーパーアスラーダ SA-01",
     "zh": "超級阿斯拉 SA-01"
+   },
+   "line": {
+    "id": "aoshima124",
+    "name": "1/24 組裝模型（青島）"
    },
    "scale": "1/24",
    "maker": "AOSHIMA",
@@ -460,6 +474,10 @@
     "ja": "アスラーダG.S.X",
     "zh": "阿斯拉 G.S.X"
    },
+   "line": {
+    "id": "aoshima124",
+    "name": "1/24 組裝模型（青島）"
+   },
    "scale": "1/24",
    "maker": "AOSHIMA",
    "seriesNo": null,
@@ -493,6 +511,10 @@
    "machine": {
     "ja": "イシュザーク",
     "zh": "伊修撒克"
+   },
+   "line": {
+    "id": "aoshima124",
+    "name": "1/24 組裝模型（青島）"
    },
    "scale": "1/24",
    "maker": "AOSHIMA",
@@ -528,6 +550,10 @@
     "ja": "イシュザーク",
     "zh": "伊修撒克"
    },
+   "line": {
+    "id": "aoshima124",
+    "name": "1/24 組裝模型（青島）"
+   },
    "scale": "1/24",
    "maker": "AOSHIMA",
    "seriesNo": "11",
@@ -561,6 +587,10 @@
    "machine": {
     "ja": "アスラーダG.S.X",
     "zh": "阿斯拉 G.S.X"
+   },
+   "line": {
+    "id": "aoshima124",
+    "name": "1/24 組裝模型（青島）"
    },
    "scale": "1/24",
    "maker": "AOSHIMA",
@@ -601,6 +631,10 @@
    "machine": {
     "ja": "スーパーアスラーダ01",
     "zh": "超級阿斯拉 01"
+   },
+   "line": {
+    "id": "aoshima124",
+    "name": "1/24 組裝模型（青島）"
    },
    "scale": "1/24",
    "maker": "AOSHIMA",
@@ -643,6 +677,10 @@
     "ja": "スーパーアスラーダ01",
     "zh": "超級阿斯拉 01"
    },
+   "line": {
+    "id": "aoshima124",
+    "name": "1/24 組裝模型（青島）"
+   },
    "scale": "1/24",
    "maker": "AOSHIMA",
    "seriesNo": "24",
@@ -684,6 +722,10 @@
     "ja": "スーパーアスラーダ01",
     "zh": "超級阿斯拉 01"
    },
+   "line": {
+    "id": "aoshima124",
+    "name": "1/24 組裝模型（青島）"
+   },
    "scale": "1/24",
    "maker": "AOSHIMA",
    "seriesNo": null,
@@ -724,6 +766,10 @@
    "machine": {
     "ja": "νアスラーダ",
     "zh": "ν 阿斯拉"
+   },
+   "line": {
+    "id": "aoshima124",
+    "name": "1/24 組裝模型（青島）"
    },
    "scale": "1/24",
    "maker": "AOSHIMA",
@@ -769,6 +815,10 @@
    "machine": {
     "ja": "スーパーアスラーダ AKF-11",
     "zh": "超級阿斯拉 AKF-11"
+   },
+   "line": {
+    "id": "aoshima124",
+    "name": "1/24 組裝模型（青島）"
    },
    "scale": "1/24",
    "maker": "AOSHIMA",
@@ -819,6 +869,10 @@
     "ja": "ガーランド",
     "zh": "加蘭德"
    },
+   "line": {
+    "id": "aoshima124",
+    "name": "1/24 組裝模型（青島）"
+   },
    "scale": "1/24",
    "maker": "AOSHIMA",
    "seriesNo": "4",
@@ -863,6 +917,10 @@
    "machine": {
     "ja": "シュピーゲル",
     "zh": "史匹格"
+   },
+   "line": {
+    "id": "aoshima124",
+    "name": "1/24 組裝模型（青島）"
    },
    "scale": "1/24",
    "maker": "AOSHIMA",
@@ -909,6 +967,10 @@
     "ja": "νアスラーダ",
     "zh": "ν 阿斯拉"
    },
+   "line": {
+    "id": "aoshima124",
+    "name": "1/24 組裝模型（青島）"
+   },
    "scale": "1/24",
    "maker": "AOSHIMA",
    "seriesNo": "8",
@@ -954,6 +1016,10 @@
     "ja": "スーパーアスラーダ AKF-11",
     "zh": "超級阿斯拉 AKF-11"
    },
+   "line": {
+    "id": "aoshima124",
+    "name": "1/24 組裝模型（青島）"
+   },
    "scale": "1/24",
    "maker": "AOSHIMA",
    "seriesNo": "9",
@@ -998,6 +1064,10 @@
    "machine": {
     "ja": "アスラーダG.S.X",
     "zh": "阿斯拉 G.S.X"
+   },
+   "line": {
+    "id": "aoshima124",
+    "name": "1/24 組裝模型（青島）"
    },
    "scale": "1/24",
    "maker": "AOSHIMA",
@@ -1048,6 +1118,10 @@
     "ja": "凰呀",
     "zh": "凰呀"
    },
+   "line": {
+    "id": "aoshima124",
+    "name": "1/24 組裝模型（青島）"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -1086,6 +1160,10 @@
    "machine": {
     "ja": "νアスラーダ",
     "zh": "ν 阿斯拉"
+   },
+   "line": {
+    "id": "aoshima124",
+    "name": "1/24 組裝模型（青島）"
    },
    "scale": null,
    "maker": null,
@@ -1126,6 +1204,10 @@
     "ja": "イシュザーク",
     "zh": "伊修撒克"
    },
+   "line": {
+    "id": "aoshima124",
+    "name": "1/24 組裝模型（青島）"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -1161,6 +1243,10 @@
     "ja": "イシュザーク",
     "zh": "伊修撒克"
    },
+   "line": {
+    "id": "aoshima124",
+    "name": "1/24 組裝模型（青島）"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -1195,6 +1281,10 @@
    "machine": {
     "ja": "スーパーアスラーダ01",
     "zh": "超級阿斯拉 01"
+   },
+   "line": {
+    "id": "va",
+    "name": "Variable Action"
    },
    "scale": null,
    "maker": null,
@@ -1239,6 +1329,7 @@
     "ja": "プロトジャガー",
     "zh": "原型捷豹"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -1274,6 +1365,7 @@
     "ja": "ステルスジャガー",
     "zh": "匿蹤捷豹"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -1309,6 +1401,10 @@
     "ja": "ナイトセイバー",
     "zh": "奈特榭貝爾"
    },
+   "line": {
+    "id": "cfc",
+    "name": "C.F.C."
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -1341,6 +1437,10 @@
    "kindName": "完成品模型",
    "series": "unknown",
    "machine": null,
+   "line": {
+    "id": "cfc",
+    "name": "C.F.C."
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -1375,6 +1475,10 @@
    "machine": {
     "ja": "アスラーダG.S.X",
     "zh": "阿斯拉 G.S.X"
+   },
+   "line": {
+    "id": "cfc",
+    "name": "C.F.C."
    },
    "scale": null,
    "maker": null,
@@ -1411,6 +1515,10 @@
     "ja": "スーパーアスラーダ01",
     "zh": "超級阿斯拉 01"
    },
+   "line": {
+    "id": "cfc",
+    "name": "C.F.C."
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -1445,6 +1553,10 @@
    "machine": {
     "ja": "エクスペリオン",
     "zh": "艾克斯佩利安"
+   },
+   "line": {
+    "id": "cfc",
+    "name": "C.F.C."
    },
    "scale": null,
    "maker": null,
@@ -1481,6 +1593,10 @@
     "ja": "凰呀",
     "zh": "凰呀"
    },
+   "line": {
+    "id": "cfc",
+    "name": "C.F.C."
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -1515,6 +1631,10 @@
    "machine": {
     "ja": "アスラーダG.S.X",
     "zh": "阿斯拉 G.S.X"
+   },
+   "line": {
+    "id": "tomica",
+    "name": "TOMICA"
    },
    "scale": null,
    "maker": null,
@@ -1551,6 +1671,10 @@
     "ja": "ナイトセイバー",
     "zh": "奈特榭貝爾"
    },
+   "line": {
+    "id": "tomica",
+    "name": "TOMICA"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -1583,6 +1707,10 @@
    "kindName": "專用塗料",
    "series": "unknown",
    "machine": null,
+   "line": {
+    "id": "cfcolor",
+    "name": "閃電霹靂車專用色"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -1615,6 +1743,10 @@
    "kindName": "專用塗料",
    "series": "unknown",
    "machine": null,
+   "line": {
+    "id": "cfcolor",
+    "name": "閃電霹靂車專用色"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -1647,6 +1779,7 @@
    "kindName": "完成品模型",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -1679,6 +1812,7 @@
    "kindName": "完成品模型",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -1711,6 +1845,7 @@
    "kindName": "Figure",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -1743,6 +1878,7 @@
    "kindName": "完成品模型",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -1779,6 +1915,7 @@
    "kindName": "完成品模型",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -1811,6 +1948,7 @@
    "kindName": "Figure",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -1843,6 +1981,7 @@
    "kindName": "Figure",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -1869,8 +2008,7 @@
     }
    ],
    "nameZh": "菅生明日香",
-   "releaseZh": "2012 年 5 月 下旬 發售",
-   "changeType": "added"
+   "releaseZh": "2012 年 5 月 下旬 發售"
   },
   {
    "id": "hs-10246399",
@@ -1880,6 +2018,7 @@
    "kindName": "Figure",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -1912,6 +2051,7 @@
    "kindName": "Garage Kit",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -1944,6 +2084,7 @@
    "kindName": "Garage Kit",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -1976,6 +2117,7 @@
    "kindName": "組裝模型",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -2010,6 +2152,10 @@
    "machine": {
     "ja": "スーパーアスラーダ",
     "zh": "超級阿斯拉"
+   },
+   "line": {
+    "id": "aoshima124",
+    "name": "1/24 組裝模型（青島）"
    },
    "scale": null,
    "maker": null,
@@ -2046,6 +2192,10 @@
     "ja": "ガーランド",
     "zh": "加蘭德"
    },
+   "line": {
+    "id": "aoshima124",
+    "name": "1/24 組裝模型（青島）"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -2078,6 +2228,7 @@
    "kindName": "組裝模型",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -2113,6 +2264,7 @@
     "ja": "オーガ",
     "zh": "凰呀"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -2147,6 +2299,10 @@
    "machine": {
     "ja": "シュピーゲル",
     "zh": "史匹格"
+   },
+   "line": {
+    "id": "aoshima124",
+    "name": "1/24 組裝模型（青島）"
    },
    "scale": null,
    "maker": null,
@@ -2183,6 +2339,10 @@
     "ja": "イシュザーク",
     "zh": "伊修撒克"
    },
+   "line": {
+    "id": "aoshima124",
+    "name": "1/24 組裝模型（青島）"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -2218,6 +2378,7 @@
     "ja": "オーガ",
     "zh": "凰呀"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -2252,6 +2413,10 @@
    "machine": {
     "ja": "スーパーアスラーダ",
     "zh": "超級阿斯拉"
+   },
+   "line": {
+    "id": "aoshima124",
+    "name": "1/24 組裝模型（青島）"
    },
    "scale": null,
    "maker": null,
@@ -2288,6 +2453,10 @@
     "ja": "スーパーアスラーダ",
     "zh": "超級阿斯拉"
    },
+   "line": {
+    "id": "aoshima124",
+    "name": "1/24 組裝模型（青島）"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -2323,6 +2492,7 @@
     "ja": "オーガ",
     "zh": "凰呀"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -2358,6 +2528,7 @@
     "ja": "アスラーダ",
     "zh": "阿斯拉"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -2392,6 +2563,10 @@
    "machine": {
     "ja": "スーパーアスラーダ AKF-11",
     "zh": "超級阿斯拉 AKF-11"
+   },
+   "line": {
+    "id": "aoshima124",
+    "name": "1/24 組裝模型（青島）"
    },
    "scale": null,
    "maker": null,
@@ -2428,6 +2603,7 @@
     "ja": "オーガ",
     "zh": "凰呀"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -2462,6 +2638,10 @@
    "machine": {
     "ja": "νアスラーダ",
     "zh": "ν 阿斯拉"
+   },
+   "line": {
+    "id": "aoshima124",
+    "name": "1/24 組裝模型（青島）"
    },
    "scale": null,
    "maker": null,
@@ -2498,6 +2678,10 @@
     "ja": "アスラーダ",
     "zh": "阿斯拉"
    },
+   "line": {
+    "id": "aoshima124",
+    "name": "1/24 組裝模型（青島）"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -2533,6 +2717,7 @@
     "ja": "ガーランド",
     "zh": "加蘭德"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -2567,6 +2752,10 @@
    "machine": {
     "ja": "シュピーゲル",
     "zh": "史匹格"
+   },
+   "line": {
+    "id": "aoshima124",
+    "name": "1/24 組裝模型（青島）"
    },
    "scale": null,
    "maker": null,
@@ -2603,6 +2792,10 @@
     "ja": "シュピーゲル",
     "zh": "史匹格"
    },
+   "line": {
+    "id": "aoshima124",
+    "name": "1/24 組裝模型（青島）"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -2638,6 +2831,7 @@
     "ja": "アスラーダG.S.X",
     "zh": "阿斯拉 G.S.X"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -2673,6 +2867,7 @@
     "ja": "オーガ",
     "zh": "凰呀"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -2708,6 +2903,7 @@
     "ja": "アスラーダG.S.X",
     "zh": "阿斯拉 G.S.X"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -2743,6 +2939,7 @@
     "ja": "ガーランド",
     "zh": "加蘭德"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -2778,6 +2975,7 @@
     "ja": "ガーランド",
     "zh": "加蘭德"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -2812,6 +3010,10 @@
    "machine": {
     "ja": "アスラーダ",
     "zh": "阿斯拉"
+   },
+   "line": {
+    "id": "aoshima124",
+    "name": "1/24 組裝模型（青島）"
    },
    "scale": null,
    "maker": null,
@@ -2848,6 +3050,7 @@
     "ja": "ガーランド",
     "zh": "加蘭德"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -2882,6 +3085,10 @@
    "machine": {
     "ja": "アスラーダ",
     "zh": "阿斯拉"
+   },
+   "line": {
+    "id": "aoshima124",
+    "name": "1/24 組裝模型（青島）"
    },
    "scale": null,
    "maker": null,
@@ -2918,6 +3125,10 @@
     "ja": "スーパーアスラーダ01",
     "zh": "超級阿斯拉 01"
    },
+   "line": {
+    "id": "aoshima124",
+    "name": "1/24 組裝模型（青島）"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -2953,6 +3164,7 @@
     "ja": "アスラーダ",
     "zh": "阿斯拉"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -2988,6 +3200,10 @@
     "ja": "アスラーダ",
     "zh": "阿斯拉"
    },
+   "line": {
+    "id": "aoshima124",
+    "name": "1/24 組裝模型（青島）"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -3022,6 +3238,10 @@
    "machine": {
     "ja": "凰呀",
     "zh": "凰呀"
+   },
+   "line": {
+    "id": "aoshima124",
+    "name": "1/24 組裝模型（青島）"
    },
    "scale": null,
    "maker": null,
@@ -3062,6 +3282,10 @@
     "ja": "イシュザーク",
     "zh": "伊修撒克"
    },
+   "line": {
+    "id": "va",
+    "name": "Variable Action"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -3098,6 +3322,10 @@
    "kindName": "組裝模型",
    "series": "unknown",
    "machine": null,
+   "line": {
+    "id": "va",
+    "name": "Variable Action"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -3132,6 +3360,10 @@
    "machine": {
     "ja": "ナイトセイバー",
     "zh": "奈特榭貝爾"
+   },
+   "line": {
+    "id": "va",
+    "name": "Variable Action"
    },
    "scale": null,
    "maker": null,
@@ -3169,6 +3401,10 @@
    "kindName": "組裝模型",
    "series": "unknown",
    "machine": null,
+   "line": {
+    "id": "va",
+    "name": "Variable Action"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -3203,6 +3439,10 @@
    "machine": {
     "ja": "アスラーダG.S.X",
     "zh": "阿斯拉 G.S.X"
+   },
+   "line": {
+    "id": "va",
+    "name": "Variable Action"
    },
    "scale": null,
    "maker": null,
@@ -3239,6 +3479,10 @@
     "ja": "ステルスジャガー",
     "zh": "匿蹤捷豹"
    },
+   "line": {
+    "id": "va",
+    "name": "Variable Action"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -3271,6 +3515,10 @@
    "kindName": "組裝模型",
    "series": "unknown",
    "machine": null,
+   "line": {
+    "id": "va",
+    "name": "Variable Action"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -3303,6 +3551,7 @@
    "kindName": "完成品模型",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -3335,6 +3584,10 @@
    "kindName": "完成品模型",
    "series": "unknown",
    "machine": null,
+   "line": {
+    "id": "cfc",
+    "name": "C.F.C."
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -3367,6 +3620,10 @@
    "kindName": "完成品模型",
    "series": "unknown",
    "machine": null,
+   "line": {
+    "id": "cfc",
+    "name": "C.F.C."
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -3401,6 +3658,10 @@
    "machine": {
     "ja": "イシュザーク",
     "zh": "伊修撒克"
+   },
+   "line": {
+    "id": "cfc",
+    "name": "C.F.C."
    },
    "scale": null,
    "maker": null,
@@ -3437,6 +3698,10 @@
     "ja": "スーパーアスラーダ01",
     "zh": "超級阿斯拉 01"
    },
+   "line": {
+    "id": "cfc",
+    "name": "C.F.C."
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -3471,6 +3736,10 @@
    "machine": {
     "ja": "スーパーアスラーダ",
     "zh": "超級阿斯拉"
+   },
+   "line": {
+    "id": "cfc",
+    "name": "C.F.C."
    },
    "scale": null,
    "maker": null,
@@ -3507,6 +3776,10 @@
     "ja": "アスラーダG.S.X",
     "zh": "阿斯拉 G.S.X"
    },
+   "line": {
+    "id": "cfc",
+    "name": "C.F.C."
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -3539,6 +3812,10 @@
    "kindName": "完成品模型",
    "series": "unknown",
    "machine": null,
+   "line": {
+    "id": "cfc",
+    "name": "C.F.C."
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -3573,6 +3850,10 @@
    "machine": {
     "ja": "νアスラーダ",
     "zh": "ν 阿斯拉"
+   },
+   "line": {
+    "id": "cfc",
+    "name": "C.F.C."
    },
    "scale": null,
    "maker": null,
@@ -3609,6 +3890,10 @@
     "ja": "ナイトセイバー",
     "zh": "奈特榭貝爾"
    },
+   "line": {
+    "id": "va",
+    "name": "Variable Action"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -3643,6 +3928,10 @@
    "machine": {
     "ja": "イシュザーク",
     "zh": "伊修撒克"
+   },
+   "line": {
+    "id": "va",
+    "name": "Variable Action"
    },
    "scale": null,
    "maker": null,
@@ -3679,6 +3968,10 @@
     "ja": "アスラーダ",
     "zh": "阿斯拉"
    },
+   "line": {
+    "id": "va",
+    "name": "Variable Action"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -3713,6 +4006,10 @@
    "machine": {
     "ja": "ナイトセイバー",
     "zh": "奈特榭貝爾"
+   },
+   "line": {
+    "id": "va",
+    "name": "Variable Action"
    },
    "scale": null,
    "maker": null,
@@ -3749,6 +4046,10 @@
     "ja": "スーパーアスラーダ01",
     "zh": "超級阿斯拉 01"
    },
+   "line": {
+    "id": "va",
+    "name": "Variable Action"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -3783,6 +4084,10 @@
    "machine": {
     "ja": "スーパーアスラーダ01",
     "zh": "超級阿斯拉 01"
+   },
+   "line": {
+    "id": "va",
+    "name": "Variable Action"
    },
    "scale": null,
    "maker": null,
@@ -3819,6 +4124,10 @@
     "ja": "アスラーダ",
     "zh": "阿斯拉"
    },
+   "line": {
+    "id": "va",
+    "name": "Variable Action"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -3854,6 +4163,10 @@
     "ja": "エクスペリオン",
     "zh": "艾克斯佩利安"
    },
+   "line": {
+    "id": "va",
+    "name": "Variable Action"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -3888,6 +4201,10 @@
    "machine": {
     "ja": "スーパーアスラーダ01",
     "zh": "超級阿斯拉 01"
+   },
+   "line": {
+    "id": "va",
+    "name": "Variable Action"
    },
    "scale": null,
    "maker": null,
@@ -3925,6 +4242,10 @@
    "kindName": "食玩",
    "series": "unknown",
    "machine": null,
+   "line": {
+    "id": "cfc",
+    "name": "C.F.C."
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -3959,6 +4280,10 @@
    "machine": {
     "ja": "アスラーダ",
     "zh": "阿斯拉"
+   },
+   "line": {
+    "id": "va",
+    "name": "Variable Action"
    },
    "scale": null,
    "maker": null,
@@ -3995,6 +4320,10 @@
     "ja": "凰呀",
     "zh": "凰呀"
    },
+   "line": {
+    "id": "va",
+    "name": "Variable Action"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -4029,6 +4358,10 @@
    "machine": {
     "ja": "ガーランド",
     "zh": "加蘭德"
+   },
+   "line": {
+    "id": "va",
+    "name": "Variable Action"
    },
    "scale": null,
    "maker": null,
@@ -4065,6 +4398,10 @@
     "ja": "スーパーアスラーダ01",
     "zh": "超級阿斯拉 01"
    },
+   "line": {
+    "id": "va",
+    "name": "Variable Action"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -4100,6 +4437,10 @@
     "ja": "スーパーアスラーダ AKF-11",
     "zh": "超級阿斯拉 AKF-11"
    },
+   "line": {
+    "id": "va",
+    "name": "Variable Action"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -4132,6 +4473,10 @@
    "kindName": "完成品模型",
    "series": "unknown",
    "machine": null,
+   "line": {
+    "id": "va",
+    "name": "Variable Action"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -4164,6 +4509,10 @@
    "kindName": "食玩",
    "series": "unknown",
    "machine": null,
+   "line": {
+    "id": "cfc",
+    "name": "C.F.C."
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -4198,6 +4547,10 @@
    "machine": {
     "ja": "νアスラーダ",
     "zh": "ν 阿斯拉"
+   },
+   "line": {
+    "id": "va",
+    "name": "Variable Action"
    },
    "scale": null,
    "maker": null,
@@ -4234,6 +4587,10 @@
     "ja": "スーパーアスラーダ",
     "zh": "超級阿斯拉"
    },
+   "line": {
+    "id": "va",
+    "name": "Variable Action"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -4268,6 +4625,10 @@
    "machine": {
     "ja": "アスラーダG.S.X",
     "zh": "阿斯拉 G.S.X"
+   },
+   "line": {
+    "id": "va",
+    "name": "Variable Action"
    },
    "scale": null,
    "maker": null,
@@ -4304,6 +4665,10 @@
     "ja": "スーパーアスラーダ",
     "zh": "超級阿斯拉"
    },
+   "line": {
+    "id": "va",
+    "name": "Variable Action"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -4336,6 +4701,10 @@
    "kindName": "食玩",
    "series": "unknown",
    "machine": null,
+   "line": {
+    "id": "cfc",
+    "name": "C.F.C."
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -4370,6 +4739,10 @@
    "machine": {
     "ja": "νアスラーダ",
     "zh": "ν 阿斯拉"
+   },
+   "line": {
+    "id": "va",
+    "name": "Variable Action"
    },
    "scale": null,
    "maker": null,
@@ -4406,6 +4779,10 @@
     "ja": "エクスペリオン",
     "zh": "艾克斯佩利安"
    },
+   "line": {
+    "id": "va",
+    "name": "Variable Action"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -4440,6 +4817,10 @@
    "machine": {
     "ja": "凰呀",
     "zh": "凰呀"
+   },
+   "line": {
+    "id": "va",
+    "name": "Variable Action"
    },
    "scale": null,
    "maker": null,
@@ -4476,6 +4857,10 @@
     "ja": "凰呀",
     "zh": "凰呀"
    },
+   "line": {
+    "id": "va",
+    "name": "Variable Action"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -4510,6 +4895,10 @@
    "machine": {
     "ja": "アスラーダ",
     "zh": "阿斯拉"
+   },
+   "line": {
+    "id": "va",
+    "name": "Variable Action"
    },
    "scale": null,
    "maker": null,
@@ -4546,6 +4935,10 @@
     "ja": "凰呀",
     "zh": "凰呀"
    },
+   "line": {
+    "id": "va",
+    "name": "Variable Action"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -4580,6 +4973,10 @@
    "machine": {
     "ja": "ステルスジャガー",
     "zh": "匿蹤捷豹"
+   },
+   "line": {
+    "id": "va",
+    "name": "Variable Action"
    },
    "scale": null,
    "maker": null,
@@ -4616,6 +5013,10 @@
     "ja": "スーパーアスラーダ",
     "zh": "超級阿斯拉"
    },
+   "line": {
+    "id": "va",
+    "name": "Variable Action"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -4651,6 +5052,10 @@
     "ja": "凰呀",
     "zh": "凰呀"
    },
+   "line": {
+    "id": "cfc",
+    "name": "C.F.C."
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -4683,6 +5088,10 @@
    "kindName": "食玩",
    "series": "unknown",
    "machine": null,
+   "line": {
+    "id": "cfc",
+    "name": "C.F.C."
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -4715,6 +5124,10 @@
    "kindName": "食玩",
    "series": "unknown",
    "machine": null,
+   "line": {
+    "id": "cfc",
+    "name": "C.F.C."
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -4749,6 +5162,10 @@
    "machine": {
     "ja": "アスラーダ",
     "zh": "阿斯拉"
+   },
+   "line": {
+    "id": "aoshima124",
+    "name": "1/24 組裝模型（青島）"
    },
    "scale": null,
    "maker": null,
@@ -4785,6 +5202,10 @@
     "ja": "アスラーダ",
     "zh": "阿斯拉"
    },
+   "line": {
+    "id": "aoshima124",
+    "name": "1/24 組裝模型（青島）"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -4820,6 +5241,7 @@
     "ja": "アスラーダ",
     "zh": "阿斯拉"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -4855,6 +5277,10 @@
     "ja": "アスラーダ",
     "zh": "阿斯拉"
    },
+   "line": {
+    "id": "aoshima124",
+    "name": "1/24 組裝模型（青島）"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -4887,6 +5313,7 @@
    "kindName": "完成品模型",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -4921,6 +5348,10 @@
    "machine": {
     "ja": "アスラーダ",
     "zh": "阿斯拉"
+   },
+   "line": {
+    "id": "aoshima124",
+    "name": "1/24 組裝模型（青島）"
    },
    "scale": null,
    "maker": null,
@@ -4957,6 +5388,7 @@
     "ja": "アスラーダ",
     "zh": "阿斯拉"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -4992,6 +5424,10 @@
     "ja": "アスラーダ",
     "zh": "阿斯拉"
    },
+   "line": {
+    "id": "hotwheels",
+    "name": "Hot Wheels"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -5024,6 +5460,7 @@
    "kindName": "徽章",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -5056,6 +5493,7 @@
    "kindName": "周邊雜貨",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -5088,6 +5526,10 @@
    "kindName": "壓克力周邊",
    "series": "unknown",
    "machine": null,
+   "line": {
+    "id": "playp",
+    "name": "PlayP 系列"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -5123,6 +5565,10 @@
     "ja": "アスラーダ",
     "zh": "阿斯拉"
    },
+   "line": {
+    "id": "playp",
+    "name": "PlayP 系列"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -5155,6 +5601,10 @@
    "kindName": "壓克力周邊",
    "series": "unknown",
    "machine": null,
+   "line": {
+    "id": "playp",
+    "name": "PlayP 系列"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -5187,6 +5637,10 @@
    "kindName": "壓克力周邊",
    "series": "unknown",
    "machine": null,
+   "line": {
+    "id": "playp",
+    "name": "PlayP 系列"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -5219,6 +5673,10 @@
    "kindName": "壓克力周邊",
    "series": "unknown",
    "machine": null,
+   "line": {
+    "id": "playp",
+    "name": "PlayP 系列"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -5251,6 +5709,10 @@
    "kindName": "壓克力周邊",
    "series": "unknown",
    "machine": null,
+   "line": {
+    "id": "playp",
+    "name": "PlayP 系列"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -5283,6 +5745,10 @@
    "kindName": "壓克力周邊",
    "series": "unknown",
    "machine": null,
+   "line": {
+    "id": "playp",
+    "name": "PlayP 系列"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -5315,6 +5781,10 @@
    "kindName": "壓克力周邊",
    "series": "unknown",
    "machine": null,
+   "line": {
+    "id": "playp",
+    "name": "PlayP 系列"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -5347,6 +5817,10 @@
    "kindName": "壓克力周邊",
    "series": "unknown",
    "machine": null,
+   "line": {
+    "id": "playp",
+    "name": "PlayP 系列"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -5379,6 +5853,10 @@
    "kindName": "壓克力周邊",
    "series": "unknown",
    "machine": null,
+   "line": {
+    "id": "playp",
+    "name": "PlayP 系列"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -5414,6 +5892,10 @@
     "ja": "アスラーダ",
     "zh": "阿斯拉"
    },
+   "line": {
+    "id": "playp",
+    "name": "PlayP 系列"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -5446,6 +5928,10 @@
    "kindName": "壓克力周邊",
    "series": "unknown",
    "machine": null,
+   "line": {
+    "id": "playp",
+    "name": "PlayP 系列"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -5478,6 +5964,10 @@
    "kindName": "壓克力周邊",
    "series": "unknown",
    "machine": null,
+   "line": {
+    "id": "playp",
+    "name": "PlayP 系列"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -5510,6 +6000,10 @@
    "kindName": "壓克力周邊",
    "series": "unknown",
    "machine": null,
+   "line": {
+    "id": "playp",
+    "name": "PlayP 系列"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -5542,6 +6036,10 @@
    "kindName": "壓克力周邊",
    "series": "unknown",
    "machine": null,
+   "line": {
+    "id": "playp",
+    "name": "PlayP 系列"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -5574,6 +6072,10 @@
    "kindName": "壓克力周邊",
    "series": "unknown",
    "machine": null,
+   "line": {
+    "id": "playp",
+    "name": "PlayP 系列"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -5606,6 +6108,10 @@
    "kindName": "壓克力周邊",
    "series": "unknown",
    "machine": null,
+   "line": {
+    "id": "playp",
+    "name": "PlayP 系列"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -5638,6 +6144,10 @@
    "kindName": "壓克力周邊",
    "series": "unknown",
    "machine": null,
+   "line": {
+    "id": "playp",
+    "name": "PlayP 系列"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -5670,6 +6180,10 @@
    "kindName": "壓克力周邊",
    "series": "unknown",
    "machine": null,
+   "line": {
+    "id": "playp",
+    "name": "PlayP 系列"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -5702,6 +6216,10 @@
    "kindName": "壓克力周邊",
    "series": "unknown",
    "machine": null,
+   "line": {
+    "id": "playp",
+    "name": "PlayP 系列"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -5734,6 +6252,10 @@
    "kindName": "壓克力周邊",
    "series": "unknown",
    "machine": null,
+   "line": {
+    "id": "playp",
+    "name": "PlayP 系列"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -5766,6 +6288,10 @@
    "kindName": "壓克力周邊",
    "series": "unknown",
    "machine": null,
+   "line": {
+    "id": "playp",
+    "name": "PlayP 系列"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -5798,6 +6324,10 @@
    "kindName": "壓克力周邊",
    "series": "unknown",
    "machine": null,
+   "line": {
+    "id": "playp",
+    "name": "PlayP 系列"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -5830,6 +6360,7 @@
    "kindName": "周邊雜貨",
    "series": "sin",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -5862,6 +6393,10 @@
    "kindName": "壓克力周邊",
    "series": "unknown",
    "machine": null,
+   "line": {
+    "id": "playp",
+    "name": "PlayP 系列"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -5894,6 +6429,7 @@
    "kindName": "周邊雜貨",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -5928,6 +6464,10 @@
    "machine": {
     "ja": "アスラーダ",
     "zh": "阿斯拉"
+   },
+   "line": {
+    "id": "playp",
+    "name": "PlayP 系列"
    },
    "scale": null,
    "maker": null,
@@ -5964,6 +6504,10 @@
     "ja": "アスラーダ",
     "zh": "阿斯拉"
    },
+   "line": {
+    "id": "playp",
+    "name": "PlayP 系列"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -5996,6 +6540,10 @@
    "kindName": "壓克力周邊",
    "series": "unknown",
    "machine": null,
+   "line": {
+    "id": "playp",
+    "name": "PlayP 系列"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -6031,6 +6579,7 @@
     "ja": "アスラーダ",
     "zh": "阿斯拉"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -6063,6 +6612,7 @@
    "kindName": "周邊雜貨",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -6098,6 +6648,10 @@
     "ja": "アスラーダ",
     "zh": "阿斯拉"
    },
+   "line": {
+    "id": "playp",
+    "name": "PlayP 系列"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -6130,6 +6684,10 @@
    "kindName": "周邊雜貨",
    "series": "unknown",
    "machine": null,
+   "line": {
+    "id": "playp",
+    "name": "PlayP 系列"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -6162,6 +6720,10 @@
    "kindName": "周邊雜貨",
    "series": "unknown",
    "machine": null,
+   "line": {
+    "id": "playp",
+    "name": "PlayP 系列"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -6194,6 +6756,10 @@
    "kindName": "周邊雜貨",
    "series": "unknown",
    "machine": null,
+   "line": {
+    "id": "playp",
+    "name": "PlayP 系列"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -6226,6 +6792,10 @@
    "kindName": "周邊雜貨",
    "series": "unknown",
    "machine": null,
+   "line": {
+    "id": "playp",
+    "name": "PlayP 系列"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -6258,6 +6828,10 @@
    "kindName": "周邊雜貨",
    "series": "unknown",
    "machine": null,
+   "line": {
+    "id": "playp",
+    "name": "PlayP 系列"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -6293,6 +6867,10 @@
     "ja": "アスラーダ",
     "zh": "阿斯拉"
    },
+   "line": {
+    "id": "playp",
+    "name": "PlayP 系列"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -6325,6 +6903,10 @@
    "kindName": "周邊雜貨",
    "series": "unknown",
    "machine": null,
+   "line": {
+    "id": "playp",
+    "name": "PlayP 系列"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -6357,6 +6939,10 @@
    "kindName": "壓克力周邊",
    "series": "unknown",
    "machine": null,
+   "line": {
+    "id": "playp",
+    "name": "PlayP 系列"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -6389,6 +6975,10 @@
    "kindName": "壓克力周邊",
    "series": "unknown",
    "machine": null,
+   "line": {
+    "id": "playp",
+    "name": "PlayP 系列"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -6421,6 +7011,10 @@
    "kindName": "周邊雜貨",
    "series": "unknown",
    "machine": null,
+   "line": {
+    "id": "playp",
+    "name": "PlayP 系列"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -6453,6 +7047,10 @@
    "kindName": "壓克力周邊",
    "series": "unknown",
    "machine": null,
+   "line": {
+    "id": "playp",
+    "name": "PlayP 系列"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -6485,6 +7083,10 @@
    "kindName": "周邊雜貨",
    "series": "unknown",
    "machine": null,
+   "line": {
+    "id": "playp",
+    "name": "PlayP 系列"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -6517,6 +7119,10 @@
    "kindName": "壓克力周邊",
    "series": "unknown",
    "machine": null,
+   "line": {
+    "id": "playp",
+    "name": "PlayP 系列"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -6549,6 +7155,7 @@
    "kindName": "周邊雜貨",
    "series": "sin",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -6581,6 +7188,10 @@
    "kindName": "壓克力周邊",
    "series": "unknown",
    "machine": null,
+   "line": {
+    "id": "playp",
+    "name": "PlayP 系列"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -6613,6 +7224,7 @@
    "kindName": "周邊雜貨",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -6645,6 +7257,10 @@
    "kindName": "壓克力周邊",
    "series": "unknown",
    "machine": null,
+   "line": {
+    "id": "playp",
+    "name": "PlayP 系列"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -6677,6 +7293,10 @@
    "kindName": "壓克力周邊",
    "series": "unknown",
    "machine": null,
+   "line": {
+    "id": "playp",
+    "name": "PlayP 系列"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -6709,6 +7329,7 @@
    "kindName": "周邊雜貨",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -6744,6 +7365,7 @@
     "ja": "アスラーダ",
     "zh": "阿斯拉"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -6779,6 +7401,7 @@
     "ja": "アスラーダ",
     "zh": "阿斯拉"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -6811,6 +7434,7 @@
    "kindName": "周邊雜貨",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -6843,6 +7467,10 @@
    "kindName": "壓克力周邊",
    "series": "unknown",
    "machine": null,
+   "line": {
+    "id": "playp",
+    "name": "PlayP 系列"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -6878,6 +7506,7 @@
     "ja": "アスラーダ",
     "zh": "阿斯拉"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -6913,6 +7542,7 @@
     "ja": "アスラーダ",
     "zh": "阿斯拉"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -6948,6 +7578,7 @@
     "ja": "アスラーダ",
     "zh": "阿斯拉"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -6983,6 +7614,7 @@
     "ja": "アスラーダ",
     "zh": "阿斯拉"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -7018,6 +7650,7 @@
     "ja": "アスラーダ",
     "zh": "阿斯拉"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -7053,6 +7686,7 @@
     "ja": "アスラーダ",
     "zh": "阿斯拉"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -7088,6 +7722,7 @@
     "ja": "アスラーダ",
     "zh": "阿斯拉"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -7123,6 +7758,7 @@
     "ja": "アスラーダ",
     "zh": "阿斯拉"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -7158,6 +7794,7 @@
     "ja": "アスラーダ",
     "zh": "阿斯拉"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -7193,6 +7830,7 @@
     "ja": "アスラーダ",
     "zh": "阿斯拉"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -7228,6 +7866,7 @@
     "ja": "アスラーダ",
     "zh": "阿斯拉"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -7263,6 +7902,7 @@
     "ja": "アスラーダ",
     "zh": "阿斯拉"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -7295,6 +7935,7 @@
    "kindName": "服飾",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -7327,6 +7968,7 @@
    "kindName": "服飾",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -7362,6 +8004,7 @@
     "ja": "アスラーダ",
     "zh": "阿斯拉"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -7397,6 +8040,7 @@
     "ja": "アスラーダ",
     "zh": "阿斯拉"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -7432,6 +8076,7 @@
     "ja": "アスラーダ",
     "zh": "阿斯拉"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -7467,6 +8112,7 @@
     "ja": "アスラーダ",
     "zh": "阿斯拉"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -7499,6 +8145,7 @@
    "kindName": "服飾",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -7531,6 +8178,7 @@
    "kindName": "服飾",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -7563,6 +8211,7 @@
    "kindName": "服飾",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -7595,6 +8244,7 @@
    "kindName": "服飾",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -7627,6 +8277,7 @@
    "kindName": "服飾",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -7659,6 +8310,7 @@
    "kindName": "服飾",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -7694,6 +8346,7 @@
     "ja": "アスラーダ",
     "zh": "阿斯拉"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -7729,6 +8382,7 @@
     "ja": "アスラーダ",
     "zh": "阿斯拉"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -7761,6 +8415,7 @@
    "kindName": "徽章",
    "series": "sin",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -7793,6 +8448,7 @@
    "kindName": "徽章",
    "series": "sin",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -7825,6 +8481,7 @@
    "kindName": "服飾",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -7857,6 +8514,7 @@
    "kindName": "服飾",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -7892,6 +8550,7 @@
     "ja": "アスラーダ",
     "zh": "阿斯拉"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -7927,6 +8586,7 @@
     "ja": "アスラーダ",
     "zh": "阿斯拉"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -7959,6 +8619,7 @@
    "kindName": "壓克力周邊",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -7991,6 +8652,7 @@
    "kindName": "服飾",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -8023,6 +8685,7 @@
    "kindName": "服飾",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -8055,6 +8718,7 @@
    "kindName": "服飾",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -8087,6 +8751,7 @@
    "kindName": "服飾",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -8119,6 +8784,7 @@
    "kindName": "服飾",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -8151,6 +8817,7 @@
    "kindName": "服飾",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -8183,6 +8850,7 @@
    "kindName": "服飾",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -8215,6 +8883,7 @@
    "kindName": "服飾",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -8247,6 +8916,7 @@
    "kindName": "服飾",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -8279,6 +8949,7 @@
    "kindName": "服飾",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -8311,6 +8982,7 @@
    "kindName": "服飾",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -8343,6 +9015,7 @@
    "kindName": "服飾",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -8375,6 +9048,7 @@
    "kindName": "服飾",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -8407,6 +9081,7 @@
    "kindName": "服飾",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -8439,6 +9114,7 @@
    "kindName": "服飾",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -8471,6 +9147,7 @@
    "kindName": "服飾",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -8503,6 +9180,7 @@
    "kindName": "服飾",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -8535,6 +9213,7 @@
    "kindName": "服飾",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -8567,6 +9246,7 @@
    "kindName": "服飾",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -8599,6 +9279,7 @@
    "kindName": "服飾",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -8631,6 +9312,7 @@
    "kindName": "服飾",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -8663,6 +9345,7 @@
    "kindName": "服飾",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -8698,6 +9381,7 @@
     "ja": "アスラーダ",
     "zh": "阿斯拉"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -8733,6 +9417,7 @@
     "ja": "アスラーダ",
     "zh": "阿斯拉"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -8768,6 +9453,7 @@
     "ja": "アスラーダ",
     "zh": "阿斯拉"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -8800,6 +9486,7 @@
    "kindName": "服飾",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -8832,6 +9519,7 @@
    "kindName": "服飾",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -8864,6 +9552,7 @@
    "kindName": "服飾",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -8896,6 +9585,7 @@
    "kindName": "服飾",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -8931,6 +9621,7 @@
     "ja": "アスラーダ",
     "zh": "阿斯拉"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -8963,6 +9654,7 @@
    "kindName": "服飾",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -8995,6 +9687,7 @@
    "kindName": "服飾",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -9027,6 +9720,7 @@
    "kindName": "服飾",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -9059,6 +9753,7 @@
    "kindName": "服飾",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -9091,6 +9786,7 @@
    "kindName": "服飾",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -9123,6 +9819,7 @@
    "kindName": "服飾",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -9155,6 +9852,7 @@
    "kindName": "服飾",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -9187,6 +9885,7 @@
    "kindName": "服飾",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -9219,6 +9918,7 @@
    "kindName": "服飾",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -9251,6 +9951,7 @@
    "kindName": "服飾",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -9283,6 +9984,7 @@
    "kindName": "服飾",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -9315,6 +10017,7 @@
    "kindName": "服飾",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -9347,6 +10050,7 @@
    "kindName": "服飾",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -9379,6 +10083,7 @@
    "kindName": "服飾",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -9411,6 +10116,7 @@
    "kindName": "服飾",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -9443,6 +10149,7 @@
    "kindName": "服飾",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -9475,6 +10182,7 @@
    "kindName": "服飾",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -9507,6 +10215,7 @@
    "kindName": "服飾",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -9542,6 +10251,7 @@
     "ja": "アスラーダ",
     "zh": "阿斯拉"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -9577,6 +10287,7 @@
     "ja": "アスラーダ",
     "zh": "阿斯拉"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -9612,6 +10323,7 @@
     "ja": "アスラーダ",
     "zh": "阿斯拉"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -9647,6 +10359,7 @@
     "ja": "アスラーダ",
     "zh": "阿斯拉"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -9682,6 +10395,7 @@
     "ja": "アスラーダ",
     "zh": "阿斯拉"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -9717,6 +10431,7 @@
     "ja": "アスラーダ",
     "zh": "阿斯拉"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -9752,6 +10467,7 @@
     "ja": "アスラーダ",
     "zh": "阿斯拉"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -9787,6 +10503,7 @@
     "ja": "アスラーダ",
     "zh": "阿斯拉"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -9822,6 +10539,7 @@
     "ja": "アスラーダ",
     "zh": "阿斯拉"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -9857,6 +10575,7 @@
     "ja": "アスラーダ",
     "zh": "阿斯拉"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -9892,6 +10611,7 @@
     "ja": "アスラーダ",
     "zh": "阿斯拉"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -9924,6 +10644,7 @@
    "kindName": "服飾",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -9959,6 +10680,7 @@
     "ja": "アスラーダ",
     "zh": "阿斯拉"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -9991,6 +10713,7 @@
    "kindName": "服飾",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -10023,6 +10746,7 @@
    "kindName": "服飾",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -10055,6 +10779,7 @@
    "kindName": "服飾",
    "series": "sin",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -10087,6 +10812,7 @@
    "kindName": "服飾",
    "series": "sin",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -10119,6 +10845,7 @@
    "kindName": "服飾",
    "series": "sin",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -10151,6 +10878,7 @@
    "kindName": "服飾",
    "series": "sin",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -10183,6 +10911,7 @@
    "kindName": "服飾",
    "series": "sin",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -10215,6 +10944,7 @@
    "kindName": "服飾",
    "series": "sin",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -10247,6 +10977,7 @@
    "kindName": "服飾",
    "series": "sin",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -10279,6 +11010,7 @@
    "kindName": "徽章",
    "series": "sin",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -10311,6 +11043,7 @@
    "kindName": "服飾",
    "series": "sin",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -10343,6 +11076,7 @@
    "kindName": "服飾",
    "series": "sin",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -10375,6 +11109,7 @@
    "kindName": "徽章",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -10407,6 +11142,7 @@
    "kindName": "服飾",
    "series": "sin",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -10439,6 +11175,7 @@
    "kindName": "服飾",
    "series": "sin",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -10471,6 +11208,7 @@
    "kindName": "服飾",
    "series": "sin",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -10503,6 +11241,7 @@
    "kindName": "服飾",
    "series": "sin",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -10535,6 +11274,7 @@
    "kindName": "服飾",
    "series": "sin",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -10567,6 +11307,7 @@
    "kindName": "服飾",
    "series": "sin",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -10599,6 +11340,7 @@
    "kindName": "服飾",
    "series": "sin",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -10631,6 +11373,7 @@
    "kindName": "徽章",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -10663,6 +11406,7 @@
    "kindName": "服飾",
    "series": "sin",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -10695,6 +11439,7 @@
    "kindName": "服飾",
    "series": "sin",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -10727,6 +11472,7 @@
    "kindName": "包袋",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -10762,6 +11508,7 @@
     "ja": "アスラーダ",
     "zh": "阿斯拉"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -10794,6 +11541,7 @@
    "kindName": "服飾",
    "series": "sin",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -10826,6 +11574,7 @@
    "kindName": "服飾",
    "series": "sin",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -10861,6 +11610,7 @@
     "ja": "スーパーアスラーダ",
     "zh": "超級阿斯拉"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -10893,6 +11643,7 @@
    "kindName": "服飾",
    "series": "sin",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -10925,6 +11676,7 @@
    "kindName": "杯具",
    "series": "sin",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -10957,6 +11709,7 @@
    "kindName": "杯具",
    "series": "sin",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -10989,6 +11742,7 @@
    "kindName": "貼紙",
    "series": "sin",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -11021,6 +11775,7 @@
    "kindName": "貼紙",
    "series": "sin",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -11056,6 +11811,7 @@
     "ja": "スーパーアスラーダ AKF-11",
     "zh": "超級阿斯拉 AKF-11"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -11088,6 +11844,7 @@
    "kindName": "貼紙",
    "series": "sin",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -11120,6 +11877,7 @@
    "kindName": "壓克力周邊",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -11152,6 +11910,7 @@
    "kindName": "服飾",
    "series": "sin",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -11187,6 +11946,7 @@
     "ja": "スーパーアスラーダ AKF-11",
     "zh": "超級阿斯拉 AKF-11"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -11222,6 +11982,7 @@
     "ja": "スーパーアスラーダ AKF-11",
     "zh": "超級阿斯拉 AKF-11"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -11257,6 +12018,7 @@
     "ja": "スーパーアスラーダ AKF-11",
     "zh": "超級阿斯拉 AKF-11"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -11289,6 +12051,7 @@
    "kindName": "周邊雜貨",
    "series": "sin",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -11321,6 +12084,7 @@
    "kindName": "徽章",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -11353,6 +12117,7 @@
    "kindName": "徽章",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -11385,6 +12150,7 @@
    "kindName": "壓克力周邊",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -11417,6 +12183,7 @@
    "kindName": "服飾",
    "series": "sin",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -11449,6 +12216,7 @@
    "kindName": "服飾",
    "series": "sin",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -11481,6 +12249,7 @@
    "kindName": "服飾",
    "series": "sin",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -11513,6 +12282,7 @@
    "kindName": "服飾",
    "series": "sin",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -11545,6 +12315,7 @@
    "kindName": "服飾",
    "series": "sin",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -11577,6 +12348,7 @@
    "kindName": "服飾",
    "series": "sin",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -11609,6 +12381,7 @@
    "kindName": "壓克力周邊",
    "series": "sin",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -11631,9 +12404,7 @@
     }
    ],
    "nameZh": "新世紀 GPX 閃電霹靂車 SIN 壓克力萬年月曆 Chair ver.",
-   "releaseZh": "2026 年 8 月 下旬 發售",
-   "changeType": "stock",
-   "priceChange": 126
+   "releaseZh": "2026 年 8 月 下旬 發售"
   },
   {
    "id": "hs-11010079",
@@ -11643,6 +12414,7 @@
    "kindName": "貼紙",
    "series": "sin",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -11678,6 +12450,7 @@
     "ja": "アスラーダ",
     "zh": "阿斯拉"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -11710,6 +12483,7 @@
    "kindName": "貼紙",
    "series": "sin",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -11742,6 +12516,7 @@
    "kindName": "貼紙",
    "series": "sin",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -11774,6 +12549,7 @@
    "kindName": "壓克力周邊",
    "series": "sin",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -11809,6 +12585,7 @@
     "ja": "アスラーダ",
     "zh": "阿斯拉"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -11841,6 +12618,7 @@
    "kindName": "包袋",
    "series": "sin",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -11873,6 +12651,7 @@
    "kindName": "壓克力周邊",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -11905,6 +12684,7 @@
    "kindName": "壓克力周邊",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -11937,6 +12717,7 @@
    "kindName": "壓克力周邊",
    "series": "sin",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -11969,6 +12750,7 @@
    "kindName": "壓克力周邊",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -12001,6 +12783,7 @@
    "kindName": "壓克力周邊",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -12033,6 +12816,7 @@
    "kindName": "服飾",
    "series": "sin",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -12065,6 +12849,7 @@
    "kindName": "服飾",
    "series": "sin",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -12097,6 +12882,7 @@
    "kindName": "卡牌用品",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -12129,6 +12915,7 @@
    "kindName": "卡牌用品",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -12161,6 +12948,7 @@
    "kindName": "壓克力周邊",
    "series": "sin",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -12193,6 +12981,7 @@
    "kindName": "周邊雜貨",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -12225,6 +13014,7 @@
    "kindName": "壓克力周邊",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -12257,6 +13047,7 @@
    "kindName": "壓克力周邊",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -12289,6 +13080,7 @@
    "kindName": "壓克力周邊",
    "series": "sin",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -12321,6 +13113,7 @@
    "kindName": "壓克力周邊",
    "series": "sin",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -12353,6 +13146,7 @@
    "kindName": "壓克力周邊",
    "series": "sin",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -12385,6 +13179,7 @@
    "kindName": "壓克力周邊",
    "series": "sin",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -12417,6 +13212,7 @@
    "kindName": "周邊雜貨",
    "series": "sin",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -12449,6 +13245,7 @@
    "kindName": "周邊雜貨",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -12481,6 +13278,7 @@
    "kindName": "周邊雜貨",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -12516,6 +13314,7 @@
     "ja": "アスラーダ",
     "zh": "阿斯拉"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -12548,6 +13347,7 @@
    "kindName": "壓克力周邊",
    "series": "sin",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -12580,6 +13380,7 @@
    "kindName": "壓克力周邊",
    "series": "sin",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -12612,6 +13413,7 @@
    "kindName": "壓克力周邊",
    "series": "sin",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -12644,6 +13446,7 @@
    "kindName": "周邊雜貨",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -12676,6 +13479,7 @@
    "kindName": "壓克力周邊",
    "series": "sin",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -12708,6 +13512,7 @@
    "kindName": "周邊雜貨",
    "series": "sin",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -12740,6 +13545,7 @@
    "kindName": "周邊雜貨",
    "series": "sin",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -12772,6 +13578,7 @@
    "kindName": "壓克力周邊",
    "series": "sin",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -12804,6 +13611,10 @@
    "kindName": "專用塗料",
    "series": "unknown",
    "machine": null,
+   "line": {
+    "id": "cfcolor",
+    "name": "閃電霹靂車專用色"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -12836,6 +13647,10 @@
    "kindName": "專用塗料",
    "series": "unknown",
    "machine": null,
+   "line": {
+    "id": "cfcolor",
+    "name": "閃電霹靂車專用色"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -12868,6 +13683,10 @@
    "kindName": "專用塗料",
    "series": "unknown",
    "machine": null,
+   "line": {
+    "id": "cfcolor",
+    "name": "閃電霹靂車專用色"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -12900,6 +13719,10 @@
    "kindName": "專用塗料",
    "series": "unknown",
    "machine": null,
+   "line": {
+    "id": "cfcolor",
+    "name": "閃電霹靂車專用色"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -12932,6 +13755,10 @@
    "kindName": "專用塗料",
    "series": "unknown",
    "machine": null,
+   "line": {
+    "id": "cfcolor",
+    "name": "閃電霹靂車專用色"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -12964,6 +13791,10 @@
    "kindName": "專用塗料",
    "series": "unknown",
    "machine": null,
+   "line": {
+    "id": "cfcolor",
+    "name": "閃電霹靂車專用色"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -12996,6 +13827,10 @@
    "kindName": "專用塗料",
    "series": "unknown",
    "machine": null,
+   "line": {
+    "id": "cfcolor",
+    "name": "閃電霹靂車專用色"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -13028,6 +13863,10 @@
    "kindName": "專用塗料",
    "series": "unknown",
    "machine": null,
+   "line": {
+    "id": "cfcolor",
+    "name": "閃電霹靂車專用色"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -13060,6 +13899,10 @@
    "kindName": "專用塗料",
    "series": "unknown",
    "machine": null,
+   "line": {
+    "id": "cfcolor",
+    "name": "閃電霹靂車專用色"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -13095,6 +13938,7 @@
     "ja": "アスラーダ",
     "zh": "阿斯拉"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -13127,6 +13971,7 @@
    "kindName": "包袋",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -13159,6 +14004,7 @@
    "kindName": "周邊雜貨",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -13194,6 +14040,7 @@
     "ja": "アスラーダ",
     "zh": "阿斯拉"
    },
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -13226,6 +14073,7 @@
    "kindName": "周邊雜貨",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -13258,6 +14106,7 @@
    "kindName": "周邊雜貨",
    "series": "unknown",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -13290,6 +14139,7 @@
    "kindName": "徽章",
    "series": "sin",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -13322,6 +14172,7 @@
    "kindName": "壓克力周邊",
    "series": "sin",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -13354,6 +14205,10 @@
    "kindName": "專用塗料",
    "series": "unknown",
    "machine": null,
+   "line": {
+    "id": "cfcolor",
+    "name": "閃電霹靂車專用色"
+   },
    "scale": null,
    "maker": null,
    "seriesNo": null,
@@ -13386,6 +14241,7 @@
    "kindName": "周邊雜貨",
    "series": "sin",
    "machine": null,
+   "line": null,
    "scale": null,
    "maker": null,
    "seriesNo": null,

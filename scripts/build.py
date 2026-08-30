@@ -103,6 +103,31 @@ def strip_kind(title):
         return (t[:m.start()].strip() + " " + suffix).strip()
     return t.strip()   # 形態名等，保留
 
+# ---------- 商品系列判定 ----------
+# 這是「產品線」而非作品系列（作品系列見 detect_series）。
+# 來源站的分類會把同一產品線拆到不同類別（例如 C.F.C. 有 完成品 也有 食玩），
+# 故另立此欄位讓使用者能一次看齊整個系列。
+PRODUCT_LINES = [
+    ("cfc", "C.F.C.", r"C\.F\.C\."),
+    ("va", "Variable Action", r"ヴァリアブルアクション"),
+    ("aoshima124", "1/24 組裝模型（青島）",
+     r"^(アスラーダ|スーパーアスラーダ|νアスラーダ|ν\(ニュー\)アスラーダ|"
+     r"イシュザーク|ガーランド|シュピーゲル|凰呀|ナイトセイバー)"),
+    ("playp", "PlayP 系列", r"PlayP-"),
+    ("cfcolor", "閃電霹靂車專用色", r"^CM-\d+"),
+    ("tomica", "TOMICA", r"トミカ"),
+    ("hotwheels", "Hot Wheels", r"ホットウィール|キャラウィール"),
+]
+
+
+def detect_line(title):
+    t = title or ""
+    for lid, name, pat in PRODUCT_LINES:
+        if re.search(pat, t):
+            return {"id": lid, "name": name}
+    return None
+
+
 # ---------- 機體判定（僅依標題明確字串） ----------
 MACHINES = [
     ("スーパーアスラーダ01", "超級阿斯拉 01"),
@@ -224,6 +249,7 @@ def main():
             "kindName": kind_name,
             "series": detect_series(title + " " + (a.get("seriesLine") or "")),
             "machine": detect_machine(title),
+            "line": detect_line(title),
             "scale": a.get("scale") if a.get("scale") != "Non" else None,
             "maker": a.get("brand") or "AOSHIMA",
             "seriesNo": no,
@@ -270,6 +296,7 @@ def main():
             "kindName": kind_name,
             "series": detect_series(title),
             "machine": detect_machine(title),
+            "line": detect_line(title),
             "scale": None,
             "maker": None,
             "seriesNo": None,
@@ -309,6 +336,8 @@ def main():
 
     mcount = collections.Counter(
         p["machine"]["zh"] for p in products if p.get("machine"))
+    lcount = collections.Counter(
+        p["line"]["name"] for p in products if p.get("line"))
 
     out = {
         "meta": {
@@ -331,6 +360,7 @@ def main():
         "categories": categories,
         "series": series,
         "machines": [{"name": k, "count": v} for k, v in mcount.most_common()],
+        "lines": [{"name": k, "count": v} for k, v in lcount.most_common()],
         "products": products,
     }
 
