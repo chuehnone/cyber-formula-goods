@@ -300,6 +300,8 @@
   const esc = s => String(s ?? '').replace(/[&<>"']/g, c =>
     ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
   const yen = n => n == null ? '—' : '¥' + n.toLocaleString('ja-JP');
+  // 去掉分隔符後的比對用字串：CFC ↔ C.F.C.、AKF11 ↔ AKF-11
+  const compact = s => String(s).toLowerCase().replace(/[.\s\-_/·・‧]/g, '');
 
   // 外部商品連結加上來源標記，讓來源網站知道流量從這裡來。
   // 只加在導向外站的連結上；失敗時回傳原網址，不讓它壞掉。
@@ -352,7 +354,10 @@
                    p.descZh, p.desc, p.jan,
                    p.machine && p.machine.zh, p.machine && p.machine.ja]
         .filter(Boolean).join(' ').toLowerCase();
-      return hay.includes(q);
+      if (hay.includes(q)) return true;
+      // 忽略點／空格／連字號等分隔符，讓「CFC」也能命中「C.F.C.」
+      const qc = compact(q);
+      return qc.length > 0 && compact(hay).includes(qc);
     });
     const by = {
       'price-asc':  (a, b) => (a.shopPrice ?? a.price ?? 1e9) - (b.shopPrice ?? b.price ?? 1e9),
