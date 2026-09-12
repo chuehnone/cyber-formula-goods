@@ -59,7 +59,7 @@
 | `timeline.html` | 阿斯拉歷代機體時間軸 |
 | `products.json` | 商品資料（網頁讀這個） |
 | `scripts/timeline.json` | 時間軸的機體設定（人工維護，不在資料更新流程內） |
-| `og-*.png` | 社群分享預覽圖（由 `scripts/build_og.sh` 產生） |
+| `og-*.jpg` | 社群分享預覽圖（由 `scripts/build_og.sh` 產生） |
 | `products.raw.json` | 翻譯前的原始資料備份 |
 | `serve.sh` | 啟動本機預覽 server |
 | `update.sh` | 一鍵重抓資料並更新 |
@@ -86,6 +86,8 @@
 **商品資料與圖片不屬於本專案**：
 - 商品資訊擷取自青島文化教材社官網與 hobbysearch，著作權歸各來源網站所有
 - 商品圖片為熱連結（hotlink）至來源網站，未複製儲存於本 repo
+- 社群分享預覽圖（`og-*.jpg`）含阿斯拉 G.S.X 的主視覺，
+  素材位於 `scripts/assets/`，著作權屬原權利人
 - 作品《新世紀GPXサイバーフォーミュラ》相關權利屬 ©サンライズ 所有
 
 本專案為個人非商業用途的資料整理與瀏覽介面，不從事銷售行為。

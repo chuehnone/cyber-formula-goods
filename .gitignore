@@ -7,3 +7,6 @@ scripts/*.log
 scripts/*.out
 __pycache__/
 *.pyc
+
+# build_og.sh 的中間產物（從 asurada-source.png 裁出，可重新產生）
+scripts/assets/car.png

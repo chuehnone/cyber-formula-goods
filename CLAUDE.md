@@ -222,21 +222,36 @@ python3 scripts/stats.py
 
 ### 社群預覽圖（og:image）
 
-FB／Twitter 分享時的預覽圖，兩頁各一張：`og-index.png`、`og-timeline.png`。
-原始檔是 `scripts/og-*.svg`，用 `./scripts/build_og.sh` 轉成 PNG。
+FB／Twitter 分享時的預覽圖，兩頁各一張：`og-index.jpg`、`og-timeline.jpg`。
+用 `./scripts/build_og.sh` 產生，來源是：
 
-**不要用商品圖當 og:image**——商品圖是熱連結到來源站的（見上方第 5 點），
-而 og:image 會被 FB 的爬蟲抓取並長期快取，等於把來源站的圖當成本站門面，
-且來源站換圖就會壞掉。兩張圖都是 SVG 純程式繪製，無任何外部素材。
+- `scripts/assets/asurada-source.png` — 使用者提供的阿斯拉 G.S.X 主視覺
+- `scripts/og-*.svg` — 版面與文字（本站自繪）
+
+`build_og.sh` 會先從主視覺裁出**只有車體**的 `scripts/assets/car.png`，
+再由 SVG 疊上深色遮罩與文字，最後用 Chrome headless 渲染成 JPG。
+
+**裁切是刻意的**：原圖左側有作品 logo 與標題美術、頂端有「ASURADA GSX」
+賽道橫幅、右下有「SUGO ASURADA」字樣，這些都切掉了，只留車體。
+改裁切範圍前先用
+`magick scripts/assets/asurada-source.png -crop WxH+X+Y +repage /tmp/t.png`
+確認結果，別直接改腳本裡的數字。
 
 **已知的坑**：
 
 - **`og:image` 必須是絕對網址**，相對路徑 FB 不吃。
-- **必須是 PNG／JPG，不能是 SVG**，FB 對 SVG 支援不良。
-- **尺寸固定 1200×630**（1.91:1）。`build_og.sh` 的 `--window-size` 要與
-  SVG 的 `viewBox` 一致，否則會留白或被裁切。
-- **轉檔用 Chrome headless 而非 ImageMagick**：ImageMagick 走 librsvg，
-  中文字型常掉字變成豆腐字。本機有 `magick`，但不要拿它轉這兩張圖。
+- **必須是 JPG／PNG，不能是 SVG**，FB 對 SVG 支援不良。
+- **用 JPG 不用 PNG**：含照片的圖存成 PNG 會到 500–700KB，
+  JPG（quality 88）約 100–130KB 且肉眼無差。FB 建議小於 300KB。
+  `build_og.sh` 會自動轉檔並刪掉中間產物的 PNG。
+- **尺寸固定 1200×630**（1.91:1）。`--window-size` 要與 SVG 的 `viewBox` 一致。
+- **文字渲染用 Chrome 而非 ImageMagick**：ImageMagick 走 librsvg，
+  中文字型會掉字變豆腐字。裁圖可以用 `magick`，但文字不行。
+- **SVG 裡的 `<image href>` 是相對於 SVG 檔的位置**。`og-*.svg` 在 `scripts/`，
+  所以寫 `assets/car.png` 指的是 `scripts/assets/car.png`。
+- **照片上的文字要加遮罩**：直接把文字疊在車體照上會看不清楚。
+  index 用左側的橫向漸層 `#scrim`，timeline 用標題後方的橢圓暗罩。
+- **`preserveAspectRatio` 用 `slice` 不用 `meet`**：`meet` 會留黑邊。
 - **SVG 水平線用漸層會消失**：`<linearGradient>` 預設是 `objectBoundingBox`，
   水平線的 bounding box 高度為 0 會讓漸層退化。時間軸那條主線踩過這個坑，
   必須指定 `gradientUnits="userSpaceOnUse"` 並給絕對座標。
@@ -244,11 +259,10 @@ FB／Twitter 分享時的預覽圖，兩頁各一張：`og-index.png`、`og-time
   [Sharing Debugger](https://developers.facebook.com/tools/debug/)
   貼網址按 **Scrape Again** 才會更新。
 
-**畫阿斯拉 G.S.X 的正確特徵**（憑印象畫會錯，這些是查證過的）：
-GSX 是系列中**唯一的 4 輪車**（其餘皆為前 4 後 2 的 6 輪）；
-推進器**僅一具且在車體後方中央**（其他阿斯拉是兩具在左右末端）；
-外觀為極低扁的長楔形、泡形座艙偏中前段、雙層後掠尾翼、
-座艙後方有外露的紅色散熱柵，**白色上半身配藍色下半身**與紅橘點綴。
+**不要改回手繪 SVG 車**：先前試過純程式畫阿斯拉，改了五、六版仍然
+「像賽車但不像 GSX」——GSX 的造型細節（銳角折面、深色低伏座艙、
+分岔箭形前翼、鼻樑尖刺、高懸尾翼）很難用簡單路徑重現。使用者最後
+提供主視覺並指定「用原圖但只取車體部分」，就是這個做法的由來。
 
 ### SEO 與 Google Search Console
 
