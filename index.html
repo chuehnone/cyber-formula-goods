@@ -66,6 +66,12 @@
               width: 36px; height: 36px; border-radius: 999px; cursor: pointer;
               font-size: 15px; display: grid; place-items: center; flex-shrink: 0; }
   .icon-btn:hover { border-color: var(--accent); }
+  .tl-link {
+    display: inline-flex; align-items: center; gap: 6px; text-decoration: none;
+    background: var(--surface-2); border: 1px solid var(--border); color: var(--text);
+    border-radius: 999px; padding: 7px 14px; font-size: 13px; white-space: nowrap; flex: none;
+  }
+  .tl-link:hover { border-color: var(--accent); color: var(--accent); }
 
   .wrap { max-width: 1400px; margin: 0 auto; padding: 18px 20px 40px; }
 
@@ -263,6 +269,7 @@
       <input id="q" type="search" placeholder="搜尋商品、機體、廠商（中日文皆可）…" autocomplete="off">
       <button class="clear" id="clearQ" aria-label="清除搜尋">✕</button>
     </div>
+    <a class="tl-link" href="timeline.html">🏁 阿斯拉時間軸</a>
     <button class="icon-btn" id="themeBtn" aria-label="切換深淺色">◐</button>
   </div>
 </header>
@@ -593,6 +600,15 @@
     });
   }
 
+  // 從網址帶入初始篩選，供 timeline.html 深連結到特定機體。
+  // 只認得資料裡真的存在的值，認不得就忽略，不讓壞網址清空畫面。
+  function applyUrlFilter() {
+    let mac;
+    try { mac = new URLSearchParams(location.search).get('machine'); } catch (e) { return; }
+    if (!mac) return;
+    if (state.data.machines.some(m => m.name === mac)) state.mac = mac;
+  }
+
   const render = () => { renderChanges(); renderFilters(); renderGrid(); };
 
   /* 詳情 */
@@ -678,6 +694,7 @@
     .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
     .then(data => {
       state.data = data;
+      applyUrlFilter();            // 需在 render() 前，篩選才會反映在畫面上
       const intro = $('seoIntro');
       if (intro) intro.remove();   // 資料已載入，靜態摘要功成身退
       // 不覆寫 <title>——HTML 裡那個是為搜尋結果寫的，比 meta.title 完整

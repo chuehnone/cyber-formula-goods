@@ -7,14 +7,17 @@
 
 ```
 index.html          介面全部（無框架、無 build step，改完直接生效）
+timeline.html       阿斯拉歷代機體時間軸（讀 products.json + scripts/timeline.json）
 products.json       商品資料（翻譯後）← 網頁實際讀這個
 products.raw.json   翻譯前備份 ← 重跑翻譯的來源，不要手改
 scripts/            爬蟲與資料處理
+  timeline.json     機體設定（人工維護，update.sh 不會覆蓋）
 update.sh           一鍵重抓 → 整併 → 翻譯 → 顯示差異
 verify.sh           檢驗線上版是否與本機一致
 ```
 
 資料流：`scrape_*.py` → `build.py` → `translate.py` → `products.json`
+（`scripts/timeline.json` 不在這條流程上，見下方 timeline 段）
 
 ## 絕對不要做的事
 
@@ -150,6 +153,37 @@ python3 scripts/stats.py
 **若在同一次更新中重複執行，第二次會比對到已 commit 的新資料而顯示無變動**。
 
 庫存變動的標記優先度高於價格（`tag_products()`）——商品快沒了比便宜了更需要知道。
+
+### timeline.html 的設定資料是人工維護，與商品資料分離
+
+`timeline.html` 呈現阿斯拉歷代機體的動畫時間軸，資料在 `scripts/timeline.json`。
+
+**這份檔案不是爬蟲產出，`update.sh` 不會碰它**。內容（劇中年代、規格、機體解說）
+取自日文維基百科「新世紀GPXサイバーフォーミュラ」的
+`作品タイムライン`、`スゴウ`、`歴代ワールドグランプリ優勝者` 三節，
+檔案的 `_source` 欄位記著來源與查閱日期，頁面上也會顯示出處。
+
+這不違反「不要從機體名反推作品系列」——**時間軸是明寫的設定表，不是反推**。
+商品歸屬到機體時只用兩種依據，兩者都不猜：
+
+1. `machineNames`：對上 `products.json` 既有的 `machine.ja` 標記
+2. `modelKeys`：商品名裡**明寫**的型號（AKF-11、AKF-0/G⋯）
+
+**已知的坑（都踩過）**：
+
+- **`スーパーアスラーダ02` 與 `ニューアスラーダAKF-1` 不是動畫機體**，
+  是青島「テクニ四駆」玩具線的名稱，動畫中不存在。已列入 `_exclude`，
+  不要因為名字像就排進時間軸。
+- **`AKF-0/1B ネメシス` 只在遊戲登場**，用的是「ネメシス」而非阿斯拉賽博系統，同樣排除。
+- **`modelKeys` 比對要長者優先**：`AKF-0/G` 必須贏過 `AKF-0`，
+  否則七件 AKF-0/G 商品會全被 AKF-0 吃掉。`timeline.html` 的 `assign()` 已依長度排序。
+- **`filterName` 不等於 `name`**：時間軸用精確型號（`ν 阿斯拉 AKF-0/G`），
+  但 `products.json` 的機體桶名較粗（`ν 阿斯拉`）。深連結用 `filterName`，
+  用錯 `index.html` 會**靜默忽略**參數，連結等於失效卻不報錯。
+  新增機體時務必確認 `filterName` 真的在 `products.json` 的 `machines[].name` 裡。
+
+`index.html` 支援 `?machine=<中文機體名>` 帶入初始篩選（`applyUrlFilter()`），
+只認得資料裡存在的值，認不得就忽略。這是為了 timeline 深連結才加的。
 
 ### 商品系列（line）與作品系列（series）是兩回事
 

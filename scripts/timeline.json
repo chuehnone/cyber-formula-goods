@@ -1,0 +1,273 @@
+{
+  "_note": "阿斯拉歷代機體時間軸。人工維護，非爬蟲產出——update.sh 不會覆蓋本檔。",
+  "_source": {
+    "site": "日文維基百科「新世紀GPXサイバーフォーミュラ」",
+    "url": "https://ja.wikipedia.org/wiki/新世紀GPXサイバーフォーミュラ",
+    "sections": [
+      "作品タイムライン",
+      "サイバーフォーミュラ車両 > チームおよびサイバーマシン > スゴウ",
+      "歴代ワールドグランプリ優勝者・チーム・マシン"
+    ],
+    "fetchedAt": "2026-09-12"
+  },
+  "_editing": "新增機體時，machineNames 要對齊 products.json 的 machine.ja；modelKeys 用於比對商品名裡明寫的型號，不要放會誤命中的短字串。",
+  "_exclude": [
+    "スーパーアスラーダ 02",
+    "スーパーアスラーダ02",
+    "AKF-1 ",
+    "AKF-1(",
+    "ネメシス"
+  ],
+  "_excludeNote": "AKF-1 與 スーパーアスラーダ02 是青島「テクニ四駆」玩具線的名稱，動畫中不存在此機體，不可排進動畫時間軸。AKF-0/1B ネメシス 只在遊戲登場且用的是「ネメシス」而非阿斯拉賽博系統。",
+  "works": [
+    {
+      "id": "tv",
+      "name": "TV 版",
+      "nameJa": "新世紀GPXサイバーフォーミュラ",
+      "round": "第10回大會",
+      "storyYear": 2015,
+      "airedFrom": 1991,
+      "airedTo": 1991,
+      "format": "TV"
+    },
+    {
+      "id": "s11",
+      "name": "11",
+      "nameJa": "新世紀GPXサイバーフォーミュラ11",
+      "round": "第11回大會",
+      "storyYear": 2016,
+      "airedFrom": 1992,
+      "airedTo": 1993,
+      "format": "OVA"
+    },
+    {
+      "id": "zero",
+      "name": "ZERO",
+      "nameJa": "新世紀GPXサイバーフォーミュラZERO",
+      "round": "第12回大會",
+      "storyYear": 2017,
+      "airedFrom": 1994,
+      "airedTo": 1995,
+      "format": "OVA"
+    },
+    {
+      "id": "saga",
+      "name": "SAGA",
+      "nameJa": "新世紀GPXサイバーフォーミュラSAGA",
+      "round": "第14–15回大會",
+      "storyYear": 2019,
+      "storyYearTo": 2020,
+      "airedFrom": 1996,
+      "airedTo": 1997,
+      "format": "OVA"
+    },
+    {
+      "id": "sin",
+      "name": "SIN",
+      "nameJa": "新世紀GPXサイバーフォーミュラSIN",
+      "round": "第16–17回大會",
+      "storyYear": 2021,
+      "storyYearTo": 2022,
+      "airedFrom": 1998,
+      "airedTo": 2000,
+      "format": "OVA"
+    }
+  ],
+  "machines": [
+    {
+      "id": "gsx",
+      "name": "阿斯拉 G.S.X",
+      "nameJa": "アスラーダGSX",
+      "model": "ASURADA GSX",
+      "carNo": "30",
+      "storyYear": 2015,
+      "workIds": [
+        "tv"
+      ],
+      "machineNames": [
+        "アスラーダG.S.X"
+      ],
+      "modelKeys": [
+        "GSX",
+        "G.S.X"
+      ],
+      "forms": [
+        "賽道形態",
+        "拉力形態",
+        "空力形態",
+        "水上形態"
+      ],
+      "summary": "原為「失落環節」開發部門用來實驗賽博系統「阿斯拉」的實驗車。2015 年初由開發者風見廣之送到日本，於富士岡預賽前夕交到菅生車隊手中。",
+      "detail": "透過更換零件可在賽道／拉力／空力三種形態間變換，泛用性極高。推進器僅一具、位於車體後方中央，搭載菅生製 V10 引擎。最終戰日本 GP 因超級阿斯拉修復不及而重新出賽，中途才換車。",
+      "spec": {
+        "length": "4378mm",
+        "weight": "720kg",
+        "power": "1200 馬力／20000 轉",
+        "topSpeed": "420km/h+α",
+        "engine": "C.C. 引擎 V10"
+      },
+      "filterName": "阿斯拉 G.S.X"
+    },
+    {
+      "id": "sa01",
+      "name": "超級阿斯拉 01",
+      "nameJa": "スーパーアスラーダ01",
+      "model": "SUPER ASURADA 01",
+      "carNo": "30",
+      "storyYear": 2015,
+      "workIds": [
+        "tv"
+      ],
+      "machineNames": [
+        "スーパーアスラーダ01"
+      ],
+      "modelKeys": [
+        "スーパーアスラーダ01",
+        "スーパーアスラーダ 01",
+        "SUPER ASURADA 01"
+      ],
+      "forms": [
+        "賽道形態",
+        "空力形態",
+        "拉力形態"
+      ],
+      "summary": "風見廣之在生前獨力開發、以搭載賽博系統阿斯拉為前提打造的車輛。賽博方程式史上第一台具備三段以上變形機構的車。",
+      "detail": "2015 年於廣之位在英國的宅邸中被菅生車隊發現。新開發的菅生製 V12 引擎加上雙推進器，馬力較 GSX 大幅提升。同年世界選手權第 5 戰英國 GP 首度投入即拿下竿位奪冠，締造含兩勝在內的四戰連續站上頒獎台。最終戰換上輕量化的新底盤（01B）並奪冠，成就風見隼人首座冠軍。",
+      "spec": {
+        "length": "4720mm",
+        "weight": "687kg",
+        "power": "1800 馬力+α／23500 轉",
+        "topSpeed": "505km/h+α",
+        "engine": "C.C. 引擎 V12"
+      },
+      "filterName": "超級阿斯拉 01"
+    },
+    {
+      "id": "sa01c",
+      "name": "超級阿斯拉 SA-01/C",
+      "nameJa": "スーパーアスラーダ SA-01/C",
+      "model": "SUPER ASURADA SA-01/C",
+      "carNo": "1",
+      "storyYear": 2016,
+      "workIds": [
+        "s11"
+      ],
+      "machineNames": [
+        "スーパーアスラーダ SA-01"
+      ],
+      "modelKeys": [
+        "SA-01"
+      ],
+      "forms": [
+        "賽道形態",
+        "空力形態"
+      ],
+      "summary": "超級阿斯拉 01 撤去拉力形態以求輕量化，並修改尾翼等零件的小改款。塗裝同樣以藍白為基調，但配置大不相同。",
+      "detail": "2016 年開幕戰巴西 GP 投入，但面對突飛猛進的其他車隊在戰力上居於劣勢，車手與技師都未能發揮性能，菅生車隊陷入苦戰。",
+      "spec": {},
+      "filterName": "超級阿斯拉 SA-01"
+    },
+    {
+      "id": "akf11",
+      "name": "超級阿斯拉 AKF-11",
+      "nameJa": "スーパーアスラーダ AKF-11",
+      "model": "SUPER ASURADA AKF-11",
+      "carNo": "1（2016、2017）／30（2018）／2（2019）",
+      "storyYear": 2016,
+      "storyYearTo": 2019,
+      "workIds": [
+        "s11",
+        "zero"
+      ],
+      "machineNames": [
+        "スーパーアスラーダ AKF-11"
+      ],
+      "modelKeys": [
+        "AKF-11",
+        "AKF11"
+      ],
+      "forms": [
+        "賽道形態",
+        "空力形態",
+        "空力增壓形態"
+      ],
+      "summary": "由與風見廣之共同參與阿斯拉開發的機體設計師克蕾雅・佛特蘭操刀的大幅升級版，外型較 01 在空力上更為洗練。",
+      "detail": "2016 年第 6 戰非洲 GP 投入，加上風見隼人習得慣性飄移，在正賽中特別強勢，一路現役到 2019 年最終戰澳洲 GP，橫跨四個賽季。四季通算 13 勝（2016 兩勝、2017 四勝、2018 三勝、2019 四勝），為菅生車輛中的最多勝紀錄。「AKF」取自 Asurada、Kazami、Fortran 的字首；「11」讀作 Double One 而非 Eleven。",
+      "spec": {
+        "length": "4701mm",
+        "weight": "477kg",
+        "power": "1940 馬力／20800 轉",
+        "topSpeed": "640km/h+α",
+        "engine": "菅生 V-2 V12"
+      },
+      "filterName": "超級阿斯拉 AKF-11"
+    },
+    {
+      "id": "akf0",
+      "name": "ν 阿斯拉 AKF-0",
+      "nameJa": "ν-アスラーダ AKF-0",
+      "model": "ν-ASURADA AKF-0",
+      "carNo": "9（2020）／1（2021）",
+      "storyYear": 2020,
+      "storyYearTo": 2021,
+      "workIds": [
+        "saga",
+        "sin"
+      ],
+      "machineNames": [
+        "νアスラーダ"
+      ],
+      "modelKeys": [
+        "AKF-0",
+        "AKF-O"
+      ],
+      "forms": [
+        "賽道形態",
+        "空力形態",
+        "螺旋推進形態",
+        "揚升迴旋形態"
+      ],
+      "summary": "克蕾雅・佛特蘭開發的超級阿斯拉全面改款版。變形機構採用形狀記憶合金，使瞬間變形成為可能，空力表現較 AKF-11 更為洗練。",
+      "detail": "新機軸是兩段加速的螺旋推進。基本規格與加蘭德 SF-03 相同，但因具備變形機構而略重（SF-03 為 455kg，AKF-0 為 461kg）。過程中偶然發現了用於揚升迴旋的變形。引擎回歸菅生製，也因此 2021 年長期為馬力不足所苦。通算 12 勝（2020、2021 各六勝）。",
+      "spec": {
+        "length": "4701mm",
+        "weight": "461kg",
+        "power": "2160 馬力／21900 轉",
+        "topSpeed": "685km/h+α",
+        "engine": "菅生 SV-7/B V12"
+      },
+      "filterName": "ν 阿斯拉"
+    },
+    {
+      "id": "akf0g",
+      "name": "ν 阿斯拉 AKF-0/G",
+      "nameJa": "ν-アスラーダ AKF-0/G",
+      "model": "ν-ASURADA AKF-0/G",
+      "carNo": "1",
+      "storyYear": 2022,
+      "workIds": [
+        "sin"
+      ],
+      "machineNames": [],
+      "modelKeys": [
+        "AKF-0/G",
+        "AKF-0/G "
+      ],
+      "forms": [
+        "賽道形態",
+        "空力形態"
+      ],
+      "summary": "AKF-0 換上 GIO 公司製引擎的版本，2022 年投入。",
+      "detail": "補上了 AKF-0 最大的弱點引擎馬力，本以為穩如泰山，但賽季前段爆出 GIO 引擎的結構缺陷，菅生因而陷入意外的苦戰。後半段投入克服問題的新引擎，與布里德加賀駕駛的凰呀 AN-21 演出激烈纏鬥直到最後一刻，最終以些微之差落敗。",
+      "spec": {
+        "length": "4701mm",
+        "weight": "458kg",
+        "power": "2298 馬力／23200 轉",
+        "topSpeed": "707km/h+α",
+        "engine": "GIO-V・SPEC-02 V12"
+      },
+      "filterName": "ν 阿斯拉"
+    }
+  ],
+  "_filterNote": "filterName 是 products.json machines[].name 的桶名，供 index.html?machine= 深連結用；時間軸本身用較精確的 name。"
+}
