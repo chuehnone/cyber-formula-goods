@@ -2,7 +2,7 @@
 # 重新抓取商品資料並更新 products.json
 #
 #   ./update.sh          抓取 → 整併 → 翻譯 → 顯示差異（不自動 commit）
-#   ./update.sh --quick  跳過耗時的分類版爬蟲（約省 8 分鐘，商品數會略少）
+#   ./update.sh --quick  跳過耗時的分類版爬蟲（約省 8 分鐘，結果相同，見 CLAUDE.md）
 #   ./update.sh --push   完成後自動 commit 並 push（會觸發 Pages 重新部署）
 #
 # 中間產物放在 scripts/.cache/，已被 .gitignore 排除。

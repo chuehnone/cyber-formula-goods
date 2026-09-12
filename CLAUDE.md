@@ -201,7 +201,7 @@ python3 scripts/stats.py
 
 ```bash
 ./update.sh              # 完整，約 9 分鐘
-./update.sh --quick      # 跳過分類版爬蟲，約 1 分鐘，商品數可能略少
+./update.sh --quick      # 跳過分類版爬蟲，約 1 分鐘，結果相同
 ./update.sh --push       # 完成後自動 commit + push
 ```
 
@@ -209,9 +209,12 @@ python3 scripts/stats.py
 列出與線上版的差異。中間產物在 `scripts/.cache/`（已 gitignore）。
 預設不自動 commit，先看差異再決定。
 
-`--quick` 少跑 `scrape2.py`（站方分類版）。分類判定已能從商品名補上，
-但商品數可能略少（`update.sh` 的用法說明即以此為準）。
-要納入新商品類型、或這次更新要 commit 上線時，跑完整版。
+`--quick` 少跑 `scrape2.py`（站方分類版），目前分類判定已能從商品名補上，
+兩者結果一致。要納入新商品類型時跑完整版比較保險。
+
+**已實測（2026-09-12）**：同日跑完整版與 `--quick`，皆 392 件，逐筆逐欄位相同。
+商品數來自 `scrape_hs.py`（407 件，`--quick` 也會跑）；`scrape2.py` 的 331 件
+只提供站方分類參數，不貢獻商品數。不要再把 `--quick` 寫成「商品數會略少」。
 
 ### 加入新的翻譯詞彙
 
