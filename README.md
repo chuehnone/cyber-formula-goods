@@ -1,7 +1,7 @@
 # 閃電霹靂車 周邊商品網頁
 
 新世紀GPX Cyber Formula（サイバーフォーミュラ）周邊商品瀏覽介面。
-商品資料為**實際抓取**，每筆可點擊前往來源頁。
+商品資料**實際整理自來源網站**，每筆可點擊前往來源頁。
 
 🔗 **線上瀏覽：https://chuehnone.viovie.co/cyber-formula-goods/**
 
@@ -48,7 +48,7 @@
 [日文維基百科「新世紀GPXサイバーフォーミュラ」](https://ja.wikipedia.org/wiki/新世紀GPXサイバーフォーミュラ)，
 為人工整理，與商品資料分開維護，頁面上標示出處。
 
-**商品件數與抓取日期見網頁頁尾**——價格與庫存為抓取當下狀態，
+**商品件數與資料更新日期見網頁頁尾**——價格與庫存為該日狀態，
 非即時報價；實際交易請以來源網站為準。
 
 ## 檔案
@@ -58,12 +58,12 @@
 | `index.html` | 介面，無外部相依 |
 | `timeline.html` | 阿斯拉歷代機體時間軸 |
 | `products.json` | 商品資料（網頁讀這個） |
-| `scripts/timeline.json` | 時間軸的機體設定（人工維護，非爬蟲產出） |
+| `scripts/timeline.json` | 時間軸的機體設定（人工維護，不在資料更新流程內） |
 | `products.raw.json` | 翻譯前的原始資料備份 |
 | `serve.sh` | 啟動本機預覽 server |
 | `update.sh` | 一鍵重抓資料並更新 |
 | `verify.sh` | 檢驗線上版是否與本機一致 |
-| `scripts/` | 爬蟲、翻譯、統計（見 `CLAUDE.md`） |
+| `scripts/` | 資料取得、翻譯、統計（見 `CLAUDE.md`） |
 | `CLAUDE.md` | 開發規則與已知陷阱 |
 
 ## 翻譯
