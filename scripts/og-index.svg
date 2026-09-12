@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <!-- 商品一覽頁的 OG 圖。
-       車體照由 build_og.sh 從 scripts/assets/asurada-source.png 裁出（assets/car.png），
-       已切掉官方 logo、作品標題美術與賽道看板字樣，只保留車體。
+       車體照為 scripts/assets/car.jpg——阿斯拉 G.S.X 主視覺裁出的車體部分，
+       已切掉作品 logo、標題美術與賽道看板字樣。原始未裁的圖不留在 repo。
        文字與背景為本站自繪，配色取自 index.html 的深色主題 token。 -->
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
@@ -32,7 +32,7 @@
   <rect width="1200" height="630" fill="url(#bg)"/>
 
   <!-- 車體照：靠右 -->
-  <image href="assets/car.png" x="180" y="0" width="1020" height="630"
+  <image href="assets/car.jpg" x="180" y="0" width="1020" height="630"
          preserveAspectRatio="xMidYMid slice"/>
 
   <rect width="1200" height="630" fill="url(#vig)"/>

@@ -223,34 +223,29 @@ python3 scripts/stats.py
 ### 社群預覽圖（og:image）
 
 FB／Twitter 分享時的預覽圖，兩頁各一張：`og-index.jpg`、`og-timeline.jpg`。
-用 `./scripts/build_og.sh` 產生，來源是：
+用 `./scripts/build_og.sh` 產生，素材是：
 
-- `scripts/assets/asurada-source.png` — 使用者提供的阿斯拉 G.S.X 主視覺
-- `scripts/og-*.svg` — 版面與文字（本站自繪）
+- `scripts/assets/car.jpg` — 阿斯拉 G.S.X 主視覺裁出的**車體部分**
+- `scripts/og-*.svg` — 版面、遮罩與文字（本站自繪）
 
-`build_og.sh` 會先從主視覺裁出**只有車體**的 `scripts/assets/car.png`，
-再由 SVG 疊上深色遮罩與文字，最後用 Chrome headless 渲染成 JPG。
-
-**裁切是刻意的**：原圖左側有作品 logo 與標題美術、頂端有「ASURADA GSX」
-賽道橫幅、右下有「SUGO ASURADA」字樣，這些都切掉了，只留車體。
-改裁切範圍前先用
-`magick scripts/assets/asurada-source.png -crop WxH+X+Y +repage /tmp/t.png`
-確認結果，別直接改腳本裡的數字。
+**原始未裁的主視覺不留在 repo**（使用者要求），所以 `car.jpg` 已是裁好的成品：
+作品 logo、標題美術、賽道看板字樣都切掉了。這表示**裁切範圍無法再調整**——
+要改構圖得重新取得原圖。改版面文字、遮罩、排版則不受影響，照樣跑腳本即可。
 
 **已知的坑**：
 
 - **`og:image` 必須是絕對網址**，相對路徑 FB 不吃。
 - **必須是 JPG／PNG，不能是 SVG**，FB 對 SVG 支援不良。
-- **用 JPG 不用 PNG**：含照片的圖存成 PNG 會到 500–700KB，
+- **輸出用 JPG 不用 PNG**：含照片的圖存 PNG 會到 500–700KB，
   JPG（quality 88）約 100–130KB 且肉眼無差。FB 建議小於 300KB。
   `build_og.sh` 會自動轉檔並刪掉中間產物的 PNG。
 - **尺寸固定 1200×630**（1.91:1）。`--window-size` 要與 SVG 的 `viewBox` 一致。
 - **文字渲染用 Chrome 而非 ImageMagick**：ImageMagick 走 librsvg，
-  中文字型會掉字變豆腐字。裁圖可以用 `magick`，但文字不行。
-- **SVG 裡的 `<image href>` 是相對於 SVG 檔的位置**。`og-*.svg` 在 `scripts/`，
-  所以寫 `assets/car.png` 指的是 `scripts/assets/car.png`。
-- **照片上的文字要加遮罩**：直接把文字疊在車體照上會看不清楚。
-  index 用左側的橫向漸層 `#scrim`，timeline 用標題後方的橢圓暗罩。
+  中文字型會掉字變豆腐字。單純裁圖／轉檔可以用 `magick`，但含中文的渲染不行。
+- **SVG 裡的 `<image href>` 相對於 SVG 檔的位置**。`og-*.svg` 在 `scripts/`，
+  所以寫 `assets/car.jpg` 指的是 `scripts/assets/car.jpg`。
+- **照片上的文字要加遮罩**：直接疊會看不清楚。
+  index 用左側橫向漸層 `#scrim`，timeline 用標題後方的橢圓暗罩。
 - **`preserveAspectRatio` 用 `slice` 不用 `meet`**：`meet` 會留黑邊。
 - **SVG 水平線用漸層會消失**：`<linearGradient>` 預設是 `objectBoundingBox`，
   水平線的 bounding box 高度為 0 會讓漸層退化。時間軸那條主線踩過這個坑，
@@ -261,8 +256,7 @@ FB／Twitter 分享時的預覽圖，兩頁各一張：`og-index.jpg`、`og-time
 
 **不要改回手繪 SVG 車**：先前試過純程式畫阿斯拉，改了五、六版仍然
 「像賽車但不像 GSX」——GSX 的造型細節（銳角折面、深色低伏座艙、
-分岔箭形前翼、鼻樑尖刺、高懸尾翼）很難用簡單路徑重現。使用者最後
-提供主視覺並指定「用原圖但只取車體部分」，就是這個做法的由來。
+分岔箭形前翼、鼻樑尖刺、高懸尾翼）很難用簡單路徑重現。
 
 ### SEO 與 Google Search Console
 
