@@ -59,6 +59,7 @@
 | `timeline.html` | 阿斯拉歷代機體時間軸 |
 | `products.json` | 商品資料（網頁讀這個） |
 | `scripts/timeline.json` | 時間軸的機體設定（人工維護，不在資料更新流程內） |
+| `og-*.png` | 社群分享預覽圖（由 `scripts/build_og.sh` 產生） |
 | `products.raw.json` | 翻譯前的原始資料備份 |
 | `serve.sh` | 啟動本機預覽 server |
 | `update.sh` | 一鍵重抓資料並更新 |

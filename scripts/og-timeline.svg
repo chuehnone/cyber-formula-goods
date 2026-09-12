@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <!-- 時間軸頁的 OG 圖。純程式繪製，不含任何外部素材與商品照（版權考量）。
+       六代機體與年份取自 scripts/timeline.json，改資料時記得一併更新這裡。 -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0d1117"/>
+      <stop offset="55%" stop-color="#131a24"/>
+      <stop offset="100%" stop-color="#0b1220"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#58a6ff"/>
+      <stop offset="100%" stop-color="#1f6feb"/>
+    </linearGradient>
+    <!-- gradientUnits 必須指定 userSpaceOnUse：水平線的 bounding box 高度為 0，
+         預設的 objectBoundingBox 會讓漸層退化而完全不顯示 -->
+    <linearGradient id="rail" gradientUnits="userSpaceOnUse" x1="70" y1="0" x2="1130" y2="0">
+      <stop offset="0%"   stop-color="#58a6ff" stop-opacity=".35"/>
+      <stop offset="50%"  stop-color="#58a6ff" stop-opacity=".95"/>
+      <stop offset="100%" stop-color="#58a6ff" stop-opacity=".35"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#58a6ff" stop-opacity=".22"/>
+      <stop offset="100%" stop-color="#58a6ff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <ellipse cx="600" cy="420" rx="560" ry="220" fill="url(#glow)"/>
+
+  <!-- 上緣格紋帶 -->
+  <g opacity=".5">
+    <rect x="0" y="0" width="1200" height="10" fill="#161b22"/>
+    <g fill="#58a6ff" opacity=".9">
+      <rect x="0"   y="0" width="20" height="5"/><rect x="40"  y="0" width="20" height="5"/>
+      <rect x="80"  y="0" width="20" height="5"/><rect x="120" y="0" width="20" height="5"/>
+      <rect x="20"  y="5" width="20" height="5"/><rect x="60"  y="5" width="20" height="5"/>
+      <rect x="100" y="5" width="20" height="5"/><rect x="140" y="5" width="20" height="5"/>
+    </g>
+  </g>
+
+  <!-- 標題區 -->
+  <g transform="translate(600, 108)" text-anchor="middle">
+    <g transform="translate(-91, -46)">
+      <rect x="0" y="0" width="182" height="34" rx="17" fill="#58a6ff" fill-opacity=".14"/>
+      <text x="91" y="23" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif"
+            font-size="15" font-weight="600" fill="#58a6ff" text-anchor="middle"
+            letter-spacing="1.5">CYBER FORMULA</text>
+    </g>
+    <text x="0" y="48" font-family="'PingFang TC','Hiragino Sans','Heiti TC',sans-serif"
+          font-size="66" font-weight="700" fill="#e6edf3" letter-spacing="2">阿斯拉歷代機體</text>
+    <text x="0" y="112" font-family="'PingFang TC','Hiragino Sans','Heiti TC',sans-serif"
+          font-size="46" font-weight="600" fill="url(#accent)" letter-spacing="8">時 間 軸</text>
+  </g>
+
+  <!-- 時間軸主線。畫在節點之前，節點的實心底色會蓋住線，故用分段避開圓心 -->
+  <g stroke="url(#rail)" stroke-width="4" stroke-linecap="round">
+    <line x1="70"   y1="360" x2="1130" y2="360"/>
+  </g>
+
+  <!-- 六個節點：x 座標平均分布 -->
+  <g font-family="'PingFang TC','Hiragino Sans','Heiti TC',sans-serif" text-anchor="middle">
+
+    <!-- 2015 阿斯拉 G.S.X -->
+    <g transform="translate(128,0)">
+      <circle cx="0" cy="360" r="13" fill="#0d1117" stroke="#58a6ff" stroke-width="4"/>
+      <text x="0" y="330" font-size="30" font-weight="700" fill="#e6edf3">2015</text>
+      <text x="0" y="406" font-size="20" font-weight="600" fill="#c9d4e0">阿斯拉</text>
+      <text x="0" y="432" font-size="20" font-weight="600" fill="#c9d4e0">G.S.X</text>
+      <text x="0" y="462" font-size="16" fill="#6e7681">TV 版</text>
+    </g>
+
+    <!-- 2015 超級阿斯拉 01 -->
+    <g transform="translate(329,0)">
+      <circle cx="0" cy="360" r="13" fill="#0d1117" stroke="#58a6ff" stroke-width="4"/>
+      <text x="0" y="330" font-size="30" font-weight="700" fill="#e6edf3">2015</text>
+      <text x="0" y="406" font-size="20" font-weight="600" fill="#c9d4e0">超級阿斯拉</text>
+      <text x="0" y="432" font-size="20" font-weight="600" fill="#c9d4e0">01</text>
+      <text x="0" y="462" font-size="16" fill="#6e7681">TV 版</text>
+    </g>
+
+    <!-- 2016 SA-01/C -->
+    <g transform="translate(530,0)">
+      <circle cx="0" cy="360" r="13" fill="#0d1117" stroke="#58a6ff" stroke-width="4"/>
+      <text x="0" y="330" font-size="30" font-weight="700" fill="#e6edf3">2016</text>
+      <text x="0" y="406" font-size="20" font-weight="600" fill="#c9d4e0">超級阿斯拉</text>
+      <text x="0" y="432" font-size="20" font-weight="600" fill="#c9d4e0">SA-01/C</text>
+      <text x="0" y="462" font-size="16" fill="#6e7681">11</text>
+    </g>
+
+    <!-- 2016–19 AKF-11 -->
+    <g transform="translate(731,0)">
+      <circle cx="0" cy="360" r="13" fill="#0d1117" stroke="#58a6ff" stroke-width="4"/>
+      <text x="0" y="330" font-size="30" font-weight="700" fill="#e6edf3">2016–19</text>
+      <text x="0" y="406" font-size="20" font-weight="600" fill="#c9d4e0">超級阿斯拉</text>
+      <text x="0" y="432" font-size="20" font-weight="600" fill="#c9d4e0">AKF-11</text>
+      <text x="0" y="462" font-size="16" fill="#6e7681">11 / ZERO</text>
+    </g>
+
+    <!-- 2020–21 AKF-0 -->
+    <g transform="translate(932,0)">
+      <circle cx="0" cy="360" r="13" fill="#0d1117" stroke="#58a6ff" stroke-width="4"/>
+      <text x="0" y="330" font-size="30" font-weight="700" fill="#e6edf3">2020–21</text>
+      <text x="0" y="406" font-size="20" font-weight="600" fill="#c9d4e0">ν 阿斯拉</text>
+      <text x="0" y="432" font-size="20" font-weight="600" fill="#c9d4e0">AKF-0</text>
+      <text x="0" y="462" font-size="16" fill="#6e7681">SAGA / SIN</text>
+    </g>
+
+    <!-- 2022 AKF-0/G（終點，實心強調） -->
+    <g transform="translate(1090,0)">
+      <circle cx="0" cy="360" r="15" fill="#58a6ff"/>
+      <circle cx="0" cy="360" r="24" fill="none" stroke="#58a6ff" stroke-width="2" opacity=".45"/>
+      <text x="0" y="330" font-size="30" font-weight="700" fill="#e6edf3">2022</text>
+      <text x="0" y="406" font-size="20" font-weight="600" fill="#c9d4e0">ν 阿斯拉</text>
+      <text x="0" y="432" font-size="20" font-weight="600" fill="#c9d4e0">AKF-0/G</text>
+      <text x="0" y="462" font-size="16" fill="#6e7681">SIN</text>
+    </g>
+  </g>
+
+  <!-- 說明與網址 -->
+  <text x="600" y="534" text-anchor="middle"
+        font-family="'PingFang TC','Hiragino Sans','Heiti TC',sans-serif"
+        font-size="21" fill="#8b949e" letter-spacing=".4">對照劇中年代、作品、規格，與本站收錄的對應周邊商品</text>
+  <text x="600" y="574" text-anchor="middle"
+        font-family="'Helvetica Neue', Helvetica, Arial, sans-serif"
+        font-size="19" fill="#58a6ff" opacity=".85"
+        letter-spacing=".4">chuehnone.viovie.co/cyber-formula-goods</text>
+
+  <!-- 底部格紋帶 -->
+  <g opacity=".5">
+    <rect x="0" y="620" width="1200" height="10" fill="#161b22"/>
+    <g fill="#58a6ff" opacity=".9">
+      <rect x="1040" y="620" width="20" height="5"/><rect x="1080" y="620" width="20" height="5"/>
+      <rect x="1120" y="620" width="20" height="5"/><rect x="1160" y="620" width="20" height="5"/>
+      <rect x="1060" y="625" width="20" height="5"/><rect x="1100" y="625" width="20" height="5"/>
+      <rect x="1140" y="625" width="20" height="5"/><rect x="1180" y="625" width="20" height="5"/>
+    </g>
+  </g>
+</svg>

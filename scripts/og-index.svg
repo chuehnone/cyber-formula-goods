@@ -1,0 +1,201 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <!-- 商品一覽頁的 OG 圖。純程式繪製，不含任何外部素材與商品照（版權考量）。
+       配色取自 index.html 的深色主題 token。 -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0d1117"/>
+      <stop offset="55%" stop-color="#131a24"/>
+      <stop offset="100%" stop-color="#0b1220"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#58a6ff"/>
+      <stop offset="100%" stop-color="#1f6feb"/>
+    </linearGradient>
+    <linearGradient id="speed" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#58a6ff" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#58a6ff" stop-opacity=".85"/>
+    </linearGradient>
+    <!-- GSX 是白車身配金屬藍與紅點綴，不是全藍 -->
+    <linearGradient id="body" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#ffffff"/>
+      <stop offset="55%"  stop-color="#eef3fa"/>
+      <stop offset="100%" stop-color="#c3d2e4"/>
+    </linearGradient>
+    <linearGradient id="canopy" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#7fc4ff"/>
+      <stop offset="100%" stop-color="#123a66"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#58a6ff" stop-opacity=".30"/>
+      <stop offset="100%" stop-color="#58a6ff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <ellipse cx="880" cy="360" rx="420" ry="260" fill="url(#glow)"/>
+
+  <!-- 賽道格紋帶（上緣） -->
+  <g opacity=".5">
+    <rect x="0" y="0" width="1200" height="10" fill="#161b22"/>
+    <g fill="#58a6ff" opacity=".9">
+      <rect x="0"   y="0" width="20" height="5"/><rect x="40"  y="0" width="20" height="5"/>
+      <rect x="80"  y="0" width="20" height="5"/><rect x="120" y="0" width="20" height="5"/>
+      <rect x="20"  y="5" width="20" height="5"/><rect x="60"  y="5" width="20" height="5"/>
+      <rect x="100" y="5" width="20" height="5"/><rect x="140" y="5" width="20" height="5"/>
+    </g>
+  </g>
+
+  <!-- 速度線 -->
+  <g stroke="url(#speed)" stroke-linecap="round" fill="none">
+    <line x1="600" y1="150" x2="1010" y2="150" stroke-width="3" opacity=".40"/>
+    <line x1="680" y1="196" x2="1080" y2="196" stroke-width="2" opacity=".28"/>
+    <line x1="640" y1="470" x2="1050" y2="470" stroke-width="3" opacity=".34"/>
+    <line x1="720" y1="516" x2="1100" y2="516" stroke-width="2" opacity=".22"/>
+  </g>
+
+  <!-- 左側文字 -->
+  <g transform="translate(84, 150)">
+    <!-- 標籤 -->
+    <g>
+      <rect x="0" y="0" width="182" height="34" rx="17" fill="#58a6ff" fill-opacity=".14"/>
+      <text x="91" y="23" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif"
+            font-size="15" font-weight="600" fill="#58a6ff" text-anchor="middle"
+            letter-spacing="1.5">CYBER FORMULA</text>
+    </g>
+
+    <text x="0" y="112" font-family="'PingFang TC','Hiragino Sans','Heiti TC',sans-serif"
+          font-size="76" font-weight="700" fill="#e6edf3" letter-spacing="1">閃電霹靂車</text>
+    <text x="0" y="196" font-family="'PingFang TC','Hiragino Sans','Heiti TC',sans-serif"
+          font-size="60" font-weight="600" fill="url(#accent)" letter-spacing="4">周邊商品一覽</text>
+
+    <rect x="2" y="228" width="72" height="4" rx="2" fill="#58a6ff"/>
+
+    <text x="0" y="280" font-family="'PingFang TC','Hiragino Sans','Heiti TC',sans-serif"
+          font-size="25" fill="#8b949e" letter-spacing=".5">組裝模型 · 完成品 · Figure · 服飾 · 周邊</text>
+    <text x="0" y="322" font-family="'PingFang TC','Hiragino Sans','Heiti TC',sans-serif"
+          font-size="22" fill="#6e7681" letter-spacing=".3">中日文對照，可依分類、系列、機體篩選</text>
+  </g>
+
+  <!-- 右側：阿斯拉 G.S.X 側視示意圖（車頭朝右），自行繪製、非描摹商品照。
+       依實物模型照片整理出的特徵：
+         · 極低扁的長楔形車身，車頭尖長前突、末端有上翹的小翼片
+         · 泡形座艙偏車身中前段，前擋風玻璃前傾
+         · 雙層後尾翼：高位大翼 + 較低的第二片，皆後掠
+         · 座艙後方是外露的引擎／散熱片（紅色細柵）
+         · 白色上半身 + 藍色下半身與尾翼，紅橘色點綴
+         · GSX 是系列中唯一的 4 輪車（其餘為前 4 後 2 的 6 輪）
+         · 推進器僅一具，位於車體後方中央 -->
+  <g transform="translate(560, 250)">
+    <ellipse cx="290" cy="190" rx="270" ry="16" fill="#000" opacity=".40"/>
+
+    <!-- 後尾翼：高位主翼（後掠、翼端板） -->
+    <g>
+      <path d="M14 44 L150 32 L150 46 L14 58 Z" fill="#2f6fc4"/>
+      <path d="M18 46 L146 34 L146 40 L18 52 Z" fill="#e6edf3" opacity=".6"/>
+      <rect x="8" y="30" width="12" height="34" rx="3" fill="#2f6fc4"/>
+      <path d="M52 58 L64 57 L62 96 L54 96 Z" fill="#8fa6bf"/>
+      <path d="M116 52 L128 51 L126 92 L118 92 Z" fill="#8fa6bf"/>
+    </g>
+
+    <!-- 第二片較低的尾翼 -->
+    <g>
+      <path d="M34 84 L128 74 L128 86 L34 96 Z" fill="#2f6fc4"/>
+      <path d="M38 86 L124 77 L124 82 L38 91 Z" fill="#c8352f" opacity=".85"/>
+    </g>
+
+    <!-- 車體主輪廓：低伏的長楔形，車頭尖長前突 -->
+    <path d="M42 168
+             C34 168 28 162 30 152
+             L40 120
+             C46 108 58 100 76 97
+             L228 92
+             C248 72 276 62 306 60
+             L342 60
+             C362 62 374 70 380 86
+             L396 118
+             L470 136
+             C512 146 544 156 562 166
+             L564 174
+             C564 180 558 182 548 182
+             L58 182
+             C48 182 44 176 42 168 Z"
+          fill="url(#body)"/>
+
+    <!-- 下半身藍色：GSX 是白上藍下 -->
+    <path d="M46 152 L392 136 L470 150 L556 170 L564 175
+             C564 181 558 182 548 182 L58 182 C48 182 44 176 42 168 Z"
+          fill="#2f6fc4"/>
+
+    <!-- 泡形座艙：位置偏車身中前段，前擋風前傾 -->
+    <path d="M236 96 C252 76 276 66 302 63
+             L338 62 C356 65 366 74 370 90
+             L300 96 Z"
+          fill="url(#canopy)" opacity=".92"/>
+    <path d="M252 90 C268 74 288 68 306 67 L322 67 L284 94 Z"
+          fill="#ffffff" opacity=".34"/>
+
+    <!-- 座艙後方的引擎／散熱柵（紅色細條） -->
+    <g fill="#c8352f" opacity=".92">
+      <rect x="130" y="112" width="86" height="5" rx="2"/>
+      <rect x="134" y="122" width="86" height="5" rx="2"/>
+      <rect x="138" y="132" width="84" height="5" rx="2"/>
+      <rect x="142" y="142" width="80" height="5" rx="2"/>
+    </g>
+    <!-- 引擎罩隆起（座艙之後、尾翼之前） -->
+    <path d="M128 98 L232 92 L226 106 L126 110 Z" fill="#8fa6bf" opacity=".75"/>
+
+    <!-- 中央推進器（GSX 僅一具、位於車體後方中央） -->
+    <g>
+      <path d="M36 120 L74 118 L70 146 L34 148 Z" fill="#243b57"/>
+      <path d="M40 125 L68 123 L65 141 L38 143 Z" fill="#58a6ff" opacity=".6"/>
+    </g>
+
+    <!-- 側身紅色箭形飾線 -->
+    <path d="M150 152 L376 138 L378 148 L152 162 Z" fill="#c8352f" opacity=".85"/>
+
+    <!-- 車頭前端上翹的小翼片（GSX 的辨識特徵） -->
+    <path d="M540 150 L584 142 L588 150 L546 162 Z" fill="#eef3fa"/>
+    <path d="M566 140 L590 136 L592 146 L568 150 Z" fill="#2f6fc4"/>
+    <!-- 頭燈 -->
+    <path d="M496 152 L530 158 L530 165 L496 160 Z" fill="#ffd98a" opacity=".95"/>
+    <!-- 前下擾流板 -->
+    <rect x="500" y="176" width="70" height="8" rx="3" fill="#243b57"/>
+
+    <!-- 車輪：4 輪，部分被車身包覆 -->
+    <g>
+      <circle cx="132" cy="164" r="36" fill="#12161d"/>
+      <circle cx="132" cy="164" r="36" fill="none" stroke="#2d333b" stroke-width="3"/>
+      <circle cx="132" cy="164" r="15" fill="#dfe8f5"/>
+      <rect x="129" y="149" width="6" height="30" rx="3" fill="#2f6fc4"/>
+      <circle cx="132" cy="164" r="5" fill="#0d1117"/>
+    </g>
+    <g>
+      <circle cx="436" cy="170" r="32" fill="#12161d"/>
+      <circle cx="436" cy="170" r="32" fill="none" stroke="#2d333b" stroke-width="3"/>
+      <circle cx="436" cy="170" r="13" fill="#dfe8f5"/>
+      <rect x="433" y="157" width="6" height="26" rx="3" fill="#2f6fc4"/>
+      <circle cx="436" cy="170" r="4" fill="#0d1117"/>
+    </g>
+
+    <!-- 車號 30（車身中段的白色區，避開輪子） -->
+    <text x="300" y="132" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif"
+          font-size="30" font-weight="700" fill="#1f6feb"
+          text-anchor="middle">30</text>
+  </g>
+
+  <!-- 頁尾網址 -->
+  <text x="84" y="566" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif"
+        font-size="20" fill="#58a6ff" opacity=".85"
+        letter-spacing=".4">chuehnone.viovie.co/cyber-formula-goods</text>
+
+  <!-- 底部格紋帶 -->
+  <g opacity=".5">
+    <rect x="0" y="620" width="1200" height="10" fill="#161b22"/>
+    <g fill="#58a6ff" opacity=".9">
+      <rect x="1040" y="620" width="20" height="5"/><rect x="1080" y="620" width="20" height="5"/>
+      <rect x="1120" y="620" width="20" height="5"/><rect x="1160" y="620" width="20" height="5"/>
+      <rect x="1060" y="625" width="20" height="5"/><rect x="1100" y="625" width="20" height="5"/>
+      <rect x="1140" y="625" width="20" height="5"/><rect x="1180" y="625" width="20" height="5"/>
+    </g>
+  </g>
+</svg>

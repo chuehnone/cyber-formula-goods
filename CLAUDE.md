@@ -220,6 +220,36 @@ python3 scripts/stats.py
 
 `scripts/*.py` 與 `update.sh` 的終端機輸出、註解不受此限（那些不是網站內容）。
 
+### 社群預覽圖（og:image）
+
+FB／Twitter 分享時的預覽圖，兩頁各一張：`og-index.png`、`og-timeline.png`。
+原始檔是 `scripts/og-*.svg`，用 `./scripts/build_og.sh` 轉成 PNG。
+
+**不要用商品圖當 og:image**——商品圖是熱連結到來源站的（見上方第 5 點），
+而 og:image 會被 FB 的爬蟲抓取並長期快取，等於把來源站的圖當成本站門面，
+且來源站換圖就會壞掉。兩張圖都是 SVG 純程式繪製，無任何外部素材。
+
+**已知的坑**：
+
+- **`og:image` 必須是絕對網址**，相對路徑 FB 不吃。
+- **必須是 PNG／JPG，不能是 SVG**，FB 對 SVG 支援不良。
+- **尺寸固定 1200×630**（1.91:1）。`build_og.sh` 的 `--window-size` 要與
+  SVG 的 `viewBox` 一致，否則會留白或被裁切。
+- **轉檔用 Chrome headless 而非 ImageMagick**：ImageMagick 走 librsvg，
+  中文字型常掉字變成豆腐字。本機有 `magick`，但不要拿它轉這兩張圖。
+- **SVG 水平線用漸層會消失**：`<linearGradient>` 預設是 `objectBoundingBox`，
+  水平線的 bounding box 高度為 0 會讓漸層退化。時間軸那條主線踩過這個坑，
+  必須指定 `gradientUnits="userSpaceOnUse"` 並給絕對座標。
+- **改圖後 FB 會沿用舊快取**，要到
+  [Sharing Debugger](https://developers.facebook.com/tools/debug/)
+  貼網址按 **Scrape Again** 才會更新。
+
+**畫阿斯拉 G.S.X 的正確特徵**（憑印象畫會錯，這些是查證過的）：
+GSX 是系列中**唯一的 4 輪車**（其餘皆為前 4 後 2 的 6 輪）；
+推進器**僅一具且在車體後方中央**（其他阿斯拉是兩具在左右末端）；
+外觀為極低扁的長楔形、泡形座艙偏中前段、雙層後掠尾翼、
+座艙後方有外露的紅色散熱柵，**白色上半身配藍色下半身**與紅橘點綴。
+
 ### SEO 與 Google Search Console
 
 - `<title>` / `description` / canonical / OG 標籤寫在 HTML 裡，**JS 不覆寫 title**
