@@ -314,7 +314,7 @@
     <h3>收錄機體</h3>
     <p>阿斯拉、阿斯拉 G.S.X、凰呀、超級阿斯拉 01、伊修撒克、超級阿斯拉 AKF-11、超級阿斯拉、ν 阿斯拉、加蘭德、奈特榭貝爾、史匹格、匿蹤捷豹 等</p>
     <p><small>商品名稱提供繁體中文與日文原名對照，可依分類、系列、機體篩選與搜尋。
-    價格與庫存為抓取當下狀態，非即時報價。</small></p>
+    價格與庫存為資料更新當下的狀態，非即時報價。</small></p>
   </div>
 
   <div class="grid" id="grid"></div>
@@ -705,7 +705,7 @@
           esc(data.meta.updatedAt)} ${esc(data.meta.notice)}</span>`;
       }
       $('footer').innerHTML =
-        `${esc(data.meta.title)} · 共 ${data.products.length} 件 · 資料抓取於 ${esc(data.meta.updatedAt)}<br>` +
+        `${esc(data.meta.title)} · 共 ${data.products.length} 件 · 資料更新於 ${esc(data.meta.updatedAt)}<br>` +
         (data.meta.translationNote ? `${esc(data.meta.translationNote)}<br>` : '') +
         '資料來源：' + data.meta.sources.map(s =>
           `<a href="${esc(withUtm(s.url))}" target="_blank" rel="noopener" referrerpolicy="strict-origin-when-cross-origin">${esc(s.site)}</a>`

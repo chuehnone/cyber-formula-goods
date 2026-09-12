@@ -348,11 +348,11 @@
         ? `<a href="${esc(s.url)}" target="_blank" rel="noopener"
               referrerpolicy="strict-origin-when-cross-origin">${esc(s.site)}</a>`
         : esc(s.site || '外部資料')}（查閱於 ${esc(s.fetchedAt || '—')}）。` +
-      `此頁的設定資料為人工整理，與商品資料分開維護；商品本身仍來自爬蟲抓取的來源站。`;
+      `此頁的設定資料為人工整理，與商品資料分開維護；商品資訊則與商品頁同樣取自青島官方與 hobbysearch。`;
 
     const total = Object.values(goodsBy).reduce((n, a) => n + a.length, 0);
     $('footer').innerHTML =
-      `阿斯拉歷代機體時間軸 · 對應本站 ${total} 件周邊商品 · 商品資料抓取於 ${esc(data.meta.updatedAt)}<br>` +
+      `阿斯拉歷代機體時間軸 · 對應本站 ${total} 件周邊商品 · 商品資料更新於 ${esc(data.meta.updatedAt)}<br>` +
       `<a href="index.html">← 回商品一覽</a><br>` +
       '商品圖片與資料版權屬各來源網站及 ©サンライズ 所有';
   }).catch(err => {

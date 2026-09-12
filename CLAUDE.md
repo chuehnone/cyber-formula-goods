@@ -198,6 +198,28 @@ python3 scripts/stats.py
 判定表在 `build.py` 的 `PRODUCT_LINES`，依商品名的品牌標記比對。
 **不要為了讓系列集中而去改分類**——分類必須忠於來源站標記。
 
+### 網站對外文案不要出現「爬蟲」「抓取」
+
+使用者明確要求過：**網頁上看得到的文字，不要出現「爬蟲」，也不要出現「抓取」**。
+改用中性語彙——「整理自上列來源」「資料更新於 YYYY-MM-DD」。
+
+會外露的地方有四處，改其中一處不夠：
+
+| 位置 | 內容 |
+|---|---|
+| `scripts/build.py` 的 `meta.notice` | 提示列文字（**改這裡才不會被 `update.sh` 蓋回去**） |
+| `products.json` / `products.raw.json` 的 `meta.notice` | 現有資料，需一併改 |
+| `index.html` 頁尾與 `#seoIntro` | 「資料更新於」「價格與庫存為資料更新當下的狀態」 |
+| `timeline.html` 頁尾與出處說明 | 同上 |
+
+`products.json` 的 `meta.notice` 會接在 `index.html` 的「資料於 {日期} 」後面組成一句，
+所以 notice 開頭不要再寫「資料」，否則會變成「資料於 2026-09-12 資料整理自⋯」。
+
+**改 `products.json` 時用字串替換，不要用 `json.dump()` 重寫整個檔案**——
+原檔是 1 空格縮排，重寫會變成 2 空格，產生兩萬多行的假 diff。
+
+`scripts/*.py` 與 `update.sh` 的終端機輸出、註解不受此限（那些不是網站內容）。
+
 ### SEO 與 Google Search Console
 
 - `<title>` / `description` / canonical / OG 標籤寫在 HTML 裡，**JS 不覆寫 title**
