@@ -35,20 +35,50 @@ def name_of(x):
     return x.get("nameZh") or x.get("name") or x.get("id")
 
 
-def build_changes(old_doc, new_doc):
-    old = old_doc["products"]
-    new = new_doc["products"]
+def urls_of(x):
+    return {s.get("url") for s in x.get("sources", []) if s.get("url")}
+
+
+def pair_up(old, new):
+    """把新舊商品配對，回傳 (pairs, added, removed)。
+
+    先用 id 配對，剩下的再用來源 URL 配對。
+    一件商品在來源站有多個頁面時，id 取決於抓取順序（見 build.py 的
+    norm_title 合併），順序一變 id 就翻轉，單用 id 會把同一件商品
+    算成一下架加一新增。只要共用任一來源 URL 就是同一件商品。
+    """
     o = {x["id"]: x for x in old}
     n = {x["id"]: x for x in new}
 
-    added = [n[i] for i in n if i not in o]
-    removed = [o[i] for i in o if i not in n]
+    pairs = [(o[i], n[i]) for i in n if i in o]
+    rest_old = [o[i] for i in o if i not in n]
+    rest_new = [n[i] for i in n if i not in o]
+
+    by_url = {}
+    for x in rest_old:
+        for u in urls_of(x):
+            by_url.setdefault(u, x)
+
+    matched_old = set()
+    added = []
+    for b in rest_new:
+        a = next((by_url[u] for u in urls_of(b) if u in by_url), None)
+        if a is not None and id(a) not in matched_old:
+            matched_old.add(id(a))
+            pairs.append((a, b))
+        else:
+            added.append(b)
+
+    removed = [x for x in rest_old if id(x) not in matched_old]
+    return pairs, added, removed
+
+
+def build_changes(old_doc, new_doc):
+    pairs, added, removed = pair_up(old_doc["products"], new_doc["products"])
 
     price, stock = [], []
-    for i in n:
-        if i not in o:
-            continue
-        a, b = o[i], n[i]
+    for a, b in pairs:
+        i = b["id"]
         pa, pb = a.get("shopPrice"), b.get("shopPrice")
         if pa != pb and pa is not None and pb is not None:
             price.append({

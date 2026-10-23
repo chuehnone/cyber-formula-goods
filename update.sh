@@ -79,34 +79,33 @@ echo "─────────── 與線上版的差異 ──────
 cd "$ROOT"
 if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
   python3 - <<'PY'
+# 直接讀 changelog.py 已寫好的 meta.changes，不要重算一份——
+# 原本這裡重算的版本只用 id 配對，同一件商品換 id 時會誤報下架加新增。
 import io, json, subprocess
-new = json.load(open("products.json"))["products"]
+doc = json.load(open("products.json"))
+ch = doc.get("meta", {}).get("changes")
+
 try:
     old_raw = subprocess.run(["git", "show", "HEAD:products.json"],
                              capture_output=True, text=True, check=True).stdout
-    old = json.load(io.StringIO(old_raw))["products"]
+    old_n = len(json.load(io.StringIO(old_raw))["products"])
 except Exception as e:
     print("（無法取得線上版做比對：%s）" % e)
     raise SystemExit
 
-o = {x["id"]: x for x in old}
-n = {x["id"]: x for x in new}
-added   = [n[i] for i in n if i not in o]
-removed = [o[i] for i in o if i not in n]
-priced  = [(o[i], n[i]) for i in n if i in o
-           and o[i].get("shopPrice") != n[i].get("shopPrice")]
-stock   = [(o[i], n[i]) for i in n if i in o
-           and o[i].get("stockState") != n[i].get("stockState")]
+print(f"商品總數：{old_n} → {len(doc['products'])}")
+if not ch:
+    print("  無變動")
+    raise SystemExit
 
-print(f"商品總數：{len(old)} → {len(new)}")
-print(f"  新增 {len(added)}、下架 {len(removed)}、價格異動 {len(priced)}、庫存異動 {len(stock)}")
-for x in added[:8]:
-    print("  + " + (x.get("nameZh") or x["name"])[:56])
-for x in removed[:8]:
-    print("  - " + (x.get("nameZh") or x["name"])[:56])
-for a, b in priced[:8]:
-    print(f"  ¥ {(b.get('nameZh') or b['name'])[:40]}: "
-          f"{a.get('shopPrice')} → {b.get('shopPrice')}")
+print(f"  新增 {len(ch['added'])}、下架 {len(ch['removed'])}、"
+      f"價格異動 {len(ch['price'])}、庫存異動 {len(ch['stock'])}")
+for x in ch["added"][:8]:
+    print("  + " + x["name"][:56])
+for x in ch["removed"][:8]:
+    print("  - " + x["name"][:56])
+for x in ch["price"][:8]:
+    print(f"  ¥ {x['name'][:40]}: {x['from']} → {x['to']}")
 PY
 else
   echo "（非 git repo，略過比對）"
